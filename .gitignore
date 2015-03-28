@@ -1,0 +1,9 @@
+# earthbuzz-generic gitignore
+.DS_Store
+win32/Release
+win32/Debug
+win32/x64
+win32/*.ncb
+win32/*.suo
+win32/*.vcproj.*.user
+win32/*.pdb

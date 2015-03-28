@@ -1,0 +1,14 @@
+# Updated by fix_deps.py
+pnacl/Release/mesh_pnacl.o: mesh.c glu.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2platform.h \
+  /opt/nacl_sdk/pepper_30/include/KHR/khrplatform.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2ext.h mesh.h memalloc.h
+mesh.c:
+glu.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2platform.h:
+/opt/nacl_sdk/pepper_30/include/KHR/khrplatform.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2ext.h:
+mesh.h:
+memalloc.h:

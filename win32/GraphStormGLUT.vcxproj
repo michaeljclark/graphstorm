@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{657EAC9E-87CD-483C-9B48-D0169577F1DB}</ProjectGuid>
+    <RootNamespace>GraphStormGLUT</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\earthbuzz-deps\freeglut\include;C:\Program Files (x86)\AMD APP\include;$(ProjectDir)\..\src\generic;$(ProjectDir)\..\src\graph;$(ProjectDir)\..\src\tree;$(ProjectDir)\..\src\layout;$(ProjectDir)\..\src\render;$(ProjectDir)\..\src\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_SECURE_SCL=0;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>libcmtd.lib;/NODEFAULTLIB:libcmt.lib;/NODEFAULTLIB:msvcrt.lib;/NODEFAULTLIB:msvcrtd.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\$(Configuration);C:\Program Files (x86)\AMD APP\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\earthbuzz-deps\freeglut\include;C:\Program Files (x86)\AMD APP\include;$(ProjectDir)\..\src\generic;$(ProjectDir)\..\src\graph;$(ProjectDir)\..\src\tree;$(ProjectDir)\..\src\layout;$(ProjectDir)\..\src\render;$(ProjectDir)\..\src\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_SECURE_SCL=0;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>libcmtd.lib;/NODEFAULTLIB:libcmt.lib;/NODEFAULTLIB:msvcrt.lib;/NODEFAULTLIB:msvcrtd.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration);C:\Program Files (x86)\AMD APP\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\earthbuzz-deps\freeglut\include;C:\Program Files (x86)\AMD APP\include;$(ProjectDir)\..\src\generic;$(ProjectDir)\..\src\graph;$(ProjectDir)\..\src\tree;$(ProjectDir)\..\src\layout;$(ProjectDir)\..\src\render;$(ProjectDir)\..\src\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_SECURE_SCL=0;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>libcmt.lib;/NODEFAULTLIB:msvcrt.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\$(Configuration);C:\Program Files (x86)\AMD APP\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <Profile>false</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\..\earthbuzz-deps\freeglut\include;C:\Program Files (x86)\AMD APP\include;$(ProjectDir)\..\src\generic;$(ProjectDir)\..\src\graph;$(ProjectDir)\..\src\tree;$(ProjectDir)\..\src\layout;$(ProjectDir)\..\src\render;$(ProjectDir)\..\src\glut;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_SECURE_SCL=0;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;FREEGLUT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level2</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>libcmt.lib;/NODEFAULTLIB:msvcrt.lib;d2d1.lib;dwrite.lib;windowscodecs.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration);C:\Program Files (x86)\AMD APP\lib\x86_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX64</TargetMachine>
+      <Profile>false</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+<ClCompile Include="..\src\EG.cc" />
+<ClCompile Include="..\src\EGCamera.cc" />
+<ClCompile Include="..\src\EGEvent.cc" />
+<ClCompile Include="..\src\EGGraph.cc" />
+<ClCompile Include="..\src\EGGraphApp.cc" />
+<ClCompile Include="..\src\EGGraphData.cc" />
+<ClCompile Include="..\src\EGGraphLayoutFactory.cc" />
+<ClCompile Include="..\src\EGGraphStormGLUT.cc" />
+<ClCompile Include="..\src\EGGraphStormWidgets.cc" />
+<ClCompile Include="..\src\EGGraphTest.cc" />
+<ClCompile Include="..\src\EGImage.cc" />
+<ClCompile Include="..\src\EGImageDecompressor.cc" />
+<ClCompile Include="..\src\EGImageJPEG.cc" />
+<ClCompile Include="..\src\EGImagePNG.cc" />
+<ClCompile Include="..\src\EGKeyEvent.cc" />
+<ClCompile Include="..\src\EGLight.cc" />
+<ClCompile Include="..\src\EGMath.cc" />
+<ClCompile Include="..\src\EGMouseEvent.cc" />
+<ClCompile Include="..\src\EGOpenCL.cc" />
+<ClCompile Include="..\src\EGProperties.cc" />
+<ClCompile Include="..\src\EGRenderApi.cc" />
+<ClCompile Include="..\src\EGRenderApiES1.cc" />
+<ClCompile Include="..\src\EGRenderApiES2.cc" />
+<ClCompile Include="..\src\EGResource.cc" />
+<ClCompile Include="..\src\EGText.cc" />
+<ClCompile Include="..\src\EGTextRendererES1.cc" />
+<ClCompile Include="..\src\EGTextRendererES2.cc" />
+<ClCompile Include="..\src\EGTrackBall.cc" />
+<ClCompile Include="..\src\EGUtil.cc" />
+<ClCompile Include="..\src\EGZipFile.cc" />
+<ClCompile Include="..\src\EWBox.cc" />
+<ClCompile Include="..\src\EWButton.cc" />
+<ClCompile Include="..\src\EWCheckBox.cc" />
+<ClCompile Include="..\src\EWComboBox.cc" />
+<ClCompile Include="..\src\EWContainer.cc" />
+<ClCompile Include="..\src\EWContext.cc" />
+<ClCompile Include="..\src\EWEntry.cc" />
+<ClCompile Include="..\src\EWFrame.cc" />
+<ClCompile Include="..\src\EWGrid.cc" />
+<ClCompile Include="..\src\EWIcon.cc" />
+<ClCompile Include="..\src\EWLabel.cc" />
+<ClCompile Include="..\src\EWLayout.cc" />
+<ClCompile Include="..\src\EWProgressBar.cc" />
+<ClCompile Include="..\src\EWSlider.cc" />
+<ClCompile Include="..\src\EWWidget.cc" />
+<ClCompile Include="..\src\EWWidgetDefaults.cc" />
+<ClCompile Include="..\src\EWWidgetRenderer.cc" />
+<ClCompile Include="..\src\EWWidgetRendererES1.cc" />
+<ClCompile Include="..\src\EWWidgetRendererES2.cc" />
+<ClCompile Include="..\src\EWWindow.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\EG.h" />
+    <ClInclude Include="..\src\EGCamera.h" />
+    <ClInclude Include="..\src\EGColor.h" />
+    <ClInclude Include="..\src\EGCombination.h" />
+    <ClInclude Include="..\src\EGEvent.h" />
+    <ClInclude Include="..\src\EGGL.h" />
+    <ClInclude Include="..\src\EGGraph.h" />
+    <ClInclude Include="..\src\EGGraphApp.h" />
+    <ClInclude Include="..\src\EGGraphData.h" />
+    <ClInclude Include="..\src\EGGraphEdgeLabelRenderer.h" />
+    <ClInclude Include="..\src\EGGraphEdgeRenderer.h" />
+    <ClInclude Include="..\src\EGGraphEdgeRendererES1.h" />
+    <ClInclude Include="..\src\EGGraphEdgeRendererES1CL.h" />
+    <ClInclude Include="..\src\EGGraphEdgeRendererES2.h" />
+    <ClInclude Include="..\src\EGGraphEdgeRendererES2CL.h" />
+    <ClInclude Include="..\src\EGGraphFloydWarshall.h" />
+    <ClInclude Include="..\src\EGGraphLayout.h" />
+    <ClInclude Include="..\src\EGGraphLayoutFactory.h" />
+    <ClInclude Include="..\src\EGGraphModifier.h" />
+    <ClInclude Include="..\src\EGGraphNodeLabelRenderer.h" />
+    <ClInclude Include="..\src\EGGraphNodeRenderer.h" />
+    <ClInclude Include="..\src\EGGraphNodeRendererES1.h" />
+    <ClInclude Include="..\src\EGGraphNodeRendererES1CL.h" />
+    <ClInclude Include="..\src\EGGraphNodeRendererES2.h" />
+    <ClInclude Include="..\src\EGGraphNodeRendererES2CL.h" />
+    <ClInclude Include="..\src\EGGraphRendererParams.h" />
+    <ClInclude Include="..\src\EGGraphStormGLUT.h" />
+    <ClInclude Include="..\src\EGGraphStormNACL.h" />
+    <ClInclude Include="..\src\EGGraphStormWidgets.h" />
+    <ClInclude Include="..\src\EGGraphTest.h" />
+    <ClInclude Include="..\src\EGImage.h" />
+    <ClInclude Include="..\src\EGIndexArray.h" />
+    <ClInclude Include="..\src\EGKeyEvent.h" />
+    <ClInclude Include="..\src\EGLight.h" />
+    <ClInclude Include="..\src\EGMath.h" />
+    <ClInclude Include="..\src\EGMouseEvent.h" />
+    <ClInclude Include="..\src\EGOpenCL.h" />
+    <ClInclude Include="..\src\EGPointRegionOctree.h" />
+    <ClInclude Include="..\src\EGPointRegionQuadtree.h" />
+    <ClInclude Include="..\src\EGPointRegionTree.h" />
+    <ClInclude Include="..\src\EGPointRegionTreeArrayCL.h" />
+    <ClInclude Include="..\src\EGPointRegionTreeMonolithicCL.h" />
+    <ClInclude Include="..\src\EGPointRegionTreeStructCL.h" />
+    <ClInclude Include="..\src\EGProperties.h" />
+    <ClInclude Include="..\src\EGRenderApi.h" />
+    <ClInclude Include="..\src\EGRenderApiES1.h" />
+    <ClInclude Include="..\src\EGRenderApiES2.h" />
+    <ClInclude Include="..\src\EGRenderBatch.h" />
+    <ClInclude Include="..\src\EGRenderBatchES1.h" />
+    <ClInclude Include="..\src\EGRenderBatchES2.h" />
+    <ClInclude Include="..\src\EGRenderBatchText.h" />
+    <ClInclude Include="..\src\EGResource.h" />
+    <ClInclude Include="..\src\EGSpringLayout.h" />
+    <ClInclude Include="..\src\EGSpringLayoutCL.h" />
+    <ClInclude Include="..\src\EGText.h" />
+    <ClInclude Include="..\src\EGTextRenderer.h" />
+    <ClInclude Include="..\src\EGTextRendererES1.h" />
+    <ClInclude Include="..\src\EGTextRendererES2.h" />
+    <ClInclude Include="..\src\EGThread.h" />
+    <ClInclude Include="..\src\EGTime.h" />
+    <ClInclude Include="..\src\EGTrackBall.h" />
+    <ClInclude Include="..\src\EGTree.h" />
+    <ClInclude Include="..\src\EGTreeRenderer.h" />
+    <ClInclude Include="..\src\EGTreeRendererES1.h" />
+    <ClInclude Include="..\src\EGTreeRendererES2.h" />
+    <ClInclude Include="..\src\EGUtil.h" />
+    <ClInclude Include="..\src\EGVector.h" />
+    <ClInclude Include="..\src\EGVertexArray.h" />
+    <ClInclude Include="..\src\EGViewport.h" />
+    <ClInclude Include="..\src\EGZipFile.h" />
+    <ClInclude Include="..\src\EWBox.h" />
+    <ClInclude Include="..\src\EWButton.h" />
+    <ClInclude Include="..\src\EWCheckBox.h" />
+    <ClInclude Include="..\src\EWComboBox.h" />
+    <ClInclude Include="..\src\EWContainer.h" />
+    <ClInclude Include="..\src\EWContext.h" />
+    <ClInclude Include="..\src\EWEntry.h" />
+    <ClInclude Include="..\src\EWFrame.h" />
+    <ClInclude Include="..\src\EWGrid.h" />
+    <ClInclude Include="..\src\EWIcon.h" />
+    <ClInclude Include="..\src\EWLabel.h" />
+    <ClInclude Include="..\src\EWLayout.h" />
+    <ClInclude Include="..\src\EWProgressBar.h" />
+    <ClInclude Include="..\src\EWSlider.h" />
+    <ClInclude Include="..\src\EWWidget.h" />
+    <ClInclude Include="..\src\EWWidgetDefaults.h" />
+    <ClInclude Include="..\src\EWWidgetRenderer.h" />
+    <ClInclude Include="..\src\EWWidgetRendererES1.h" />
+    <ClInclude Include="..\src\EWWidgetRendererES2.h" />
+    <ClInclude Include="..\src\EWWindow.h" />
+    <ClInclude Include="..\src\GLee.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="earthbuzz.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\cl.bundle\barnes_hut_array.cl" />
+    <None Include="..\Resources\cl.bundle\barnes_hut_struct.cl" />
+    <None Include="..\Resources\cl.bundle\springlayout.cl" />
+    <None Include="..\Resources\cl.bundle\test.cl" />
+    <None Include="..\Resources\cl.bundle\tree_array.cl" />
+    <None Include="..\Resources\cl.bundle\tree_monolithic.cl" />
+    <None Include="..\Resources\cl.bundle\tree_struct.cl" />
+    <None Include="..\Resources\gles2.bundle\Shaders\GraphShader.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\GraphShader.vsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\LightingPerFragment.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\LightingPerFragment.vsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\LightingPerVertex.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\LightingPerVertex.vsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLighting.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLighting.vsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLightingNoTexture.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLightingNoTexture.vsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLightingTextureAlpha.fsh" />
+    <None Include="..\Resources\gles2.bundle\Shaders\NoLightingTextureAlpha.vsh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\earthbuzz-deps\win32\freeglut_static.vcxproj">
+      <Project>{71af75a0-52b6-4c1b-8e56-cb31c6741a18}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,978 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6528212E17F3A7E500191B16 /* EWList.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6528212C17F3A7E500191B16 /* EWList.cc */; };
+		6528212F17F3A7E500191B16 /* EWList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6528212D17F3A7E500191B16 /* EWList.h */; };
+		6528213217F3C8E300191B16 /* EWToggleButton.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6528213017F3C8E300191B16 /* EWToggleButton.cc */; };
+		6528213317F3C8E300191B16 /* EWToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6528213117F3C8E300191B16 /* EWToggleButton.h */; };
+		6528213617F3DCD600191B16 /* EWSpinner.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6528213417F3DCD500191B16 /* EWSpinner.cc */; };
+		6528213717F3DCD600191B16 /* EWSpinner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6528213517F3DCD500191B16 /* EWSpinner.h */; };
+		654AB9F117FB962A0046667C /* EGClipboardX11.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654AB9EF17FB962A0046667C /* EGClipboardX11.cc */; };
+		654AB9F217FB962A0046667C /* EGClipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 654AB9F017FB962A0046667C /* EGClipboard.h */; };
+		654AB9F517FB96840046667C /* EGClipboardMac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 654AB9F317FB96830046667C /* EGClipboardMac.mm */; };
+		654AB9F917FB96A70046667C /* EGClipboardWindows.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654AB9F717FB96A70046667C /* EGClipboardWindows.cc */; };
+		654AB9FD17FB96DE0046667C /* EGClipboardIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 654AB9FB17FB96DD0046667C /* EGClipboardIOS.mm */; };
+		654ABA0117FB970C0046667C /* EGClipboardNACL.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654AB9FF17FB970C0046667C /* EGClipboardNACL.cc */; };
+		654ABA0517FB97290046667C /* EGClipboardAndroid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654ABA0317FB97290046667C /* EGClipboardAndroid.cc */; };
+		654ABA0917FBAF330046667C /* EWSpinBox.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654ABA0717FBAF330046667C /* EWSpinBox.cc */; };
+		654ABA0A17FBAF330046667C /* EWSpinBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 654ABA0817FBAF330046667C /* EWSpinBox.h */; };
+		654ABA0D18006CD10046667C /* EWScrollBar.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654ABA0B18006CCD0046667C /* EWScrollBar.cc */; };
+		654ABA0E18006CD10046667C /* EWScrollBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 654ABA0C18006CCF0046667C /* EWScrollBar.h */; };
+		654ABA11180070230046667C /* EWTable.cc in Sources */ = {isa = PBXBuildFile; fileRef = 654ABA0F180070200046667C /* EWTable.cc */; };
+		654ABA12180070230046667C /* EWTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 654ABA10180070210046667C /* EWTable.h */; };
+		654ABA1D1801342E0046667C /* EGGraphEdgeLabelRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 654ABA1B1801342E0046667C /* EGGraphEdgeLabelRenderer.h */; };
+		654ABA1E1801342E0046667C /* EGGraphNodeLabelRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 654ABA1C1801342E0046667C /* EGGraphNodeLabelRenderer.h */; };
+		65668761180940C700C5D7C2 /* EGObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6566875F180940C700C5D7C2 /* EGObject.h */; };
+		65668762180940C700C5D7C2 /* EGObject.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65668760180940C700C5D7C2 /* EGObject.cc */; };
+		656687731809744B00C5D7C2 /* testobject.cc in Sources */ = {isa = PBXBuildFile; fileRef = 656687641809741800C5D7C2 /* testobject.cc */; };
+		656687741809745800C5D7C2 /* liblibGraphStorm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657B2C3E17E41F3400ADEFA9 /* liblibGraphStorm.a */; };
+		65668777180974BB00C5D7C2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65668775180974A600C5D7C2 /* CoreFoundation.framework */; };
+		65668779180974C700C5D7C2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65668778180974C600C5D7C2 /* Cocoa.framework */; };
+		657B2C4217E41F4D00ADEFA9 /* EGImage.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E7017D9718C005C9E3D /* EGImage.cc */; };
+		657B2C4417E41F4D00ADEFA9 /* EGImageDecompressor.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E7417D971FD005C9E3D /* EGImageDecompressor.cc */; };
+		657B2C4517E41F4D00ADEFA9 /* EGImageJPEG.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E6E17D9718C005C9E3D /* EGImageJPEG.cc */; };
+		657B2C4617E41F4D00ADEFA9 /* EGImagePNG.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E6D17D9718C005C9E3D /* EGImagePNG.cc */; };
+		657B2C4717E41F4D00ADEFA9 /* EWBox.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563C317D95ECB00AC0614 /* EWBox.cc */; };
+		657B2C4917E41F4D00ADEFA9 /* EWButton.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563AE17D956D000AC0614 /* EWButton.cc */; };
+		657B2C4B17E41F4D00ADEFA9 /* EWCheckBox.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563B417D958EC00AC0614 /* EWCheckBox.cc */; };
+		657B2C4D17E41F4D00ADEFA9 /* EWComboBox.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E7717D988B9005C9E3D /* EWComboBox.cc */; };
+		657B2C4F17E41F4D00ADEFA9 /* EWContainer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563A817D9558B00AC0614 /* EWContainer.cc */; };
+		657B2C5117E41F4D00ADEFA9 /* EWContext.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563A517D954E900AC0614 /* EWContext.cc */; };
+		657B2C5317E41F4D00ADEFA9 /* EWEntry.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563BA17D9594500AC0614 /* EWEntry.cc */; };
+		657B2C5517E41F4D00ADEFA9 /* EWFrame.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563B117D9576F00AC0614 /* EWFrame.cc */; };
+		657B2C5717E41F4D00ADEFA9 /* EWGrid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563BD17D9597900AC0614 /* EWGrid.cc */; };
+		657B2C5917E41F4D00ADEFA9 /* EWIcon.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563B717D9592900AC0614 /* EWIcon.cc */; };
+		657B2C5B17E41F4D00ADEFA9 /* EWLabel.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563AB17D9569C00AC0614 /* EWLabel.cc */; };
+		657B2C5D17E41F4D00ADEFA9 /* EWLayout.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563C017D95D4500AC0614 /* EWLayout.cc */; };
+		657B2C5F17E41F4D00ADEFA9 /* EWProgressBar.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E7C17DC3205005C9E3D /* EWProgressBar.cc */; };
+		657B2C6117E41F4D00ADEFA9 /* EWSlider.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E7F17DC3223005C9E3D /* EWSlider.cc */; };
+		657B2C6317E41F4D00ADEFA9 /* EWWidget.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A5639F17D94E6400AC0614 /* EWWidget.cc */; };
+		657B2C6517E41F4D00ADEFA9 /* EWWidgetRenderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E6317D96A16005C9E3D /* EWWidgetRenderer.cc */; };
+		657B2C6917E41F4D00ADEFA9 /* EWWidgetRendererES2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E6917D96A36005C9E3D /* EWWidgetRendererES2.cc */; };
+		657B2C6B17E41F4D00ADEFA9 /* EWWindow.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A563A217D9514100AC0614 /* EWWindow.cc */; };
+		657B2C6F17E41F4D00ADEFA9 /* EGGraph.cc in Sources */ = {isa = PBXBuildFile; fileRef = 650EC69217472B7900055547 /* EGGraph.cc */; };
+		657B2C7117E41F4D00ADEFA9 /* EGGraphData.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65D867EA174B45FC00AA3923 /* EGGraphData.cc */; };
+		657B2C7517E41F4D00ADEFA9 /* EGGraphTest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65AED4D017765C2D00B90C92 /* EGGraphTest.cc */; };
+		657B2C7F17E41F4D00ADEFA9 /* EGGraphLayoutFactory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC06A1777995D002219B4 /* EGGraphLayoutFactory.cc */; };
+		657B2C8E17E41F4D00ADEFA9 /* EGRenderApi.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EA8F1779981400B92AC0 /* EGRenderApi.cc */; };
+		657B2C9217E41F4D00ADEFA9 /* EGRenderApiES2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EA931779981600B92AC0 /* EGRenderApiES2.cc */; };
+		657B2C9B17E41F4D00ADEFA9 /* EGTextRendererES2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAA31779981B00B92AC0 /* EGTextRendererES2.cc */; };
+		657B2CA017E41F4D00ADEFA9 /* EGEvent.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E8217DC8085005C9E3D /* EGEvent.cc */; };
+		657B2CA217E41F4D00ADEFA9 /* EGMouseEvent.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65A02E8717DC9176005C9E3D /* EGMouseEvent.cc */; };
+		657B2CA417E41F4D00ADEFA9 /* EG.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAB31779982000B92AC0 /* EG.cc */; };
+		657B2CA617E41F4D00ADEFA9 /* EGCamera.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAAE1779981E00B92AC0 /* EGCamera.cc */; };
+		657B2CAC17E41F4D00ADEFA9 /* EGLight.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAA91779981D00B92AC0 /* EGLight.cc */; };
+		657B2CAE17E41F4D00ADEFA9 /* EGMath.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAB01779981F00B92AC0 /* EGMath.cc */; };
+		657B2CB017E41F4D00ADEFA9 /* EGOpenCL.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65216D23175C085200EB388F /* EGOpenCL.cc */; };
+		657B2CB217E41F4D00ADEFA9 /* EGResource.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAA61779981C00B92AC0 /* EGResource.cc */; };
+		657B2CB417E41F4D00ADEFA9 /* EGText.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EA9D1779981900B92AC0 /* EGText.cc */; };
+		657B2CB817E41F4D00ADEFA9 /* EGTrackBall.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAAB1779981D00B92AC0 /* EGTrackBall.cc */; };
+		657B2CBD17E41F4D00ADEFA9 /* EGZipFile.cc in Sources */ = {isa = PBXBuildFile; fileRef = 6599EAC8177998F100B92AC0 /* EGZipFile.cc */; };
+		657B2CC017E41F4D00ADEFA9 /* NSStubs.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6599EA8C1779981300B92AC0 /* NSStubs.mm */; };
+		658DA3C317E694AE0084D180 /* EWWidgetDefaults.cc in Sources */ = {isa = PBXBuildFile; fileRef = 658DA3C117E694AD0084D180 /* EWWidgetDefaults.cc */; };
+		658DA3C417E694AE0084D180 /* EWWidgetDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 658DA3C217E694AE0084D180 /* EWWidgetDefaults.h */; };
+		658DA3C717E6954A0084D180 /* EGProperties.cc in Sources */ = {isa = PBXBuildFile; fileRef = 658DA3C517E6954A0084D180 /* EGProperties.cc */; };
+		658DA3C817E6954A0084D180 /* EGProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 658DA3C617E6954A0084D180 /* EGProperties.h */; };
+		658DA3CB17E698C60084D180 /* EGUtil.cc in Sources */ = {isa = PBXBuildFile; fileRef = 658DA3C917E698C60084D180 /* EGUtil.cc */; };
+		658DA3CC17E698C60084D180 /* EGUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 658DA3CA17E698C60084D180 /* EGUtil.h */; };
+		65966AEF18026DBA0016D872 /* EWColorPicker.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65966AED18026DBA0016D872 /* EWColorPicker.cc */; };
+		65966AF018026DBA0016D872 /* EWColorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 65966AEE18026DBA0016D872 /* EWColorPicker.h */; };
+		65966AF318038EE10016D872 /* EGClipboardEmscripten.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65966AF118038EE00016D872 /* EGClipboardEmscripten.cc */; };
+		659BC5B717E8FE4E00886667 /* EGKeyEvent.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5B517E8FE4E00886667 /* EGKeyEvent.cc */; };
+		659BC5B817E8FE4E00886667 /* EGKeyEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 659BC5B617E8FE4E00886667 /* EGKeyEvent.h */; };
+		659BC5C217ED399C00886667 /* EGTextCairo.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5C017ED399C00886667 /* EGTextCairo.cc */; };
+		659BC5C717ED39E900886667 /* EGTextMac.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5C517ED39E900886667 /* EGTextMac.cc */; };
+		659BC5CB17ED3A0400886667 /* EGTextGDI.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5C917ED3A0400886667 /* EGTextGDI.cc */; };
+		659BC5CF17ED3A2200886667 /* EGTextDWrite.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5CD17ED3A2200886667 /* EGTextDWrite.cc */; };
+		659BC5D517ED40BB00886667 /* EGTextDWrite.h in Headers */ = {isa = PBXBuildFile; fileRef = 659BC5D117ED40BA00886667 /* EGTextDWrite.h */; };
+		659BC5D617ED40BB00886667 /* EGTextGDI.h in Headers */ = {isa = PBXBuildFile; fileRef = 659BC5D217ED40BB00886667 /* EGTextGDI.h */; };
+		659BC5D717ED40BB00886667 /* EGTextCairo.h in Headers */ = {isa = PBXBuildFile; fileRef = 659BC5D317ED40BB00886667 /* EGTextCairo.h */; };
+		659BC5D817ED40BB00886667 /* EGTextMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 659BC5D417ED40BB00886667 /* EGTextMac.h */; };
+		65B2458C180ED1FE007123E8 /* EGBaseObject.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65B2458A180ED1FE007123E8 /* EGBaseObject.cc */; };
+		65B2458D180ED1FE007123E8 /* EGBaseObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B2458B180ED1FE007123E8 /* EGBaseObject.h */; };
+		65BE12E817F51699007E18BF /* EGFont.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65BE12E617F51699007E18BF /* EGFont.cc */; };
+		65BE12E917F51699007E18BF /* EGFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 65BE12E717F51699007E18BF /* EGFont.h */; };
+		65D196CD189C7DD200A714A7 /* EWChart.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65D196CB189C7DD200A714A7 /* EWChart.cc */; };
+		65D196CE189C7DD200A714A7 /* EWChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D196CC189C7DD200A714A7 /* EWChart.h */; };
+		65D196D1189C7E5400A714A7 /* EWDataSource.cc in Sources */ = {isa = PBXBuildFile; fileRef = 65D196CF189C7E5400A714A7 /* EWDataSource.cc */; };
+		65D196D2189C7E5400A714A7 /* EWDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D196D0189C7E5400A714A7 /* EWDataSource.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		656687681809743D00C5D7C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		650EC69217472B7900055547 /* EGGraph.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraph.cc; path = ../src/EGGraph.cc; sourceTree = "<group>"; };
+		650EC69317472B7900055547 /* EGGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraph.h; path = ../src/EGGraph.h; sourceTree = "<group>"; };
+		65184FD41162CFCD00616E4F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		65184FD51162CFCD00616E4F /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		651DF0741750D960002BCC7C /* EGPointRegionTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionTree.h; path = ../src/EGPointRegionTree.h; sourceTree = "<group>"; };
+		651DF0771751940C002BCC7C /* EGSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGSpringLayout.h; path = ../src/EGSpringLayout.h; sourceTree = "<group>"; };
+		65216D23175C085200EB388F /* EGOpenCL.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGOpenCL.cc; path = ../src/EGOpenCL.cc; sourceTree = "<group>"; };
+		65216D24175C085200EB388F /* EGOpenCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOpenCL.h; path = ../src/EGOpenCL.h; sourceTree = "<group>"; };
+		65216D26175C0A3C00EB388F /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		6528212C17F3A7E500191B16 /* EWList.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWList.cc; path = ../src/EWList.cc; sourceTree = "<group>"; };
+		6528212D17F3A7E500191B16 /* EWList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWList.h; path = ../src/EWList.h; sourceTree = "<group>"; };
+		6528213017F3C8E300191B16 /* EWToggleButton.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWToggleButton.cc; path = ../src/EWToggleButton.cc; sourceTree = "<group>"; };
+		6528213117F3C8E300191B16 /* EWToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWToggleButton.h; path = ../src/EWToggleButton.h; sourceTree = "<group>"; };
+		6528213417F3DCD500191B16 /* EWSpinner.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWSpinner.cc; path = ../src/EWSpinner.cc; sourceTree = "<group>"; };
+		6528213517F3DCD500191B16 /* EWSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSpinner.h; path = ../src/EWSpinner.h; sourceTree = "<group>"; };
+		6531D5E7174CBE1D00CEBE35 /* EGPointRegionOctree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionOctree.h; path = ../src/EGPointRegionOctree.h; sourceTree = "<group>"; };
+		6531D5EA174CC6C800CEBE35 /* EGTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTree.h; path = ../src/EGTree.h; sourceTree = "<group>"; };
+		6531D5EB174CC6C800CEBE35 /* EGPointRegionQuadtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionQuadtree.h; path = ../src/EGPointRegionQuadtree.h; sourceTree = "<group>"; };
+		65362225174891E400F48AB0 /* EGGraphLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphLayout.h; path = ../src/EGGraphLayout.h; sourceTree = "<group>"; };
+		65425B4615CA0D9D007E9BFA /* cl.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = cl.bundle; path = ../Resources/cl.bundle; sourceTree = "<group>"; };
+		654AB9EE17F98AFB0046667C /* EGBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EGBase.h; path = ../src/EGBase.h; sourceTree = "<group>"; };
+		654AB9EF17FB962A0046667C /* EGClipboardX11.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGClipboardX11.cc; path = ../src/EGClipboardX11.cc; sourceTree = "<group>"; };
+		654AB9F017FB962A0046667C /* EGClipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGClipboard.h; path = ../src/EGClipboard.h; sourceTree = "<group>"; };
+		654AB9F317FB96830046667C /* EGClipboardMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EGClipboardMac.mm; path = ../src/EGClipboardMac.mm; sourceTree = "<group>"; };
+		654AB9F717FB96A70046667C /* EGClipboardWindows.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGClipboardWindows.cc; path = ../src/EGClipboardWindows.cc; sourceTree = "<group>"; };
+		654AB9FB17FB96DD0046667C /* EGClipboardIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EGClipboardIOS.mm; path = ../src/EGClipboardIOS.mm; sourceTree = "<group>"; };
+		654AB9FF17FB970C0046667C /* EGClipboardNACL.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGClipboardNACL.cc; path = ../src/EGClipboardNACL.cc; sourceTree = "<group>"; };
+		654ABA0317FB97290046667C /* EGClipboardAndroid.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGClipboardAndroid.cc; path = ../src/EGClipboardAndroid.cc; sourceTree = "<group>"; };
+		654ABA0717FBAF330046667C /* EWSpinBox.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWSpinBox.cc; path = ../src/EWSpinBox.cc; sourceTree = "<group>"; };
+		654ABA0817FBAF330046667C /* EWSpinBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSpinBox.h; path = ../src/EWSpinBox.h; sourceTree = "<group>"; };
+		654ABA0B18006CCD0046667C /* EWScrollBar.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWScrollBar.cc; path = ../src/EWScrollBar.cc; sourceTree = "<group>"; };
+		654ABA0C18006CCF0046667C /* EWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWScrollBar.h; path = ../src/EWScrollBar.h; sourceTree = "<group>"; };
+		654ABA0F180070200046667C /* EWTable.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWTable.cc; path = ../src/EWTable.cc; sourceTree = "<group>"; };
+		654ABA10180070210046667C /* EWTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWTable.h; path = ../src/EWTable.h; sourceTree = "<group>"; };
+		654ABA1B1801342E0046667C /* EGGraphEdgeLabelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphEdgeLabelRenderer.h; path = ../src/EGGraphEdgeLabelRenderer.h; sourceTree = "<group>"; };
+		654ABA1C1801342E0046667C /* EGGraphNodeLabelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphNodeLabelRenderer.h; path = ../src/EGGraphNodeLabelRenderer.h; sourceTree = "<group>"; };
+		654ADD10198F6F7000A838D7 /* EGBoundsRendererES2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EGBoundsRendererES2.h; path = ../src/EGBoundsRendererES2.h; sourceTree = "<group>"; };
+		654ADD11198F6F8700A838D7 /* EGBoundsRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EGBoundsRenderer.h; path = ../src/EGBoundsRenderer.h; sourceTree = "<group>"; };
+		654D02EF0F19E34E000BE1D2 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		654D02F00F19E34E000BE1D2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		654D03A60F1A0172000BE1D2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		6566875F180940C700C5D7C2 /* EGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGObject.h; path = ../src/EGObject.h; sourceTree = "<group>"; };
+		65668760180940C700C5D7C2 /* EGObject.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGObject.cc; path = ../src/EGObject.cc; sourceTree = "<group>"; };
+		656687641809741800C5D7C2 /* testobject.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = testobject.cc; path = ../tests/testobject.cc; sourceTree = "<group>"; };
+		656687651809741800C5D7C2 /* opencltest.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = opencltest.cc; path = ../tests/opencltest.cc; sourceTree = "<group>"; };
+		6566876A1809743D00C5D7C2 /* testobject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testobject; sourceTree = BUILT_PRODUCTS_DIR; };
+		65668775180974A600C5D7C2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		65668778180974C600C5D7C2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		657B2C3E17E41F3400ADEFA9 /* liblibGraphStorm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibGraphStorm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		658DA3C117E694AD0084D180 /* EWWidgetDefaults.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWWidgetDefaults.cc; path = ../src/EWWidgetDefaults.cc; sourceTree = "<group>"; };
+		658DA3C217E694AE0084D180 /* EWWidgetDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWWidgetDefaults.h; path = ../src/EWWidgetDefaults.h; sourceTree = "<group>"; };
+		658DA3C517E6954A0084D180 /* EGProperties.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGProperties.cc; path = ../src/EGProperties.cc; sourceTree = "<group>"; };
+		658DA3C617E6954A0084D180 /* EGProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGProperties.h; path = ../src/EGProperties.h; sourceTree = "<group>"; };
+		658DA3C917E698C60084D180 /* EGUtil.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGUtil.cc; path = ../src/EGUtil.cc; sourceTree = "<group>"; };
+		658DA3CA17E698C60084D180 /* EGUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGUtil.h; path = ../src/EGUtil.h; sourceTree = "<group>"; };
+		65930274177E63A700FC553B /* EGGraphRendererParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphRendererParams.h; path = ../src/EGGraphRendererParams.h; sourceTree = "<group>"; };
+		65966AED18026DBA0016D872 /* EWColorPicker.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWColorPicker.cc; path = ../src/EWColorPicker.cc; sourceTree = "<group>"; };
+		65966AEE18026DBA0016D872 /* EWColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWColorPicker.h; path = ../src/EWColorPicker.h; sourceTree = "<group>"; };
+		65966AF118038EE00016D872 /* EGClipboardEmscripten.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGClipboardEmscripten.cc; path = ../src/EGClipboardEmscripten.cc; sourceTree = "<group>"; };
+		6598130D17A73CB0003772E1 /* EGRenderBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGRenderBatch.h; path = ../src/EGRenderBatch.h; sourceTree = "<group>"; };
+		6598130F17A73CB0003772E1 /* EGRenderBatchES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGRenderBatchES2.h; path = ../src/EGRenderBatchES2.h; sourceTree = "<group>"; };
+		65988139132CE2030095EF2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		6598813D132CE2190095EF2C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = /usr/lib/libz.dylib; sourceTree = "<absolute>"; };
+		6598C05C1762F9A5004B7382 /* gles2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = gles2.bundle; path = ../Resources/gles2.bundle; sourceTree = "<group>"; };
+		6598C0631762F9F4004B7382 /* metadata.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = metadata.bundle; path = ../Resources/metadata.bundle; sourceTree = "<group>"; };
+		6598C08217633A69004B7382 /* EGGraphNodeRendererES2CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphNodeRendererES2CL.h; path = ../src/EGGraphNodeRendererES2CL.h; sourceTree = "<group>"; };
+		6599EA8B1779981200B92AC0 /* NSStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStubs.h; path = ../src/NSStubs.h; sourceTree = "<group>"; };
+		6599EA8C1779981300B92AC0 /* NSStubs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSStubs.mm; path = ../src/NSStubs.mm; sourceTree = "<group>"; };
+		6599EA8D1779981300B92AC0 /* EGIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGIndexArray.h; path = ../src/EGIndexArray.h; sourceTree = "<group>"; };
+		6599EA8E1779981400B92AC0 /* EGVertexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGVertexArray.h; path = ../src/EGVertexArray.h; sourceTree = "<group>"; };
+		6599EA8F1779981400B92AC0 /* EGRenderApi.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGRenderApi.cc; path = ../src/EGRenderApi.cc; sourceTree = "<group>"; };
+		6599EA901779981400B92AC0 /* EGRenderApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGRenderApi.h; path = ../src/EGRenderApi.h; sourceTree = "<group>"; };
+		6599EA931779981600B92AC0 /* EGRenderApiES2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGRenderApiES2.cc; path = ../src/EGRenderApiES2.cc; sourceTree = "<group>"; };
+		6599EA941779981600B92AC0 /* EGRenderApiES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGRenderApiES2.h; path = ../src/EGRenderApiES2.h; sourceTree = "<group>"; };
+		6599EA9D1779981900B92AC0 /* EGText.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGText.cc; path = ../src/EGText.cc; sourceTree = "<group>"; };
+		6599EA9E1779981900B92AC0 /* EGText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGText.h; path = ../src/EGText.h; sourceTree = "<group>"; };
+		6599EAA01779981A00B92AC0 /* EGTextRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextRenderer.h; path = ../src/EGTextRenderer.h; sourceTree = "<group>"; };
+		6599EAA31779981B00B92AC0 /* EGTextRendererES2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTextRendererES2.cc; path = ../src/EGTextRendererES2.cc; sourceTree = "<group>"; };
+		6599EAA41779981B00B92AC0 /* EGTextRendererES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextRendererES2.h; path = ../src/EGTextRendererES2.h; sourceTree = "<group>"; };
+		6599EAA61779981C00B92AC0 /* EGResource.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGResource.cc; path = ../src/EGResource.cc; sourceTree = "<group>"; };
+		6599EAA71779981C00B92AC0 /* EGResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGResource.h; path = ../src/EGResource.h; sourceTree = "<group>"; };
+		6599EAA81779981C00B92AC0 /* EGTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTime.h; path = ../src/EGTime.h; sourceTree = "<group>"; };
+		6599EAA91779981D00B92AC0 /* EGLight.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGLight.cc; path = ../src/EGLight.cc; sourceTree = "<group>"; };
+		6599EAAA1779981D00B92AC0 /* EGLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGLight.h; path = ../src/EGLight.h; sourceTree = "<group>"; };
+		6599EAAB1779981D00B92AC0 /* EGTrackBall.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTrackBall.cc; path = ../src/EGTrackBall.cc; sourceTree = "<group>"; };
+		6599EAAC1779981E00B92AC0 /* EGTrackBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTrackBall.h; path = ../src/EGTrackBall.h; sourceTree = "<group>"; };
+		6599EAAD1779981E00B92AC0 /* EGViewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGViewport.h; path = ../src/EGViewport.h; sourceTree = "<group>"; };
+		6599EAAE1779981E00B92AC0 /* EGCamera.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGCamera.cc; path = ../src/EGCamera.cc; sourceTree = "<group>"; };
+		6599EAAF1779981F00B92AC0 /* EGCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGCamera.h; path = ../src/EGCamera.h; sourceTree = "<group>"; };
+		6599EAB01779981F00B92AC0 /* EGMath.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGMath.cc; path = ../src/EGMath.cc; sourceTree = "<group>"; };
+		6599EAB11779981F00B92AC0 /* EGMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGMath.h; path = ../src/EGMath.h; sourceTree = "<group>"; };
+		6599EAB21779982000B92AC0 /* EGGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGL.h; path = ../src/EGGL.h; sourceTree = "<group>"; };
+		6599EAB31779982000B92AC0 /* EG.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EG.cc; path = ../src/EG.cc; sourceTree = "<group>"; };
+		6599EAB41779982000B92AC0 /* EG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EG.h; path = ../src/EG.h; sourceTree = "<group>"; };
+		6599EAC7177998AD00B92AC0 /* EGColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGColor.h; path = ../src/EGColor.h; sourceTree = "<group>"; };
+		6599EAC8177998F100B92AC0 /* EGZipFile.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGZipFile.cc; path = ../src/EGZipFile.cc; sourceTree = "<group>"; };
+		6599EAC9177998F100B92AC0 /* EGZipFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGZipFile.h; path = ../src/EGZipFile.h; sourceTree = "<group>"; };
+		6599EACA177998F200B92AC0 /* EGVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGVector.h; path = ../src/EGVector.h; sourceTree = "<group>"; };
+		659BC067177798C7002219B4 /* EGGraphLayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphLayoutFactory.h; path = ../src/EGGraphLayoutFactory.h; sourceTree = "<group>"; };
+		659BC06A1777995D002219B4 /* EGGraphLayoutFactory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphLayoutFactory.cc; path = ../src/EGGraphLayoutFactory.cc; sourceTree = "<group>"; };
+		659BC5B517E8FE4E00886667 /* EGKeyEvent.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGKeyEvent.cc; path = ../src/EGKeyEvent.cc; sourceTree = "<group>"; };
+		659BC5B617E8FE4E00886667 /* EGKeyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGKeyEvent.h; path = ../src/EGKeyEvent.h; sourceTree = "<group>"; };
+		659BC5C017ED399C00886667 /* EGTextCairo.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTextCairo.cc; path = ../src/EGTextCairo.cc; sourceTree = "<group>"; };
+		659BC5C517ED39E900886667 /* EGTextMac.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTextMac.cc; path = ../src/EGTextMac.cc; sourceTree = "<group>"; };
+		659BC5C917ED3A0400886667 /* EGTextGDI.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTextGDI.cc; path = ../src/EGTextGDI.cc; sourceTree = "<group>"; };
+		659BC5CD17ED3A2200886667 /* EGTextDWrite.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGTextDWrite.cc; path = ../src/EGTextDWrite.cc; sourceTree = "<group>"; };
+		659BC5D117ED40BA00886667 /* EGTextDWrite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextDWrite.h; path = ../src/EGTextDWrite.h; sourceTree = "<group>"; };
+		659BC5D217ED40BB00886667 /* EGTextGDI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextGDI.h; path = ../src/EGTextGDI.h; sourceTree = "<group>"; };
+		659BC5D317ED40BB00886667 /* EGTextCairo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextCairo.h; path = ../src/EGTextCairo.h; sourceTree = "<group>"; };
+		659BC5D417ED40BB00886667 /* EGTextMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTextMac.h; path = ../src/EGTextMac.h; sourceTree = "<group>"; };
+		659FF32E17642DFE0007EDB5 /* EGGraphNodeRendererES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphNodeRendererES2.h; path = ../src/EGGraphNodeRendererES2.h; sourceTree = "<group>"; };
+		659FF32F17642DFE0007EDB5 /* EGTreeRendererES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTreeRendererES2.h; path = ../src/EGTreeRendererES2.h; sourceTree = "<group>"; };
+		659FF33017642E710007EDB5 /* EGGraphNodeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphNodeRenderer.h; path = ../src/EGGraphNodeRenderer.h; sourceTree = "<group>"; };
+		659FF33117642E710007EDB5 /* EGTreeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGTreeRenderer.h; path = ../src/EGTreeRenderer.h; sourceTree = "<group>"; };
+		659FF3321766B99E0007EDB5 /* EGSpringLayoutCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGSpringLayoutCL.h; path = ../src/EGSpringLayoutCL.h; sourceTree = "<group>"; };
+		659FF333176B76EC0007EDB5 /* EGPointRegionTreeArrayCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionTreeArrayCL.h; path = ../src/EGPointRegionTreeArrayCL.h; sourceTree = "<group>"; };
+		659FF334176B89500007EDB5 /* EGPointRegionTreeStructCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionTreeStructCL.h; path = ../src/EGPointRegionTreeStructCL.h; sourceTree = "<group>"; };
+		65A02E6317D96A16005C9E3D /* EWWidgetRenderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWWidgetRenderer.cc; path = ../src/EWWidgetRenderer.cc; sourceTree = "<group>"; };
+		65A02E6417D96A16005C9E3D /* EWWidgetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWWidgetRenderer.h; path = ../src/EWWidgetRenderer.h; sourceTree = "<group>"; };
+		65A02E6917D96A36005C9E3D /* EWWidgetRendererES2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWWidgetRendererES2.cc; path = ../src/EWWidgetRendererES2.cc; sourceTree = "<group>"; };
+		65A02E6A17D96A36005C9E3D /* EWWidgetRendererES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWWidgetRendererES2.h; path = ../src/EWWidgetRendererES2.h; sourceTree = "<group>"; };
+		65A02E6D17D9718C005C9E3D /* EGImagePNG.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGImagePNG.cc; path = ../src/EGImagePNG.cc; sourceTree = "<group>"; };
+		65A02E6E17D9718C005C9E3D /* EGImageJPEG.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGImageJPEG.cc; path = ../src/EGImageJPEG.cc; sourceTree = "<group>"; };
+		65A02E6F17D9718C005C9E3D /* EGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGImage.h; path = ../src/EGImage.h; sourceTree = "<group>"; };
+		65A02E7017D9718C005C9E3D /* EGImage.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGImage.cc; path = ../src/EGImage.cc; sourceTree = "<group>"; };
+		65A02E7417D971FD005C9E3D /* EGImageDecompressor.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGImageDecompressor.cc; path = ../src/EGImageDecompressor.cc; sourceTree = "<group>"; };
+		65A02E7517D971FD005C9E3D /* EGThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGThread.h; path = ../src/EGThread.h; sourceTree = "<group>"; };
+		65A02E7717D988B9005C9E3D /* EWComboBox.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWComboBox.cc; path = ../src/EWComboBox.cc; sourceTree = "<group>"; };
+		65A02E7817D988B9005C9E3D /* EWComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWComboBox.h; path = ../src/EWComboBox.h; sourceTree = "<group>"; };
+		65A02E7A17DC04B2005C9E3D /* EGRenderBatchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGRenderBatchText.h; path = ../src/EGRenderBatchText.h; sourceTree = "<group>"; };
+		65A02E7C17DC3205005C9E3D /* EWProgressBar.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWProgressBar.cc; path = ../src/EWProgressBar.cc; sourceTree = "<group>"; };
+		65A02E7D17DC3206005C9E3D /* EWProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWProgressBar.h; path = ../src/EWProgressBar.h; sourceTree = "<group>"; };
+		65A02E7F17DC3223005C9E3D /* EWSlider.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWSlider.cc; path = ../src/EWSlider.cc; sourceTree = "<group>"; };
+		65A02E8017DC3223005C9E3D /* EWSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWSlider.h; path = ../src/EWSlider.h; sourceTree = "<group>"; };
+		65A02E8217DC8085005C9E3D /* EGEvent.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGEvent.cc; path = ../src/EGEvent.cc; sourceTree = "<group>"; };
+		65A02E8317DC8085005C9E3D /* EGEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGEvent.h; path = ../src/EGEvent.h; sourceTree = "<group>"; };
+		65A02E8517DC8098005C9E3D /* ui.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ui.bundle; path = ../Resources/ui.bundle; sourceTree = "<group>"; };
+		65A02E8717DC9176005C9E3D /* EGMouseEvent.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGMouseEvent.cc; path = ../src/EGMouseEvent.cc; sourceTree = "<group>"; };
+		65A02E8817DC9176005C9E3D /* EGMouseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGMouseEvent.h; path = ../src/EGMouseEvent.h; sourceTree = "<group>"; };
+		65A06DEE178DCAAC00DEF3D5 /* EGCombination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGCombination.h; path = ../src/EGCombination.h; sourceTree = "<group>"; };
+		65A5639F17D94E6400AC0614 /* EWWidget.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWWidget.cc; path = ../src/EWWidget.cc; sourceTree = "<group>"; };
+		65A563A017D94E6400AC0614 /* EWWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWWidget.h; path = ../src/EWWidget.h; sourceTree = "<group>"; };
+		65A563A217D9514100AC0614 /* EWWindow.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWWindow.cc; path = ../src/EWWindow.cc; sourceTree = "<group>"; };
+		65A563A317D9514100AC0614 /* EWWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWWindow.h; path = ../src/EWWindow.h; sourceTree = "<group>"; };
+		65A563A517D954E900AC0614 /* EWContext.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWContext.cc; path = ../src/EWContext.cc; sourceTree = "<group>"; };
+		65A563A617D954E900AC0614 /* EWContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWContext.h; path = ../src/EWContext.h; sourceTree = "<group>"; };
+		65A563A817D9558B00AC0614 /* EWContainer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWContainer.cc; path = ../src/EWContainer.cc; sourceTree = "<group>"; };
+		65A563A917D9558B00AC0614 /* EWContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWContainer.h; path = ../src/EWContainer.h; sourceTree = "<group>"; };
+		65A563AB17D9569C00AC0614 /* EWLabel.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWLabel.cc; path = ../src/EWLabel.cc; sourceTree = "<group>"; };
+		65A563AC17D9569C00AC0614 /* EWLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWLabel.h; path = ../src/EWLabel.h; sourceTree = "<group>"; };
+		65A563AE17D956D000AC0614 /* EWButton.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWButton.cc; path = ../src/EWButton.cc; sourceTree = "<group>"; };
+		65A563AF17D956D000AC0614 /* EWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWButton.h; path = ../src/EWButton.h; sourceTree = "<group>"; };
+		65A563B117D9576F00AC0614 /* EWFrame.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWFrame.cc; path = ../src/EWFrame.cc; sourceTree = "<group>"; };
+		65A563B217D9576F00AC0614 /* EWFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWFrame.h; path = ../src/EWFrame.h; sourceTree = "<group>"; };
+		65A563B417D958EC00AC0614 /* EWCheckBox.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWCheckBox.cc; path = ../src/EWCheckBox.cc; sourceTree = "<group>"; };
+		65A563B517D958EC00AC0614 /* EWCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWCheckBox.h; path = ../src/EWCheckBox.h; sourceTree = "<group>"; };
+		65A563B717D9592900AC0614 /* EWIcon.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWIcon.cc; path = ../src/EWIcon.cc; sourceTree = "<group>"; };
+		65A563B817D9592900AC0614 /* EWIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWIcon.h; path = ../src/EWIcon.h; sourceTree = "<group>"; };
+		65A563BA17D9594500AC0614 /* EWEntry.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWEntry.cc; path = ../src/EWEntry.cc; sourceTree = "<group>"; };
+		65A563BB17D9594600AC0614 /* EWEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWEntry.h; path = ../src/EWEntry.h; sourceTree = "<group>"; };
+		65A563BD17D9597900AC0614 /* EWGrid.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWGrid.cc; path = ../src/EWGrid.cc; sourceTree = "<group>"; };
+		65A563BE17D9597900AC0614 /* EWGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWGrid.h; path = ../src/EWGrid.h; sourceTree = "<group>"; };
+		65A563C017D95D4500AC0614 /* EWLayout.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWLayout.cc; path = ../src/EWLayout.cc; sourceTree = "<group>"; };
+		65A563C117D95D4600AC0614 /* EWLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWLayout.h; path = ../src/EWLayout.h; sourceTree = "<group>"; };
+		65A563C317D95ECB00AC0614 /* EWBox.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWBox.cc; path = ../src/EWBox.cc; sourceTree = "<group>"; };
+		65A563C417D95ECC00AC0614 /* EWBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWBox.h; path = ../src/EWBox.h; sourceTree = "<group>"; };
+		65AC894A177BB964007C6FCD /* EGGraphEdgeRendererES2CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphEdgeRendererES2CL.h; path = ../src/EGGraphEdgeRendererES2CL.h; sourceTree = "<group>"; };
+		65AC894B177BB964007C6FCD /* EGGraphEdgeRendererES2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphEdgeRendererES2.h; path = ../src/EGGraphEdgeRendererES2.h; sourceTree = "<group>"; };
+		65AC894D177BB9A1007C6FCD /* EGGraphEdgeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphEdgeRenderer.h; path = ../src/EGGraphEdgeRenderer.h; sourceTree = "<group>"; };
+		65AED3961775346500B90C92 /* EGGraphFloydWarshall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EGGraphFloydWarshall.h; path = ../src/EGGraphFloydWarshall.h; sourceTree = "<group>"; };
+		65AED4CE17765C2D00B90C92 /* EGGraphTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphTest.h; path = ../src/EGGraphTest.h; sourceTree = "<group>"; };
+		65AED4D017765C2D00B90C92 /* EGGraphTest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphTest.cc; path = ../src/EGGraphTest.cc; sourceTree = "<group>"; };
+		65B0C60F176BDAB400D899AF /* EGPointRegionTreeMonolithicCL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGPointRegionTreeMonolithicCL.h; path = ../src/EGPointRegionTreeMonolithicCL.h; sourceTree = "<group>"; };
+		65B2458A180ED1FE007123E8 /* EGBaseObject.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGBaseObject.cc; path = ../src/EGBaseObject.cc; sourceTree = "<group>"; };
+		65B2458B180ED1FE007123E8 /* EGBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGBaseObject.h; path = ../src/EGBaseObject.h; sourceTree = "<group>"; };
+		65B350FA17B74CC90016426E /* EGGraphModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphModifier.h; path = ../src/EGGraphModifier.h; sourceTree = "<group>"; };
+		65BE12E617F51699007E18BF /* EGFont.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGFont.cc; path = ../src/EGFont.cc; sourceTree = "<group>"; };
+		65BE12E717F51699007E18BF /* EGFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGFont.h; path = ../src/EGFont.h; sourceTree = "<group>"; };
+		65D196CB189C7DD200A714A7 /* EWChart.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWChart.cc; path = ../src/EWChart.cc; sourceTree = "<group>"; };
+		65D196CC189C7DD200A714A7 /* EWChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWChart.h; path = ../src/EWChart.h; sourceTree = "<group>"; };
+		65D196CF189C7E5400A714A7 /* EWDataSource.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EWDataSource.cc; path = ../src/EWDataSource.cc; sourceTree = "<group>"; };
+		65D196D0189C7E5400A714A7 /* EWDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EWDataSource.h; path = ../src/EWDataSource.h; sourceTree = "<group>"; };
+		65D867E6174B439500AA3923 /* EGGraphData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphData.h; path = ../src/EGGraphData.h; sourceTree = "<group>"; };
+		65D867EA174B45FC00AA3923 /* EGGraphData.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphData.cc; path = ../src/EGGraphData.cc; sourceTree = "<group>"; };
+		65ECC2F10F3144FA005FF448 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		656687671809743D00C5D7C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65668779180974C700C5D7C2 /* Cocoa.framework in Frameworks */,
+				65668777180974BB00C5D7C2 /* CoreFoundation.framework in Frameworks */,
+				656687741809745800C5D7C2 /* liblibGraphStorm.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		657B2C3B17E41F3400ADEFA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				657B2C3E17E41F3400ADEFA9 /* liblibGraphStorm.a */,
+				6566876A1809743D00C5D7C2 /* testobject */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* lwobjview */ = {
+			isa = PBXGroup;
+			children = (
+				65668778180974C600C5D7C2 /* Cocoa.framework */,
+				65668775180974A600C5D7C2 /* CoreFoundation.framework */,
+				652A546415DC50A600AF9D18 /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = lwobjview;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65A02E8517DC8098005C9E3D /* ui.bundle */,
+				6598C0631762F9F4004B7382 /* metadata.bundle */,
+				6598C05C1762F9A5004B7382 /* gles2.bundle */,
+				65425B4615CA0D9D007E9BFA /* cl.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6598813D132CE2190095EF2C /* libz.dylib */,
+				65216D26175C0A3C00EB388F /* OpenCL.framework */,
+				65184FD41162CFCD00616E4F /* OpenGL.framework */,
+				65184FD51162CFCD00616E4F /* AGL.framework */,
+				65ECC2F10F3144FA005FF448 /* Cocoa.framework */,
+				654D03A60F1A0172000BE1D2 /* CoreFoundation.framework */,
+				65988139132CE2030095EF2C /* SystemConfiguration.framework */,
+				654D02EF0F19E34E000BE1D2 /* GLUT.framework */,
+				654D02F00F19E34E000BE1D2 /* OpenGL.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		652A546415DC50A600AF9D18 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				65FE87391931CF8700C68C28 /* opencl */,
+				656687631809740300C5D7C2 /* test */,
+				65A02E6C17D97149005C9E3D /* image */,
+				65A5639E17D94E0000AC0614 /* widget */,
+				65A06E2C1791D25800DEF3D5 /* graph */,
+				65A06E2B1791D25400DEF3D5 /* tree */,
+				65A06E2A1791D25200DEF3D5 /* layout */,
+				65A06E101791D07A00DEF3D5 /* render */,
+				65A02E8A17DD2BDE005C9E3D /* event */,
+				659BC5C417ED39B300886667 /* text */,
+				65A06E0D1791CFB700DEF3D5 /* generic */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		656687631809740300C5D7C2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				656687641809741800C5D7C2 /* testobject.cc */,
+				656687651809741800C5D7C2 /* opencltest.cc */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		659BC5C417ED39B300886667 /* text */ = {
+			isa = PBXGroup;
+			children = (
+				65BE12E617F51699007E18BF /* EGFont.cc */,
+				65BE12E717F51699007E18BF /* EGFont.h */,
+				6599EA9D1779981900B92AC0 /* EGText.cc */,
+				6599EA9E1779981900B92AC0 /* EGText.h */,
+				659BC5C017ED399C00886667 /* EGTextCairo.cc */,
+				659BC5D317ED40BB00886667 /* EGTextCairo.h */,
+				659BC5C517ED39E900886667 /* EGTextMac.cc */,
+				659BC5D417ED40BB00886667 /* EGTextMac.h */,
+				659BC5C917ED3A0400886667 /* EGTextGDI.cc */,
+				659BC5D217ED40BB00886667 /* EGTextGDI.h */,
+				659BC5CD17ED3A2200886667 /* EGTextDWrite.cc */,
+				659BC5D117ED40BA00886667 /* EGTextDWrite.h */,
+			);
+			name = text;
+			sourceTree = "<group>";
+		};
+		65A02E6C17D97149005C9E3D /* image */ = {
+			isa = PBXGroup;
+			children = (
+				65A02E7017D9718C005C9E3D /* EGImage.cc */,
+				65A02E6F17D9718C005C9E3D /* EGImage.h */,
+				65A02E7417D971FD005C9E3D /* EGImageDecompressor.cc */,
+				65A02E6E17D9718C005C9E3D /* EGImageJPEG.cc */,
+				65A02E6D17D9718C005C9E3D /* EGImagePNG.cc */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
+		65A02E8A17DD2BDE005C9E3D /* event */ = {
+			isa = PBXGroup;
+			children = (
+				65A02E8217DC8085005C9E3D /* EGEvent.cc */,
+				65A02E8317DC8085005C9E3D /* EGEvent.h */,
+				659BC5B517E8FE4E00886667 /* EGKeyEvent.cc */,
+				659BC5B617E8FE4E00886667 /* EGKeyEvent.h */,
+				65A02E8717DC9176005C9E3D /* EGMouseEvent.cc */,
+				65A02E8817DC9176005C9E3D /* EGMouseEvent.h */,
+			);
+			name = event;
+			sourceTree = "<group>";
+		};
+		65A06E0D1791CFB700DEF3D5 /* generic */ = {
+			isa = PBXGroup;
+			children = (
+				6599EAB31779982000B92AC0 /* EG.cc */,
+				6599EAB41779982000B92AC0 /* EG.h */,
+				654AB9EE17F98AFB0046667C /* EGBase.h */,
+				65B2458A180ED1FE007123E8 /* EGBaseObject.cc */,
+				65B2458B180ED1FE007123E8 /* EGBaseObject.h */,
+				6599EAAE1779981E00B92AC0 /* EGCamera.cc */,
+				6599EAAF1779981F00B92AC0 /* EGCamera.h */,
+				654AB9F017FB962A0046667C /* EGClipboard.h */,
+				654ABA0317FB97290046667C /* EGClipboardAndroid.cc */,
+				65966AF118038EE00016D872 /* EGClipboardEmscripten.cc */,
+				654AB9FB17FB96DD0046667C /* EGClipboardIOS.mm */,
+				654AB9F317FB96830046667C /* EGClipboardMac.mm */,
+				654AB9FF17FB970C0046667C /* EGClipboardNACL.cc */,
+				654AB9F717FB96A70046667C /* EGClipboardWindows.cc */,
+				654AB9EF17FB962A0046667C /* EGClipboardX11.cc */,
+				6599EAC7177998AD00B92AC0 /* EGColor.h */,
+				65A06DEE178DCAAC00DEF3D5 /* EGCombination.h */,
+				6599EAB21779982000B92AC0 /* EGGL.h */,
+				6599EA8D1779981300B92AC0 /* EGIndexArray.h */,
+				6599EAA91779981D00B92AC0 /* EGLight.cc */,
+				6599EAAA1779981D00B92AC0 /* EGLight.h */,
+				6599EAB01779981F00B92AC0 /* EGMath.cc */,
+				6599EAB11779981F00B92AC0 /* EGMath.h */,
+				65668760180940C700C5D7C2 /* EGObject.cc */,
+				6566875F180940C700C5D7C2 /* EGObject.h */,
+				658DA3C517E6954A0084D180 /* EGProperties.cc */,
+				658DA3C617E6954A0084D180 /* EGProperties.h */,
+				6599EAA61779981C00B92AC0 /* EGResource.cc */,
+				6599EAA71779981C00B92AC0 /* EGResource.h */,
+				65A02E7517D971FD005C9E3D /* EGThread.h */,
+				6599EAA81779981C00B92AC0 /* EGTime.h */,
+				6599EAAB1779981D00B92AC0 /* EGTrackBall.cc */,
+				6599EAAC1779981E00B92AC0 /* EGTrackBall.h */,
+				658DA3C917E698C60084D180 /* EGUtil.cc */,
+				658DA3CA17E698C60084D180 /* EGUtil.h */,
+				6599EACA177998F200B92AC0 /* EGVector.h */,
+				6599EA8E1779981400B92AC0 /* EGVertexArray.h */,
+				6599EAAD1779981E00B92AC0 /* EGViewport.h */,
+				6599EAC8177998F100B92AC0 /* EGZipFile.cc */,
+				6599EAC9177998F100B92AC0 /* EGZipFile.h */,
+				6599EA8B1779981200B92AC0 /* NSStubs.h */,
+				6599EA8C1779981300B92AC0 /* NSStubs.mm */,
+			);
+			name = generic;
+			sourceTree = "<group>";
+		};
+		65A06E101791D07A00DEF3D5 /* render */ = {
+			isa = PBXGroup;
+			children = (
+				65AC894D177BB9A1007C6FCD /* EGGraphEdgeRenderer.h */,
+				65AC894B177BB964007C6FCD /* EGGraphEdgeRendererES2.h */,
+				65AC894A177BB964007C6FCD /* EGGraphEdgeRendererES2CL.h */,
+				654ABA1B1801342E0046667C /* EGGraphEdgeLabelRenderer.h */,
+				659FF33017642E710007EDB5 /* EGGraphNodeRenderer.h */,
+				659FF32E17642DFE0007EDB5 /* EGGraphNodeRendererES2.h */,
+				6598C08217633A69004B7382 /* EGGraphNodeRendererES2CL.h */,
+				654ABA1C1801342E0046667C /* EGGraphNodeLabelRenderer.h */,
+				65930274177E63A700FC553B /* EGGraphRendererParams.h */,
+				6599EA8F1779981400B92AC0 /* EGRenderApi.cc */,
+				6599EA901779981400B92AC0 /* EGRenderApi.h */,
+				6599EA931779981600B92AC0 /* EGRenderApiES2.cc */,
+				6599EA941779981600B92AC0 /* EGRenderApiES2.h */,
+				6598130D17A73CB0003772E1 /* EGRenderBatch.h */,
+				6598130F17A73CB0003772E1 /* EGRenderBatchES2.h */,
+				65A02E7A17DC04B2005C9E3D /* EGRenderBatchText.h */,
+				6599EAA01779981A00B92AC0 /* EGTextRenderer.h */,
+				6599EAA31779981B00B92AC0 /* EGTextRendererES2.cc */,
+				6599EAA41779981B00B92AC0 /* EGTextRendererES2.h */,
+				659FF33117642E710007EDB5 /* EGTreeRenderer.h */,
+				659FF32F17642DFE0007EDB5 /* EGTreeRendererES2.h */,
+				654ADD11198F6F8700A838D7 /* EGBoundsRenderer.h */,
+				654ADD10198F6F7000A838D7 /* EGBoundsRendererES2.h */,
+			);
+			name = render;
+			sourceTree = "<group>";
+		};
+		65A06E2A1791D25200DEF3D5 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				65362225174891E400F48AB0 /* EGGraphLayout.h */,
+				659BC06A1777995D002219B4 /* EGGraphLayoutFactory.cc */,
+				659BC067177798C7002219B4 /* EGGraphLayoutFactory.h */,
+				651DF0771751940C002BCC7C /* EGSpringLayout.h */,
+				659FF3321766B99E0007EDB5 /* EGSpringLayoutCL.h */,
+			);
+			name = layout;
+			sourceTree = "<group>";
+		};
+		65A06E2B1791D25400DEF3D5 /* tree */ = {
+			isa = PBXGroup;
+			children = (
+				6531D5E7174CBE1D00CEBE35 /* EGPointRegionOctree.h */,
+				6531D5EB174CC6C800CEBE35 /* EGPointRegionQuadtree.h */,
+				651DF0741750D960002BCC7C /* EGPointRegionTree.h */,
+				659FF333176B76EC0007EDB5 /* EGPointRegionTreeArrayCL.h */,
+				65B0C60F176BDAB400D899AF /* EGPointRegionTreeMonolithicCL.h */,
+				659FF334176B89500007EDB5 /* EGPointRegionTreeStructCL.h */,
+				6531D5EA174CC6C800CEBE35 /* EGTree.h */,
+			);
+			name = tree;
+			sourceTree = "<group>";
+		};
+		65A06E2C1791D25800DEF3D5 /* graph */ = {
+			isa = PBXGroup;
+			children = (
+				650EC69217472B7900055547 /* EGGraph.cc */,
+				650EC69317472B7900055547 /* EGGraph.h */,
+				65D867EA174B45FC00AA3923 /* EGGraphData.cc */,
+				65D867E6174B439500AA3923 /* EGGraphData.h */,
+				65AED3961775346500B90C92 /* EGGraphFloydWarshall.h */,
+				65B350FA17B74CC90016426E /* EGGraphModifier.h */,
+				65AED4D017765C2D00B90C92 /* EGGraphTest.cc */,
+				65AED4CE17765C2D00B90C92 /* EGGraphTest.h */,
+			);
+			name = graph;
+			sourceTree = "<group>";
+		};
+		65A5639E17D94E0000AC0614 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				65A563C317D95ECB00AC0614 /* EWBox.cc */,
+				65A563C417D95ECC00AC0614 /* EWBox.h */,
+				65A563AE17D956D000AC0614 /* EWButton.cc */,
+				65A563AF17D956D000AC0614 /* EWButton.h */,
+				65D196CB189C7DD200A714A7 /* EWChart.cc */,
+				65D196CC189C7DD200A714A7 /* EWChart.h */,
+				65A563B417D958EC00AC0614 /* EWCheckBox.cc */,
+				65A563B517D958EC00AC0614 /* EWCheckBox.h */,
+				65966AED18026DBA0016D872 /* EWColorPicker.cc */,
+				65966AEE18026DBA0016D872 /* EWColorPicker.h */,
+				65A02E7717D988B9005C9E3D /* EWComboBox.cc */,
+				65A02E7817D988B9005C9E3D /* EWComboBox.h */,
+				65A563A817D9558B00AC0614 /* EWContainer.cc */,
+				65A563A917D9558B00AC0614 /* EWContainer.h */,
+				65A563A517D954E900AC0614 /* EWContext.cc */,
+				65A563A617D954E900AC0614 /* EWContext.h */,
+				65D196CF189C7E5400A714A7 /* EWDataSource.cc */,
+				65D196D0189C7E5400A714A7 /* EWDataSource.h */,
+				65A563BA17D9594500AC0614 /* EWEntry.cc */,
+				65A563BB17D9594600AC0614 /* EWEntry.h */,
+				65A563B117D9576F00AC0614 /* EWFrame.cc */,
+				65A563B217D9576F00AC0614 /* EWFrame.h */,
+				65A563BD17D9597900AC0614 /* EWGrid.cc */,
+				65A563BE17D9597900AC0614 /* EWGrid.h */,
+				65A563B717D9592900AC0614 /* EWIcon.cc */,
+				65A563B817D9592900AC0614 /* EWIcon.h */,
+				65A563AB17D9569C00AC0614 /* EWLabel.cc */,
+				65A563AC17D9569C00AC0614 /* EWLabel.h */,
+				65A563C017D95D4500AC0614 /* EWLayout.cc */,
+				65A563C117D95D4600AC0614 /* EWLayout.h */,
+				6528212C17F3A7E500191B16 /* EWList.cc */,
+				6528212D17F3A7E500191B16 /* EWList.h */,
+				65A02E7C17DC3205005C9E3D /* EWProgressBar.cc */,
+				65A02E7D17DC3206005C9E3D /* EWProgressBar.h */,
+				654ABA0B18006CCD0046667C /* EWScrollBar.cc */,
+				654ABA0C18006CCF0046667C /* EWScrollBar.h */,
+				65A02E7F17DC3223005C9E3D /* EWSlider.cc */,
+				65A02E8017DC3223005C9E3D /* EWSlider.h */,
+				654ABA0717FBAF330046667C /* EWSpinBox.cc */,
+				654ABA0817FBAF330046667C /* EWSpinBox.h */,
+				6528213417F3DCD500191B16 /* EWSpinner.cc */,
+				6528213517F3DCD500191B16 /* EWSpinner.h */,
+				654ABA0F180070200046667C /* EWTable.cc */,
+				654ABA10180070210046667C /* EWTable.h */,
+				6528213017F3C8E300191B16 /* EWToggleButton.cc */,
+				6528213117F3C8E300191B16 /* EWToggleButton.h */,
+				65A5639F17D94E6400AC0614 /* EWWidget.cc */,
+				65A563A017D94E6400AC0614 /* EWWidget.h */,
+				658DA3C117E694AD0084D180 /* EWWidgetDefaults.cc */,
+				658DA3C217E694AE0084D180 /* EWWidgetDefaults.h */,
+				65A02E6317D96A16005C9E3D /* EWWidgetRenderer.cc */,
+				65A02E6417D96A16005C9E3D /* EWWidgetRenderer.h */,
+				65A02E6917D96A36005C9E3D /* EWWidgetRendererES2.cc */,
+				65A02E6A17D96A36005C9E3D /* EWWidgetRendererES2.h */,
+				65A563A217D9514100AC0614 /* EWWindow.cc */,
+				65A563A317D9514100AC0614 /* EWWindow.h */,
+			);
+			name = widget;
+			sourceTree = "<group>";
+		};
+		65FE87391931CF8700C68C28 /* opencl */ = {
+			isa = PBXGroup;
+			children = (
+				65216D23175C085200EB388F /* EGOpenCL.cc */,
+				65216D24175C085200EB388F /* EGOpenCL.h */,
+			);
+			name = opencl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		657B2C3C17E41F3400ADEFA9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				658DA3C417E694AE0084D180 /* EWWidgetDefaults.h in Headers */,
+				658DA3C817E6954A0084D180 /* EGProperties.h in Headers */,
+				658DA3CC17E698C60084D180 /* EGUtil.h in Headers */,
+				65D196D2189C7E5400A714A7 /* EWDataSource.h in Headers */,
+				659BC5B817E8FE4E00886667 /* EGKeyEvent.h in Headers */,
+				659BC5D517ED40BB00886667 /* EGTextDWrite.h in Headers */,
+				659BC5D617ED40BB00886667 /* EGTextGDI.h in Headers */,
+				659BC5D717ED40BB00886667 /* EGTextCairo.h in Headers */,
+				659BC5D817ED40BB00886667 /* EGTextMac.h in Headers */,
+				6528212F17F3A7E500191B16 /* EWList.h in Headers */,
+				6528213317F3C8E300191B16 /* EWToggleButton.h in Headers */,
+				6528213717F3DCD600191B16 /* EWSpinner.h in Headers */,
+				65BE12E917F51699007E18BF /* EGFont.h in Headers */,
+				654AB9F217FB962A0046667C /* EGClipboard.h in Headers */,
+				654ABA0A17FBAF330046667C /* EWSpinBox.h in Headers */,
+				654ABA0E18006CD10046667C /* EWScrollBar.h in Headers */,
+				654ABA12180070230046667C /* EWTable.h in Headers */,
+				654ABA1D1801342E0046667C /* EGGraphEdgeLabelRenderer.h in Headers */,
+				65D196CE189C7DD200A714A7 /* EWChart.h in Headers */,
+				654ABA1E1801342E0046667C /* EGGraphNodeLabelRenderer.h in Headers */,
+				65966AF018026DBA0016D872 /* EWColorPicker.h in Headers */,
+				65668761180940C700C5D7C2 /* EGObject.h in Headers */,
+				65B2458D180ED1FE007123E8 /* EGBaseObject.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		656687691809743D00C5D7C2 /* testobject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 656687701809743E00C5D7C2 /* Build configuration list for PBXNativeTarget "testobject" */;
+			buildPhases = (
+				656687661809743D00C5D7C2 /* Sources */,
+				656687671809743D00C5D7C2 /* Frameworks */,
+				656687681809743D00C5D7C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testobject;
+			productName = testobject;
+			productReference = 6566876A1809743D00C5D7C2 /* testobject */;
+			productType = "com.apple.product-type.tool";
+		};
+		657B2C3D17E41F3400ADEFA9 /* libGraphStorm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 657B2C3F17E41F3400ADEFA9 /* Build configuration list for PBXNativeTarget "libGraphStorm" */;
+			buildPhases = (
+				657B2C3A17E41F3400ADEFA9 /* Sources */,
+				657B2C3B17E41F3400ADEFA9 /* Frameworks */,
+				657B2C3C17E41F3400ADEFA9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libGraphStorm;
+			productName = libGraphStorm;
+			productReference = 657B2C3E17E41F3400ADEFA9 /* liblibGraphStorm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "libGraphStorm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 20286C29FDCF999611CA2CEA /* lwobjview */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				657B2C3D17E41F3400ADEFA9 /* libGraphStorm */,
+				656687691809743D00C5D7C2 /* testobject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		656687661809743D00C5D7C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656687731809744B00C5D7C2 /* testobject.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		657B2C3A17E41F3400ADEFA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				657B2C4217E41F4D00ADEFA9 /* EGImage.cc in Sources */,
+				657B2C4417E41F4D00ADEFA9 /* EGImageDecompressor.cc in Sources */,
+				657B2C4517E41F4D00ADEFA9 /* EGImageJPEG.cc in Sources */,
+				657B2C4617E41F4D00ADEFA9 /* EGImagePNG.cc in Sources */,
+				657B2C4717E41F4D00ADEFA9 /* EWBox.cc in Sources */,
+				657B2C4917E41F4D00ADEFA9 /* EWButton.cc in Sources */,
+				657B2C4B17E41F4D00ADEFA9 /* EWCheckBox.cc in Sources */,
+				657B2C4D17E41F4D00ADEFA9 /* EWComboBox.cc in Sources */,
+				657B2C4F17E41F4D00ADEFA9 /* EWContainer.cc in Sources */,
+				657B2C5117E41F4D00ADEFA9 /* EWContext.cc in Sources */,
+				65D196D1189C7E5400A714A7 /* EWDataSource.cc in Sources */,
+				657B2C5317E41F4D00ADEFA9 /* EWEntry.cc in Sources */,
+				657B2C5517E41F4D00ADEFA9 /* EWFrame.cc in Sources */,
+				657B2C5717E41F4D00ADEFA9 /* EWGrid.cc in Sources */,
+				657B2C5917E41F4D00ADEFA9 /* EWIcon.cc in Sources */,
+				657B2C5B17E41F4D00ADEFA9 /* EWLabel.cc in Sources */,
+				657B2C5D17E41F4D00ADEFA9 /* EWLayout.cc in Sources */,
+				657B2C5F17E41F4D00ADEFA9 /* EWProgressBar.cc in Sources */,
+				657B2C6117E41F4D00ADEFA9 /* EWSlider.cc in Sources */,
+				657B2C6317E41F4D00ADEFA9 /* EWWidget.cc in Sources */,
+				657B2C6517E41F4D00ADEFA9 /* EWWidgetRenderer.cc in Sources */,
+				657B2C6917E41F4D00ADEFA9 /* EWWidgetRendererES2.cc in Sources */,
+				657B2C6B17E41F4D00ADEFA9 /* EWWindow.cc in Sources */,
+				657B2C6F17E41F4D00ADEFA9 /* EGGraph.cc in Sources */,
+				657B2C7117E41F4D00ADEFA9 /* EGGraphData.cc in Sources */,
+				657B2C7517E41F4D00ADEFA9 /* EGGraphTest.cc in Sources */,
+				657B2C7F17E41F4D00ADEFA9 /* EGGraphLayoutFactory.cc in Sources */,
+				657B2C8E17E41F4D00ADEFA9 /* EGRenderApi.cc in Sources */,
+				65D196CD189C7DD200A714A7 /* EWChart.cc in Sources */,
+				657B2C9217E41F4D00ADEFA9 /* EGRenderApiES2.cc in Sources */,
+				657B2C9B17E41F4D00ADEFA9 /* EGTextRendererES2.cc in Sources */,
+				657B2CA017E41F4D00ADEFA9 /* EGEvent.cc in Sources */,
+				657B2CA217E41F4D00ADEFA9 /* EGMouseEvent.cc in Sources */,
+				657B2CA417E41F4D00ADEFA9 /* EG.cc in Sources */,
+				657B2CA617E41F4D00ADEFA9 /* EGCamera.cc in Sources */,
+				657B2CAC17E41F4D00ADEFA9 /* EGLight.cc in Sources */,
+				657B2CAE17E41F4D00ADEFA9 /* EGMath.cc in Sources */,
+				657B2CB017E41F4D00ADEFA9 /* EGOpenCL.cc in Sources */,
+				657B2CB217E41F4D00ADEFA9 /* EGResource.cc in Sources */,
+				657B2CB417E41F4D00ADEFA9 /* EGText.cc in Sources */,
+				657B2CB817E41F4D00ADEFA9 /* EGTrackBall.cc in Sources */,
+				657B2CBD17E41F4D00ADEFA9 /* EGZipFile.cc in Sources */,
+				657B2CC017E41F4D00ADEFA9 /* NSStubs.mm in Sources */,
+				658DA3C317E694AE0084D180 /* EWWidgetDefaults.cc in Sources */,
+				658DA3C717E6954A0084D180 /* EGProperties.cc in Sources */,
+				658DA3CB17E698C60084D180 /* EGUtil.cc in Sources */,
+				659BC5B717E8FE4E00886667 /* EGKeyEvent.cc in Sources */,
+				659BC5C217ED399C00886667 /* EGTextCairo.cc in Sources */,
+				659BC5C717ED39E900886667 /* EGTextMac.cc in Sources */,
+				659BC5CB17ED3A0400886667 /* EGTextGDI.cc in Sources */,
+				659BC5CF17ED3A2200886667 /* EGTextDWrite.cc in Sources */,
+				6528212E17F3A7E500191B16 /* EWList.cc in Sources */,
+				6528213217F3C8E300191B16 /* EWToggleButton.cc in Sources */,
+				6528213617F3DCD600191B16 /* EWSpinner.cc in Sources */,
+				65BE12E817F51699007E18BF /* EGFont.cc in Sources */,
+				654AB9F117FB962A0046667C /* EGClipboardX11.cc in Sources */,
+				654AB9F517FB96840046667C /* EGClipboardMac.mm in Sources */,
+				654AB9F917FB96A70046667C /* EGClipboardWindows.cc in Sources */,
+				654AB9FD17FB96DE0046667C /* EGClipboardIOS.mm in Sources */,
+				654ABA0117FB970C0046667C /* EGClipboardNACL.cc in Sources */,
+				654ABA0517FB97290046667C /* EGClipboardAndroid.cc in Sources */,
+				654ABA0917FBAF330046667C /* EWSpinBox.cc in Sources */,
+				654ABA0D18006CD10046667C /* EWScrollBar.cc in Sources */,
+				654ABA11180070230046667C /* EWTable.cc in Sources */,
+				65966AEF18026DBA0016D872 /* EWColorPicker.cc in Sources */,
+				65966AF318038EE10016D872 /* EGClipboardEmscripten.cc in Sources */,
+				65668762180940C700C5D7C2 /* EGObject.cc in Sources */,
+				65B2458C180ED1FE007123E8 /* EGBaseObject.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		656687711809743E00C5D7C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		656687721809743E00C5D7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		657B2C4017E41F3400ADEFA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		657B2C4117E41F3400ADEFA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C0E91ACA08A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C0E91ACB08A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		656687701809743E00C5D7C2 /* Build configuration list for PBXNativeTarget "testobject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				656687711809743E00C5D7C2 /* Debug */,
+				656687721809743E00C5D7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		657B2C3F17E41F3400ADEFA9 /* Build configuration list for PBXNativeTarget "libGraphStorm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				657B2C4017E41F3400ADEFA9 /* Debug */,
+				657B2C4117E41F3400ADEFA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "libGraphStorm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91ACA08A95435008D54AB /* Debug */,
+				C0E91ACB08A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

@@ -1,0 +1,16 @@
+MgOpenCanonicaBold.ttf
+MgOpenCanonicaBoldItalic.ttf
+MgOpenCanonicaItalic.ttf
+MgOpenCanonicaRegular.ttf
+MgOpenCosmeticaBold.ttf
+MgOpenCosmeticaBoldOblique.ttf
+MgOpenCosmeticaOblique.ttf
+MgOpenCosmeticaRegular.ttf
+MgOpenModataBold.ttf
+MgOpenModataBoldOblique.ttf
+MgOpenModataOblique.ttf
+MgOpenModataRegular.ttf
+MgOpenModernaBold.ttf
+MgOpenModernaBoldOblique.ttf
+MgOpenModernaOblique.ttf
+MgOpenModernaRegular.ttf

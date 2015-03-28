@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		657B2CE017E420A000ADEFA9 /* liblibGraphStorm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657B2CDF17E4207800ADEFA9 /* liblibGraphStorm.a */; };
+		657B2CEF17E4243400ADEFA9 /* EGGraphStormWidgets.cc in Sources */ = {isa = PBXBuildFile; fileRef = 657B2CEE17E4243400ADEFA9 /* EGGraphStormWidgets.cc */; };
+		6599EA4D17797FD900B92AC0 /* cl.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 65425B4615CA0D9D007E9BFA /* cl.bundle */; };
+		6599EA4F17797FD900B92AC0 /* gles2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6598C05C1762F9A5004B7382 /* gles2.bundle */; };
+		6599EA5017797FD900B92AC0 /* metadata.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6598C0631762F9F4004B7382 /* metadata.bundle */; };
+		6599EA6017797FD900B92AC0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65988139132CE2030095EF2C /* SystemConfiguration.framework */; };
+		6599EA6117797FD900B92AC0 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654D02EF0F19E34E000BE1D2 /* GLUT.framework */; };
+		6599EA6217797FD900B92AC0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654D02F00F19E34E000BE1D2 /* OpenGL.framework */; };
+		6599EA6317797FD900B92AC0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 654D03A60F1A0172000BE1D2 /* CoreFoundation.framework */; };
+		6599EA6417797FD900B92AC0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ECC2F10F3144FA005FF448 /* Cocoa.framework */; };
+		6599EA6517797FD900B92AC0 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65216D26175C0A3C00EB388F /* OpenCL.framework */; };
+		6599EA6817797FD900B92AC0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6598813D132CE2190095EF2C /* libz.dylib */; };
+		659BC5BF17EAAD0500886667 /* EGGraphStormWidgetsGLUT.cc in Sources */ = {isa = PBXBuildFile; fileRef = 659BC5BD17EAAD0500886667 /* EGGraphStormWidgetsGLUT.cc */; };
+		65A02E8617DC8098005C9E3D /* ui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 65A02E8517DC8098005C9E3D /* ui.bundle */; };
+		65BE12EB17F5A97D007E18BF /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE12EA17F5A97D007E18BF /* ApplicationServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6575D73C196D4DC7005459CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 657B2CDA17E4207800ADEFA9 /* libGraphStorm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6566876A1809743D00C5D7C2;
+			remoteInfo = testobject;
+		};
+		657B2CDE17E4207800ADEFA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 657B2CDA17E4207800ADEFA9 /* libGraphStorm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 657B2C3E17E41F3400ADEFA9;
+			remoteInfo = libGraphStorm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6599EA6917797FD900B92AC0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = AppFonts;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		65184FD41162CFCD00616E4F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		65184FD51162CFCD00616E4F /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		65216D26175C0A3C00EB388F /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		65425B4615CA0D9D007E9BFA /* cl.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = cl.bundle; path = ../Resources/cl.bundle; sourceTree = "<group>"; };
+		654D02EF0F19E34E000BE1D2 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		654D02F00F19E34E000BE1D2 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		654D03A60F1A0172000BE1D2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		6575D73E196D4F5B005459CF /* GraphStormWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GraphStormWidgets.entitlements; sourceTree = "<group>"; };
+		657B2CDA17E4207800ADEFA9 /* libGraphStorm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = libGraphStorm.xcodeproj; sourceTree = "<group>"; };
+		657B2CED17E4243400ADEFA9 /* EGGraphStormWidgets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphStormWidgets.h; path = ../src/EGGraphStormWidgets.h; sourceTree = "<group>"; };
+		657B2CEE17E4243400ADEFA9 /* EGGraphStormWidgets.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphStormWidgets.cc; path = ../src/EGGraphStormWidgets.cc; sourceTree = "<group>"; };
+		65988139132CE2030095EF2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		6598813D132CE2190095EF2C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = /usr/lib/libz.dylib; sourceTree = "<absolute>"; };
+		6598C05C1762F9A5004B7382 /* gles2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = gles2.bundle; path = ../Resources/gles2.bundle; sourceTree = "<group>"; };
+		6598C0631762F9F4004B7382 /* metadata.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = metadata.bundle; path = ../Resources/metadata.bundle; sourceTree = "<group>"; };
+		6599EA6D17797FD900B92AC0 /* GraphStormWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphStormWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		659BC5B917EAACC500886667 /* EGGraphStormWidgetsNACL.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphStormWidgetsNACL.cc; path = ../src/EGGraphStormWidgetsNACL.cc; sourceTree = "<group>"; };
+		659BC5BA17EAACC500886667 /* EGGraphStormWidgetsNACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphStormWidgetsNACL.h; path = ../src/EGGraphStormWidgetsNACL.h; sourceTree = "<group>"; };
+		659BC5BD17EAAD0500886667 /* EGGraphStormWidgetsGLUT.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EGGraphStormWidgetsGLUT.cc; path = ../src/EGGraphStormWidgetsGLUT.cc; sourceTree = "<group>"; };
+		659BC5BE17EAAD0500886667 /* EGGraphStormWidgetsGLUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGGraphStormWidgetsGLUT.h; path = ../src/EGGraphStormWidgetsGLUT.h; sourceTree = "<group>"; };
+		65A02E8517DC8098005C9E3D /* ui.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ui.bundle; path = ../Resources/ui.bundle; sourceTree = "<group>"; };
+		65BE12EA17F5A97D007E18BF /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		65ECC2F10F3144FA005FF448 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6599EA5917797FD900B92AC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				657B2CE017E420A000ADEFA9 /* liblibGraphStorm.a in Frameworks */,
+				65BE12EB17F5A97D007E18BF /* ApplicationServices.framework in Frameworks */,
+				6599EA6017797FD900B92AC0 /* SystemConfiguration.framework in Frameworks */,
+				6599EA6117797FD900B92AC0 /* GLUT.framework in Frameworks */,
+				6599EA6217797FD900B92AC0 /* OpenGL.framework in Frameworks */,
+				6599EA6317797FD900B92AC0 /* CoreFoundation.framework in Frameworks */,
+				6599EA6417797FD900B92AC0 /* Cocoa.framework in Frameworks */,
+				6599EA6517797FD900B92AC0 /* OpenCL.framework in Frameworks */,
+				6599EA6817797FD900B92AC0 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6599EA6D17797FD900B92AC0 /* GraphStormWidgets.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* lwobjview */ = {
+			isa = PBXGroup;
+			children = (
+				6575D73E196D4F5B005459CF /* GraphStormWidgets.entitlements */,
+				657B2CDA17E4207800ADEFA9 /* libGraphStorm.xcodeproj */,
+				652A546415DC50A600AF9D18 /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = lwobjview;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65A02E8517DC8098005C9E3D /* ui.bundle */,
+				6598C0631762F9F4004B7382 /* metadata.bundle */,
+				6598C05C1762F9A5004B7382 /* gles2.bundle */,
+				65425B4615CA0D9D007E9BFA /* cl.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6598813D132CE2190095EF2C /* libz.dylib */,
+				65216D26175C0A3C00EB388F /* OpenCL.framework */,
+				65184FD41162CFCD00616E4F /* OpenGL.framework */,
+				65184FD51162CFCD00616E4F /* AGL.framework */,
+				65ECC2F10F3144FA005FF448 /* Cocoa.framework */,
+				654D03A60F1A0172000BE1D2 /* CoreFoundation.framework */,
+				65BE12EA17F5A97D007E18BF /* ApplicationServices.framework */,
+				65988139132CE2030095EF2C /* SystemConfiguration.framework */,
+				654D02EF0F19E34E000BE1D2 /* GLUT.framework */,
+				654D02F00F19E34E000BE1D2 /* OpenGL.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		652A546415DC50A600AF9D18 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				65A06E311791ECC700DEF3D5 /* app */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		657B2CDB17E4207800ADEFA9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				657B2CDF17E4207800ADEFA9 /* liblibGraphStorm.a */,
+				6575D73D196D4DC7005459CF /* testobject */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65A06E311791ECC700DEF3D5 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				657B2CED17E4243400ADEFA9 /* EGGraphStormWidgets.h */,
+				657B2CEE17E4243400ADEFA9 /* EGGraphStormWidgets.cc */,
+				659BC5BD17EAAD0500886667 /* EGGraphStormWidgetsGLUT.cc */,
+				659BC5BE17EAAD0500886667 /* EGGraphStormWidgetsGLUT.h */,
+				659BC5B917EAACC500886667 /* EGGraphStormWidgetsNACL.cc */,
+				659BC5BA17EAACC500886667 /* EGGraphStormWidgetsNACL.h */,
+			);
+			name = app;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6599EA3F17797FD900B92AC0 /* GraphStormWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6599EA6A17797FD900B92AC0 /* Build configuration list for PBXNativeTarget "GraphStormWidgets" */;
+			buildPhases = (
+				6599EA4C17797FD900B92AC0 /* Resources */,
+				6599EA5117797FD900B92AC0 /* Sources */,
+				6599EA5917797FD900B92AC0 /* Frameworks */,
+				6599EA6917797FD900B92AC0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraphStormWidgets;
+			productInstallPath = "$(HOME)/Applications";
+			productName = lwobjview;
+			productReference = 6599EA6D17797FD900B92AC0 /* GraphStormWidgets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					6599EA3F17797FD900B92AC0 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "GraphStormWidgets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 20286C29FDCF999611CA2CEA /* lwobjview */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 657B2CDB17E4207800ADEFA9 /* Products */;
+					ProjectRef = 657B2CDA17E4207800ADEFA9 /* libGraphStorm.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6599EA3F17797FD900B92AC0 /* GraphStormWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6575D73D196D4DC7005459CF /* testobject */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = testobject;
+			remoteRef = 6575D73C196D4DC7005459CF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		657B2CDF17E4207800ADEFA9 /* liblibGraphStorm.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibGraphStorm.a;
+			remoteRef = 657B2CDE17E4207800ADEFA9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6599EA4C17797FD900B92AC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6599EA4D17797FD900B92AC0 /* cl.bundle in Resources */,
+				6599EA4F17797FD900B92AC0 /* gles2.bundle in Resources */,
+				6599EA5017797FD900B92AC0 /* metadata.bundle in Resources */,
+				65A02E8617DC8098005C9E3D /* ui.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6599EA5117797FD900B92AC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				657B2CEF17E4243400ADEFA9 /* EGGraphStormWidgets.cc in Sources */,
+				659BC5BF17EAAD0500886667 /* EGGraphStormWidgetsGLUT.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6599EA6B17797FD900B92AC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GraphStormWidgets.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "GraphStormWidgets-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = GraphStormWidgets;
+				SEPARATE_SYMBOL_EDIT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		6599EA6C17797FD900B92AC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GraphStormWidgets.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "GraphStormWidgets-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = GraphStormWidgets;
+				SEPARATE_SYMBOL_EDIT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		C0E91ACA08A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C0E91ACB08A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6599EA6A17797FD900B92AC0 /* Build configuration list for PBXNativeTarget "GraphStormWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6599EA6B17797FD900B92AC0 /* Debug */,
+				6599EA6C17797FD900B92AC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "GraphStormWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91ACA08A95435008D54AB /* Debug */,
+				C0E91ACB08A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

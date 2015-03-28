@@ -1,0 +1,5 @@
+# Updated by fix_deps.py
+pnacl/Release/dict_pnacl.o: dict.c dict-list.h memalloc.h
+dict.c:
+dict-list.h:
+memalloc.h:

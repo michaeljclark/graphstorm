@@ -1,0 +1,19 @@
+# Updated by fix_deps.py
+pnacl/Release/render_pnacl.o: render.c glu.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2platform.h \
+  /opt/nacl_sdk/pepper_30/include/KHR/khrplatform.h \
+  /opt/nacl_sdk/pepper_30/include/GLES2/gl2ext.h mesh.h tess.h dict.h \
+  priorityq.h priorityq-heap.h render.h
+render.c:
+glu.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2platform.h:
+/opt/nacl_sdk/pepper_30/include/KHR/khrplatform.h:
+/opt/nacl_sdk/pepper_30/include/GLES2/gl2ext.h:
+mesh.h:
+tess.h:
+dict.h:
+priorityq.h:
+priorityq-heap.h:
+render.h:

@@ -1,0 +1,4 @@
+# Updated by fix_deps.py
+pnacl/Release/memalloc_pnacl.o: memalloc.c memalloc.h
+memalloc.c:
+memalloc.h:
