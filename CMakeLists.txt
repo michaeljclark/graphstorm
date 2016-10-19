@@ -7,7 +7,7 @@ include_directories(src)
 #
 # Linux libraries and headers
 #
-IF (LINUX AND NOT (EMSCRIPTEN OR NACL OR WIN32))
+IF (UNIX)
 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -std=c99")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
 find_library (OPENCL_LIBRARY OpenCL)
@@ -77,7 +77,7 @@ ENDIF()
 #
 # Bundled third party libraries on Emscripten, Native Client or Windows
 #
-IF (EMSCRIPTEN OR NACL OR WIN32)
+IF (LINUX OR WIN32)
 add_subdirectory("third_party/tess" "libs/tess")
 add_subdirectory("third_party/zlib" "libs/zlib")
 add_subdirectory("third_party/jpeg" "libs/jpeg")
@@ -119,10 +119,6 @@ set (graphlib_SOURCES ${graphlib_SOURCES} src/EGOpenCL.cc)
 set (graphlib_HEADERS ${graphlib_HEADERS} src/EGOpenCL.h src/EGGraphEdgeRendererES2CL.h src/EGGraphNodeRendererES2CL.h)
 ENDIF ()
 
-IF (NACL)
-set (graphlib_SOURCES ${graphlib_SOURCES} src/EGPlatformNACL.cc)
-ENDIF ()
-
 add_library (graphlib ${graphlib_SOURCES})
 
 #
@@ -151,26 +147,6 @@ FOREACH(_file ${RESOURCE_BUNDLES})
 ENDFOREACH(_file)
 ENDIF ()
 
-#
-# Native Client Targets
-#
-IF (NACL)
-  set (graphstorm_SOURCES src/EGGraphStormNACL.cc)
-  set (graphstorm_HEADERS src/EGGraphStormNACL.h)
-  add_executable (graphstorm.pexe ${graphstorm_SOURCES})
-  target_link_libraries (graphstorm.pexe graphapp graphlib nacl_io ppapi_gles2 ppapi harfbuzz cairo pixman freetype png jpeg tess zlib)
-  add_custom_command(TARGET graphstorm.pexe POST_BUILD
-                     COMMAND ${PROJECT_SOURCE_DIR}/scripts/pnacl-translate-all.sh graphstorm ${PNACL_TRANSLATE} ${PNACL_FINALIZE} 
-                     COMMENT "Finalizing graphstorm")
-
-  set (graphstormwidgets_SOURCES src/EGGraphStormWidgets.cc src/EGGraphStormWidgetsNACL.cc)
-  set (graphstormwidgets_HEADERS src/EGGraphStormWidgets.h src/EGGraphStormWidgetsNACL.h)
-  add_executable (graphstormwidgets.pexe ${graphstormwidgets_SOURCES})
-  target_link_libraries (graphstormwidgets.pexe graphlib nacl_io ppapi_gles2 ppapi harfbuzz cairo pixman freetype png jpeg tess zlib)
-  add_custom_command(TARGET graphstormwidgets.pexe POST_BUILD
-                     COMMAND ${PROJECT_SOURCE_DIR}/scripts/pnacl-translate-all.sh graphstormwidgets ${PNACL_TRANSLATE} ${PNACL_FINALIZE} 
-                     COMMENT "Finalizing graphstormwidgets")
-ENDIF ()
 
 #
 # Emscripten Targets
@@ -194,7 +170,7 @@ ENDIF ()
 #
 # OS X, Windows and Linux Targets
 #
-IF ((APPLE OR WIN32 OR UNIX) AND NOT (NACL OR EMSCRIPTEN))
+IF (APPLE OR WIN32 OR UNIX)
 
   # gswidgets
   set (gswidgets_SOURCES src/EGGraphStormWidgets.cc src/EGGraphStormWidgetsGLUT.cc)
