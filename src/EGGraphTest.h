@@ -137,7 +137,10 @@ struct EGGraphTestImpl
     static EGGraphTestGrid            grid128x128;
     static EGGraphTestTorus           torus16x16;
     static EGGraphTestTorus           torus32x32;
+    static EGGraphTestTorus           torus32x64;
     static EGGraphTestTorus           torus64x64;
+    static EGGraphTestTorus           torus32x128;
+    static EGGraphTestTorus           torus64x128;
     static EGGraphTestTorus           torus128x128;
     static EGGraphTestResource        graphResource;
 };

@@ -34,7 +34,10 @@ EGGraphTestGrid            EGGraphTestImpl::grid64x64(64, 64);
 EGGraphTestGrid            EGGraphTestImpl::grid128x128(128, 128);
 EGGraphTestTorus           EGGraphTestImpl::torus16x16(16, 16);
 EGGraphTestTorus           EGGraphTestImpl::torus32x32(32, 32);
+EGGraphTestTorus           EGGraphTestImpl::torus32x64(32, 64);
 EGGraphTestTorus           EGGraphTestImpl::torus64x64(64, 64);
+EGGraphTestTorus           EGGraphTestImpl::torus32x128(32, 128);
+EGGraphTestTorus           EGGraphTestImpl::torus64x128(64, 128);
 EGGraphTestTorus           EGGraphTestImpl::torus128x128(128, 128);
 EGGraphTestResource        EGGraphTestImpl::graphResource(EGResource::getResource("Resources/metadata.bundle/graph.txt"));
 
@@ -62,7 +65,10 @@ EGGraphTest* EGGraphTestImpl::testgraphs[] = {
     &EGGraphTestImpl::grid128x128,
     &EGGraphTestImpl::torus16x16,
     &EGGraphTestImpl::torus32x32,
+    &EGGraphTestImpl::torus32x64,
     &EGGraphTestImpl::torus64x64,
+    &EGGraphTestImpl::torus32x128,
+    &EGGraphTestImpl::torus64x128,
     &EGGraphTestImpl::torus128x128,
     &EGGraphTestImpl::graphResource,
     NULL
