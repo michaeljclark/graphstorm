@@ -30,34 +30,6 @@
 
 /* very simple tests at the moment */
 
-#include <algorithm>
-
-#if defined( _LIBCPP_VERSION )
-#define __EG_USE_CXX11_INCLUDES__ 1
-#else
-#if defined(__GNUC__)
-#if __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ < 2)
-#error "requires g++ >= 4.2"
-#elif __GNUC__ < 4 || (__GNUC__ == 4 && __GNUC_MINOR__ <= 5)
-#define __EG_USE_TR1_INCLUDES__ 1
-#define __EG_USE_TR1_NAMESPACE__ 1
-#else
-#define __EG_USE_CXX11_INCLUDES__ 1
-#endif
-#endif
-#endif
-
-#if defined(_MSC_VER)
-#if _MSC_VER < 1500
-#error "requires Visual Studio >= 2008"
-#else
-#define __EG_USE_CXX11_INCLUDES__ 1
-#if _MSC_VER < 1600
-#define __EG_USE_TR1_NAMESPACE__ 1
-#endif
-#endif
-#endif
-
 #if defined (_WIN32)
 #include <Windows.h>
 #define fileno _fileno
@@ -112,41 +84,13 @@
 #include <fstream>
 #include <iomanip>
 
-#if defined (__EG_USE_CXX11_INCLUDES__)
 #include <utility>
 #include <memory>
 #include <unordered_set>
 #include <unordered_map>
 #include <functional>
 #include <type_traits>
-#endif
-
-#if defined (__EG_USE_TR1_INCLUDES__)
-#include <tr1/utility>
-#include <tr1/memory>
-#include <tr1/unordered_set>
-#include <tr1/unordered_map>
-#include <tr1/functional>
-#include <tr1/type_traits>
-#endif
-
-#if defined (__EG_USE_TR1_NAMESPACE__)
-#define __EG_TR1_COMPAT_NAMESPACE_BEGIN__ namespace tr1 {
-#define __EG_TR1_COMPAT_NAMESPACE_END__ }
-#else
-#define __EG_TR1_COMPAT_NAMESPACE_BEGIN__
-#define __EG_TR1_COMPAT_NAMESPACE_END__
-#endif
-
-#if defined (__EG_USE_TR1_NAMESPACE__)
-#define function tr1::function
-#define weak_ptr tr1::weak_ptr
-#define shared_ptr tr1::shared_ptr
-#define enable_shared_from_this tr1::enable_shared_from_this
-#define unordered_set tr1::unordered_set
-#define make_shared tr1::make_shared
-//#define forward tr1::forward
-#endif
+#include <algorithm>
 
 #if !defined (PATH_MAX)
 #define PATH_MAX FILENAME_MAX

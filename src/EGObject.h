@@ -132,19 +132,6 @@ struct EGEmitterConnection
 typedef std::list<EGEmitterConnection> EGEmitterConnectionList;
 
 
-/* TR1 Helper Macros */
-
-#ifdef __EG_USE_TR1_NAMESPACE__
-#define remove_const tr1::remove_const
-#define remove_extent tr1::remove_extent
-#define remove_pointer tr1::remove_pointer
-#define is_const tr1::is_const
-#define is_array tr1::is_array
-#define is_pointer tr1::is_pointer
-#define rank tr1::rank
-#define extent tr1::extent
-#endif
-
 template <typename A> inline size_t array_extent() { return std::is_array<A>::value ? std::extent<A,0>::value : 0; }
 
 
