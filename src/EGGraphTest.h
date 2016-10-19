@@ -75,10 +75,23 @@ struct EGGraphTestLoopStar : public EGGraphTest
 
 struct EGGraphTestGrid : public EGGraphTest
 {
-    EGint gridX;
-    EGint gridY;
+    EGint X;
+    EGint Y;
     
-    EGGraphTestGrid(EGint gridX, EGint gridY);
+    EGGraphTestGrid(EGint X, EGint Y);
+    
+    void populate(EGGraphPtr graph);
+};
+
+
+/* EGGraphTestTorus */
+
+struct EGGraphTestTorus : public EGGraphTest
+{
+    EGint X;
+    EGint Y;
+    
+    EGGraphTestTorus(EGint X, EGint Y);
     
     void populate(EGGraphPtr graph);
 };
@@ -122,6 +135,10 @@ struct EGGraphTestImpl
     static EGGraphTestGrid            grid32x32;
     static EGGraphTestGrid            grid64x64;
     static EGGraphTestGrid            grid128x128;
+    static EGGraphTestTorus           torus16x16;
+    static EGGraphTestTorus           torus32x32;
+    static EGGraphTestTorus           torus64x64;
+    static EGGraphTestTorus           torus128x128;
     static EGGraphTestResource        graphResource;
 };
 

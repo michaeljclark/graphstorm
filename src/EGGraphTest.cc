@@ -32,6 +32,10 @@ EGGraphTestGrid            EGGraphTestImpl::grid16x16(16, 16);
 EGGraphTestGrid            EGGraphTestImpl::grid32x32(32, 32);
 EGGraphTestGrid            EGGraphTestImpl::grid64x64(64, 64);
 EGGraphTestGrid            EGGraphTestImpl::grid128x128(128, 128);
+EGGraphTestTorus           EGGraphTestImpl::torus16x16(16, 16);
+EGGraphTestTorus           EGGraphTestImpl::torus32x32(32, 32);
+EGGraphTestTorus           EGGraphTestImpl::torus64x64(64, 64);
+EGGraphTestTorus           EGGraphTestImpl::torus128x128(128, 128);
 EGGraphTestResource        EGGraphTestImpl::graphResource(EGResource::getResource("Resources/metadata.bundle/graph.txt"));
 
 EGGraphTest* EGGraphTestImpl::testgraphs[] = {
@@ -56,6 +60,10 @@ EGGraphTest* EGGraphTestImpl::testgraphs[] = {
     &EGGraphTestImpl::grid32x32,
     &EGGraphTestImpl::grid64x64,
     &EGGraphTestImpl::grid128x128,
+    &EGGraphTestImpl::torus16x16,
+    &EGGraphTestImpl::torus32x32,
+    &EGGraphTestImpl::torus64x64,
+    &EGGraphTestImpl::torus128x128,
     &EGGraphTestImpl::graphResource,
     NULL
 };
@@ -208,10 +216,10 @@ void EGGraphTestLoopStar::populate(EGGraphPtr graph)
 
 /* EGGraphTestGrid */
 
-EGGraphTestGrid::EGGraphTestGrid(EGint gridX, EGint gridY) : gridX(gridX), gridY(gridY)
+EGGraphTestGrid::EGGraphTestGrid(EGint X, EGint Y) : X(X), Y(Y)
 {
     std::stringstream ss;
-    ss << "Grid " << gridX << "x" << gridY;
+    ss << "Grid " << X << "x" << Y;
     name = ss.str();
 }
 
@@ -220,29 +228,72 @@ void EGGraphTestGrid::populate(EGGraphPtr graph)
     EGGraphNode ***grid;
     
     // create temporary grid array
-    grid = new EGGraphNode**[gridX];
-    for (EGint x = 0; x < gridX; x++) {
-        grid[x] = new EGGraphNode*[gridY];
+    grid = new EGGraphNode**[X];
+    for (EGint x = 0; x < X; x++) {
+        grid[x] = new EGGraphNode*[Y];
     }
     
     // initialize all values to infinity
-    for (EGint x = 0; x < gridX; x++) {
-        for (EGint y = 0; y < gridY; y++) {
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y; y++) {
             std::stringstream ss;
             ss << (x+1) << "-" << (y+1);;
             grid[x][y] = new EGGraphNode(ss.str());
             graph->addNode(grid[x][y]);
         }
     }
-    for (EGint x = 0; x < gridX; x++) {
-        for (EGint y = 0; y < gridY; y++) {
-            if (x != gridX - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x + 1][y]));
-            if (y != gridY - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x][y + 1]));
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y; y++) {
+            if (x != X - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x + 1][y]));
+            if (y != Y - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x][y + 1]));
         }
     }
     
     // delete temporary grid array
-    for (EGint x = 0; x < gridX; x++) {
+    for (EGint x = 0; x < X; x++) {
+        delete [] grid[x];
+    }
+    delete [] grid;
+}
+
+
+/* EGGraphTestTorus */
+
+EGGraphTestTorus::EGGraphTestTorus(EGint X, EGint Y) : X(X), Y(Y)
+{
+    std::stringstream ss;
+    ss << "Torus " << X << "x" << Y;
+    name = ss.str();
+}
+
+void EGGraphTestTorus::populate(EGGraphPtr graph)
+{
+    EGGraphNode ***grid;
+    
+    // create temporary torus array
+    grid = new EGGraphNode**[X];
+    for (EGint x = 0; x < X; x++) {
+        grid[x] = new EGGraphNode*[Y];
+    }
+    
+    // initialize all values to infinity
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y; y++) {
+            std::stringstream ss;
+            ss << (x+1) << "-" << (y+1);;
+            grid[x][y] = new EGGraphNode(ss.str());
+            graph->addNode(grid[x][y]);
+        }
+    }
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y; y++) {
+            graph->addEdge(new EGGraphEdge(grid[x][y], grid[x != X - 1 ? x + 1 : 0][y]));
+            graph->addEdge(new EGGraphEdge(grid[x][y], grid[x][y != Y - 1 ? y + 1 : 0]));
+        }
+    }
+    
+    // delete temporary grid array
+    for (EGint x = 0; x < X; x++) {
         delete [] grid[x];
     }
     delete [] grid;
