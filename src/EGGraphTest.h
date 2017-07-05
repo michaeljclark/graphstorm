@@ -84,6 +84,19 @@ struct EGGraphTestGrid : public EGGraphTest
 };
 
 
+/* EGGraphTestTube */
+
+struct EGGraphTestTube : public EGGraphTest
+{
+    EGint X;
+    EGint Y;
+    
+    EGGraphTestTube(EGint X, EGint Y);
+    
+    void populate(EGGraphPtr graph);
+};
+
+
 /* EGGraphTestTorus */
 
 struct EGGraphTestTorus : public EGGraphTest
@@ -135,13 +148,24 @@ struct EGGraphTestImpl
     static EGGraphTestGrid            grid32x32;
     static EGGraphTestGrid            grid64x64;
     static EGGraphTestGrid            grid128x128;
-    static EGGraphTestTorus           torus16x16;
-    static EGGraphTestTorus           torus32x32;
+    static EGGraphTestTube            tube16x32;
+    static EGGraphTestTube            tube16x64;
+    static EGGraphTestTube            tube16x128;
+    static EGGraphTestTube            tube32x64;
+    static EGGraphTestTube            tube32x128;
+    static EGGraphTestTube            tube32x256;
+    static EGGraphTestTube            tube64x128;
+    static EGGraphTestTube            tube64x256;
+    static EGGraphTestTube            tube64x512;
+    static EGGraphTestTorus           torus16x32;
+    static EGGraphTestTorus           torus16x64;
+    static EGGraphTestTorus           torus16x128;
     static EGGraphTestTorus           torus32x64;
-    static EGGraphTestTorus           torus64x64;
     static EGGraphTestTorus           torus32x128;
+    static EGGraphTestTorus           torus32x256;
     static EGGraphTestTorus           torus64x128;
-    static EGGraphTestTorus           torus128x128;
+    static EGGraphTestTorus           torus64x256;
+    static EGGraphTestTorus           torus64x512;
     static EGGraphTestResource        graphResource;
 };
 

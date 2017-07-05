@@ -32,13 +32,24 @@ EGGraphTestGrid            EGGraphTestImpl::grid16x16(16, 16);
 EGGraphTestGrid            EGGraphTestImpl::grid32x32(32, 32);
 EGGraphTestGrid            EGGraphTestImpl::grid64x64(64, 64);
 EGGraphTestGrid            EGGraphTestImpl::grid128x128(128, 128);
-EGGraphTestTorus           EGGraphTestImpl::torus16x16(16, 16);
-EGGraphTestTorus           EGGraphTestImpl::torus32x32(32, 32);
+EGGraphTestTube            EGGraphTestImpl::tube16x32(16, 32);
+EGGraphTestTube            EGGraphTestImpl::tube16x64(16, 64);
+EGGraphTestTube            EGGraphTestImpl::tube16x128(16, 128);
+EGGraphTestTube            EGGraphTestImpl::tube32x64(32, 64);
+EGGraphTestTube            EGGraphTestImpl::tube32x128(32, 128);
+EGGraphTestTube            EGGraphTestImpl::tube32x256(32, 256);
+EGGraphTestTube            EGGraphTestImpl::tube64x128(64, 128);
+EGGraphTestTube            EGGraphTestImpl::tube64x256(64, 256);
+EGGraphTestTube            EGGraphTestImpl::tube64x512(64, 512);
+EGGraphTestTorus           EGGraphTestImpl::torus16x32(16, 32);
+EGGraphTestTorus           EGGraphTestImpl::torus16x64(16, 64);
+EGGraphTestTorus           EGGraphTestImpl::torus16x128(16, 128);
 EGGraphTestTorus           EGGraphTestImpl::torus32x64(32, 64);
-EGGraphTestTorus           EGGraphTestImpl::torus64x64(64, 64);
 EGGraphTestTorus           EGGraphTestImpl::torus32x128(32, 128);
+EGGraphTestTorus           EGGraphTestImpl::torus32x256(32, 256);
 EGGraphTestTorus           EGGraphTestImpl::torus64x128(64, 128);
-EGGraphTestTorus           EGGraphTestImpl::torus128x128(128, 128);
+EGGraphTestTorus           EGGraphTestImpl::torus64x256(64, 256);
+EGGraphTestTorus           EGGraphTestImpl::torus64x512(64, 512);
 EGGraphTestResource        EGGraphTestImpl::graphResource(EGResource::getResource("Resources/metadata.bundle/graph.txt"));
 
 EGGraphTest* EGGraphTestImpl::testgraphs[] = {
@@ -63,13 +74,25 @@ EGGraphTest* EGGraphTestImpl::testgraphs[] = {
     &EGGraphTestImpl::grid32x32,
     &EGGraphTestImpl::grid64x64,
     &EGGraphTestImpl::grid128x128,
-    &EGGraphTestImpl::torus16x16,
-    &EGGraphTestImpl::torus32x32,
+    &EGGraphTestImpl::tube16x128,
+    &EGGraphTestImpl::tube16x32,
+    &EGGraphTestImpl::tube16x64,
+    &EGGraphTestImpl::tube16x128,
+    &EGGraphTestImpl::tube32x64,
+    &EGGraphTestImpl::tube32x128,
+    &EGGraphTestImpl::tube32x256,
+    &EGGraphTestImpl::tube64x128,
+    &EGGraphTestImpl::tube64x256,
+    &EGGraphTestImpl::tube64x512,
+    &EGGraphTestImpl::torus16x32,
+    &EGGraphTestImpl::torus16x64,
+    &EGGraphTestImpl::torus16x128,
     &EGGraphTestImpl::torus32x64,
-    &EGGraphTestImpl::torus64x64,
     &EGGraphTestImpl::torus32x128,
+    &EGGraphTestImpl::torus32x256,
     &EGGraphTestImpl::torus64x128,
-    &EGGraphTestImpl::torus128x128,
+    &EGGraphTestImpl::torus64x256,
+    &EGGraphTestImpl::torus64x512,
     &EGGraphTestImpl::graphResource,
     NULL
 };
@@ -252,6 +275,49 @@ void EGGraphTestGrid::populate(EGGraphPtr graph)
         for (EGint y = 0; y < Y; y++) {
             if (x != X - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x + 1][y]));
             if (y != Y - 1) graph->addEdge(new EGGraphEdge(grid[x][y], grid[x][y + 1]));
+        }
+    }
+    
+    // delete temporary grid array
+    for (EGint x = 0; x < X; x++) {
+        delete [] grid[x];
+    }
+    delete [] grid;
+}
+
+
+/* EGGraphTestTube */
+
+EGGraphTestTube::EGGraphTestTube(EGint X, EGint Y) : X(X), Y(Y)
+{
+    std::stringstream ss;
+    ss << "Tube " << X << "x" << Y;
+    name = ss.str();
+}
+
+void EGGraphTestTube::populate(EGGraphPtr graph)
+{
+    EGGraphNode ***grid;
+    
+    // create temporary torus array
+    grid = new EGGraphNode**[X];
+    for (EGint x = 0; x < X; x++) {
+        grid[x] = new EGGraphNode*[Y];
+    }
+    
+    // initialize all values to infinity
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y; y++) {
+            std::stringstream ss;
+            ss << (x+1) << "-" << (y+1);;
+            grid[x][y] = new EGGraphNode(ss.str());
+            graph->addNode(grid[x][y]);
+        }
+    }
+    for (EGint x = 0; x < X; x++) {
+        for (EGint y = 0; y < Y - 1; y++) {
+            graph->addEdge(new EGGraphEdge(grid[x][y], grid[x != X - 1 ? x + 1 : 0][y]));
+            graph->addEdge(new EGGraphEdge(grid[x][y], grid[x][y + 1]));
         }
     }
     
