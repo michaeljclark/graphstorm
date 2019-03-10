@@ -1,11 +1,6 @@
-/*
- *  EGSpringLayoutCL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGSpringLayoutCL_H
-#define EGSpringLayoutCL_H
+#pragma once
 
 // enable to stop and dump tree after first iteration
 #define TREE_DEBUG 1
@@ -1265,5 +1260,3 @@ class EGSpringLayoutBarnesHut3DCL : public EGSpringLayoutCL<VecType,NodePairType
 public:
     EGSpringLayoutBarnesHut3DCL(EGSpringLayoutSettings &s) : EGSpringLayoutCL<VecType,NodePairType,ScalarType,true,true,PointTreeType,cl_float4,cl_float>(s) {}
 };
-
-#endif

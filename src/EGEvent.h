@@ -1,11 +1,6 @@
-/*
- *  EGEvent.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGEVENT_H_
-#define EGEVENT_H_
+#pragma once
 
 #include <list>
 #include <string>
@@ -146,5 +141,3 @@ public:
     static EGbool postEvent(EGEvent* evt);
     
 };
-
-#endif /* EGEVENT_H_ */

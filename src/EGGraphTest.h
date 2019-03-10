@@ -1,12 +1,6 @@
-/*
- *  EGGraphTest.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphTest_H
-#define EGGraphTest_H
-
+#pragma once
 
 /* EGGraphTest */
 
@@ -168,5 +162,3 @@ struct EGGraphTestImpl
     static EGGraphTestTorus           torus64x512;
     static EGGraphTestResource        graphResource;
 };
-
-#endif

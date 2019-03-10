@@ -1,11 +1,6 @@
-//
-//  EGUtil.h
-//
-//  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
-//
+// See LICENSE for license details.
 
-#ifndef EGUTIL_H_
-#define EGUTIL_H_
+#pragma once
 
 #include "EGColor.h"
 
@@ -65,5 +60,3 @@ public:
     static int parseISO8601Date(tm *dt, const char *date_str);
     static std::string formatISO8601Date(tm *dt);
 };
-
-#endif

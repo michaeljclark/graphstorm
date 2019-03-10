@@ -1,11 +1,6 @@
-/*
- *  EWWidget.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWWidget_H
-#define EWWidget_H
+#pragma once
 
 #include "EG.h"
 #include "EGObject.h"
@@ -206,5 +201,3 @@ public:
     virtual EGbool mouseEvent(EGMouseEvent *evt);
     virtual EGbool keyEvent(EGKeyEvent *evt);
 };
-
-#endif

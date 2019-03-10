@@ -1,11 +1,6 @@
-/*
- *  EG.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EG_H
-#define EG_H
+#pragma once
 
 // emscripten
 #if EMSCRIPTEN
@@ -188,5 +183,3 @@ if (EG::profile) { \
     timer.stop(); \
     EG::logDebug(EG::profile_end_fmt, __func__, name, timer.getUSec()); \
 }
-
-#endif

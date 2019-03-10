@@ -1,11 +1,6 @@
-/*
- *  EGKeyEvent.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGKeyEvent_H
-#define EGKeyEvent_H
+#pragma once
 
 /* EGKeyEvent */
 
@@ -48,5 +43,3 @@ public:
     
     std::string toString();
 };
-
-#endif

@@ -1,8 +1,6 @@
+// See LICENSE for license details.
+
 /*
- *  EGTrackBall.cc
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- *
  *  derived from Apple sample code: trackball.c
  *
  *  Created by daves on Wed May 03 2000.

@@ -1,12 +1,6 @@
-/*
- *  EGGraphModifier.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphModifier_H
-#define EGGraphModifier_H
-
+#pragma once
 
 struct EGGraphModifier;
 typedef std::shared_ptr<EGGraphModifier> EGGraphModifierPtr;
@@ -273,5 +267,3 @@ struct EGGraphEdgeColorModifier : EGGraphColorModifier
         }
     }
 };
-
-#endif

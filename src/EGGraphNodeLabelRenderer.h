@@ -1,15 +1,8 @@
-/*
- *  EGGraphNodeLabelRenderer.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphNodeLabelRenderer_H
-#define EGGraphNodeLabelRenderer_H
+#pragma once
 
 typedef std::map<EGGraphNode*,EGTextPtr> EGGraphNodeTextMap;
-
-/* EGGraphNodeLabelRenderer */
 
 template <typename VecType, typename GraphLayoutType>
 class EGGraphNodeLabelRenderer : public EGGraphNodeRenderer<VecType>
@@ -82,5 +75,3 @@ public:
         }
     }
 };
-
-#endif

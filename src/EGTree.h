@@ -1,12 +1,6 @@
-/*
- *  EGTree.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGTree_H
-#define EGTree_H
-
+#pragma once
 
 //
 // Tree Node Storage
@@ -244,5 +238,3 @@ public:
     virtual void visit(EGTreeNodeVisitor& visitor) = 0;
     virtual void print() = 0;
 };
-
-#endif

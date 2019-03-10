@@ -1,14 +1,6 @@
-/*
- *  NSStubs.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef NSStubs_H
-#define NSStubs_H
-
-
-/* NSStubs */
+#pragma once
 
 class NSStubs
 {
@@ -18,5 +10,3 @@ public:
     static std::string getPublicDir();
     static std::string localizedString(std::string key);
 };
-
-#endif

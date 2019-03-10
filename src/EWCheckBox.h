@@ -1,11 +1,6 @@
-/*
- *  EWCheckBox.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWCheckBox_H
-#define EWCheckBox_H
+#pragma once
 
 class EWCheckBox;
 typedef std::shared_ptr<EWCheckBox> EWCheckBoxPtr;
@@ -66,5 +61,3 @@ public:
     virtual EGbool checkBoxMouseMotion(EGMouseEvent *evt);
     virtual EGbool checkBoxMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

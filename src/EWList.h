@@ -1,11 +1,6 @@
-/*
- *  EWList.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWList_H
-#define EWList_H
+#pragma once
 
 class EWList;
 typedef std::shared_ptr<EWList> EWListPtr;
@@ -67,5 +62,3 @@ public:
     virtual EGbool mouseEvent(EGMouseEvent *evt);
     virtual EGbool keyEvent(EGKeyEvent *evt);
 };
-
-#endif

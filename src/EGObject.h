@@ -1,11 +1,6 @@
-/*
- *  EGObject.cc
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGOBJECT_H_
-#define EGOBJECT_H_
+#pragma once
 
 #include "EG.h"
 
@@ -2342,5 +2337,3 @@ void EGObject::emit(void (T::*emitfunc)(A1, A2, A3, A4), A1 arg1, A2 arg2, A3 ar
         static_cast<CallImpl&>(*ci->destFunction).apply(ci->destObject, arg1, arg2, arg3, arg4);
     }
 }
-
-#endif

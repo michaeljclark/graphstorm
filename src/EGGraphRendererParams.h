@@ -1,12 +1,6 @@
-/*
- *  EGGraphRendererParams.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphRendererParams_H
-#define EGGraphRendererParams_H
-
+#pragma once
 
 /* EGGraphRendererParamNodeShape */
 
@@ -64,5 +58,3 @@ struct EGGraphRendererParams
         return !(*this == o);
     }
 };
-
-#endif

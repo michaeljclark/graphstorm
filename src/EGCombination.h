@@ -1,14 +1,6 @@
-/*
- *  EGCombination.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGCombination_H
-#define EGCombination_H
-
-
-/* EGCombination */
+#pragma once
 
 class EGCombination
 {
@@ -74,5 +66,3 @@ public:
         return v;
     }
 };
-
-#endif

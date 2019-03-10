@@ -1,12 +1,6 @@
-/*
- *  EGSpringLayoutBarnesHut.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGSpringLayoutBarnesHut_H
-#define EGSpringLayoutBarnesHut_H
-
+#pragma once
 
 template <typename VecType, typename NodePairType, typename ScalarType = typename VecType::value_type> struct EGSpringPoint;
 template <typename VecType, typename NodePairType, typename ScalarType = typename VecType::value_type> struct EGSpring;
@@ -771,6 +765,3 @@ class EGSpringLayoutBarnesHut3D : public EGSpringLayout<VecType,NodePairType,Sca
 public:
     EGSpringLayoutBarnesHut3D(EGSpringLayoutSettings &s) : EGSpringLayout<VecType,NodePairType,ScalarType,true,true,PointTreeType>(s) {}
 };
-
-
-#endif

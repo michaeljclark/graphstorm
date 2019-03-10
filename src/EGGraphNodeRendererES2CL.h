@@ -1,14 +1,6 @@
-/*
- *  EGGraphNodeRendererES2CL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphNodeRendererES2CL_H
-#define EGGraphNodeRendererES2CL_H
-
-
-/* EGGraphNodeRendererES2CL */
+#pragma once
 
 template <typename VecType, typename GraphLayoutType>
 class EGGraphNodeRendererES2CL : public EGGraphNodeRenderer<VecType>
@@ -125,5 +117,3 @@ public:
         batch.draw();
     }
 };
-
-#endif

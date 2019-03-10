@@ -1,11 +1,6 @@
-/*
- *  EGGraphLayoutFactory.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphLayoutFactory_H
-#define EGGraphLayoutFactory_H
+#pragma once
 
 struct EGGraphLayoutFactory;
 typedef std::vector<EGGraphLayoutFactory*> EGGraphLayoutFactoryList;
@@ -558,5 +553,3 @@ struct EGGraphLayoutFactoryImpl
     static EGSpringLayoutBarnesHut4DCLFactory<> springLayoutBarnesHut4DCL;
 #endif
 };
-
-#endif

@@ -1,11 +1,6 @@
-/*
- *  EGGraphStormNACL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphStormNACL_H
-#define EGGraphStormNACL_H
+#pragma once
 
 class EGGraphApp;
 typedef std::shared_ptr<EGGraphApp> EGGraphAppPtr;
@@ -56,5 +51,3 @@ public:
     static void displayDoneSchedule(void *userdata, int);
     static void displayDone(void *userdata, int);
 };
-
-#endif

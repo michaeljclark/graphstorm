@@ -1,11 +1,6 @@
-/*
- *  EWWidgetDefaults.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWWidgetDefaults_H
-#define EWWidgetDefaults_H
+#pragma once
 
 class EGProperties;
 typedef std::shared_ptr<EGProperties> EGPropertiesPtr;
@@ -40,5 +35,3 @@ public:
     virtual EGColor getColor(EGstring widgetClass, EGstring widgetKey, EGColor defaultVal = EGColor(1,1,1,1));
     virtual EGImagePtr getImage(EGstring widgetClass, EGstring widgetKey, EGImagePtr defaultVal = EGImagePtr());
 };
-
-#endif

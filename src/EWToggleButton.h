@@ -1,11 +1,6 @@
-/*
- *  EWToggleButton.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWToggleButton_H
-#define EWToggleButton_H
+#pragma once
 
 class EWToggleButton;
 typedef std::shared_ptr<EWToggleButton> EWToggleButtonPtr;
@@ -66,5 +61,3 @@ public:
     virtual EGbool toggleButtonMouseMotion(EGMouseEvent *evt);
     virtual EGbool toggleButtonMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

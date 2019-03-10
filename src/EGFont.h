@@ -1,11 +1,6 @@
-/*
- *  EGFont.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGFont_H
-#define EGFont_H
+#pragma once
 
 class EGFont;
 typedef std::shared_ptr<EGFont> EGFontPtr;
@@ -326,5 +321,3 @@ public:
     
     const EGFontRec& getFontRec();
 };
-
-#endif

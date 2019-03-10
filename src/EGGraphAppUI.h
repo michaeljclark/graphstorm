@@ -1,11 +1,6 @@
-/*
- *  EGGraphAppUI.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphAppUI_H
-#define EGGraphAppUI_H
+#pragma once
 
 #include "EG.h"
 #include "EGGL.h"
@@ -126,5 +121,3 @@ public:
     void setNeedsLayout();
     void draw();
 };
-
-#endif

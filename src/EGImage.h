@@ -1,11 +1,6 @@
-/*
- *  EGImage.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGIMAGE_H_
-#define EGIMAGE_H_
+#pragma once
 
 #include "EGThread.h"
 
@@ -240,5 +235,3 @@ public:
     virtual void decompressCompleted() = 0;
     virtual void decompressFailed() = 0;
 };
-
-#endif

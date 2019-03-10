@@ -1,11 +1,6 @@
-/*
- *  EGTextCairo.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGTextCairo_H
-#define EGTextCairo_H
+#pragma once
 
 #if defined(__unix__) || defined(__linux__) || defined(__native_client__)
 
@@ -82,7 +77,5 @@ public:
 
     static EGbool init();
 };
-
-#endif
 
 #endif

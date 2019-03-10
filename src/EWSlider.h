@@ -1,11 +1,6 @@
-/*
- *  EWSlider.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWSlider_H
-#define EWSlider_H
+#pragma once
 
 class EWSlider;
 typedef std::shared_ptr<EWSlider> EWSliderPtr;
@@ -74,5 +69,3 @@ public:
     virtual EGbool controlDragMouseMotion(EGMouseEvent *evt);
     virtual EGbool controlDragMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

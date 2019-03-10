@@ -1,11 +1,6 @@
-/*
- *  EGPointRegionTreeStructCL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGPointRegionTreeStructCL_H
-#define EGPointRegionTreeStructCL_H
+#pragma once
 
 // DEBUG OPTION: read the active nodes after the tree has been build to check it is complete
 #define TREE_CHECK_BUILD 0
@@ -389,5 +384,3 @@ public:
         
     }
 };
-
-#endif

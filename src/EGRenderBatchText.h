@@ -1,13 +1,6 @@
-/*
- *  EGRenderBatchText.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGRenderBatchText_H
-#define EGRenderBatchText_H
-
-/* EGRenderBatchText */
+#pragma once
 
 struct EGRenderBatchText : EGRenderBatchBase
 {
@@ -23,5 +16,3 @@ struct EGRenderBatchText : EGRenderBatchBase
         }
     }
 };
-
-#endif

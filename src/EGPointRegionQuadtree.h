@@ -1,11 +1,6 @@
-/*
- *  EGPointRegionQuadtree.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGPointRegionQuadtree_H
-#define EGPointRegionQuadtree_H
+#pragma once
 
 #include "EGTree.h"
 #include "EGPointRegionTree.h"
@@ -67,5 +62,3 @@ protected:
         }
     }
 };
-
-#endif

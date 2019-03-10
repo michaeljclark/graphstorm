@@ -1,11 +1,6 @@
-/*
- *  EGGraphEdgeLabelRenderer.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphEdgeLabelRenderer_H
-#define EGGraphEdgeLabelRenderer_H
+#pragma once
 
 typedef std::map<EGGraphEdge*,EGTextPtr> EGGraphEdgeTextMap;
 
@@ -87,5 +82,3 @@ public:
         }
     }
 };
-
-#endif

@@ -1,11 +1,6 @@
-/*
- *  EWLabel.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWLabel_H
-#define EWLabel_H
+#pragma once
 
 class EWLabel;
 typedef std::shared_ptr<EWLabel> EWLabelPtr;
@@ -36,5 +31,3 @@ public:
     virtual EGSize calcMinimumSize();
     virtual void layout();
 };
-
-#endif

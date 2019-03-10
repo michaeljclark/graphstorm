@@ -1,14 +1,6 @@
-/*
- *  EGTreeRendererES2.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGTreeRendererES2_H
-#define EGTreeRendererES2_H
-
-
-/* EGTreeRendererES2 */
+#pragma once
 
 template <typename DataType, typename NodeType, typename VecType>
 class EGTreeRendererES2 : public EGTreeRenderer<VecType>
@@ -155,5 +147,3 @@ protected:
         virtual void postDescend(EGTreeNode *) {}
     };
 };
-
-#endif

@@ -1,11 +1,6 @@
-/*
- *  EWGrid.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWGrid_H
-#define EWGrid_H
+#pragma once
 
 class EWGrid;
 typedef std::shared_ptr<EWGrid> EWGridPtr;
@@ -70,5 +65,3 @@ public:
     
     virtual void layout();
 };
-
-#endif

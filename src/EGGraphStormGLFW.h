@@ -1,11 +1,6 @@
-/*
- *  EGGraphStormGLFW.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphStormGLFW_H
-#define EGGraphStormGLFW_H
+#pragma once
 
 class EGGraphApp;
 typedef std::shared_ptr<EGGraphApp> EGGraphAppPtr;
@@ -31,5 +26,3 @@ public:
     static void mouse_button(GLFWwindow* window, int button, int action, int mods);
     static void mouse_motion(GLFWwindow* window, double x, double y);
 };
-
-#endif

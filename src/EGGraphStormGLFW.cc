@@ -1,9 +1,4 @@
-/*
- *  EGGraphStormGLFW.cc
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
-
+// See LICENSE for license details.
 
 #include "EG.h"
 #include "EGGL.h"

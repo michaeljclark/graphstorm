@@ -1,11 +1,6 @@
-/*
- *  EGTextMac.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGTextMac_H
-#define EGTextMac_H
+#pragma once
 
 #if __APPLE__
 
@@ -64,7 +59,5 @@ public:
 
     static EGbool init();
 };
-
-#endif
 
 #endif

@@ -1,11 +1,6 @@
-/*
- *  EWDataSource.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWDataSource_h
-#define EWDataSource_h
+#pragma once
 
 struct EWDataType;
 typedef std::shared_ptr<EWDataType> EWDataTypePtr;
@@ -112,6 +107,3 @@ public:
     virtual EWDataItemPtr getItem(EGint row, EGint col) = 0;
     virtual void setItem(EGint row, EGint col, EWDataItemPtr item) = 0;
 };
-
-
-#endif

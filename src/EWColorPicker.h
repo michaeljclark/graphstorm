@@ -1,11 +1,6 @@
-/*
- *  EWColorPicker.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWColorPicker_H
-#define EWColorPicker_H
+#pragma once
 
 #include "EWWidget.h"
 #include "EWContainer.h"
@@ -93,5 +88,3 @@ public:
     EGbool spinBoxEvent(EWSpinBoxEvent *event);
     EGbool buttonEvent(EWButtonEvent *event);
 };
-
-#endif

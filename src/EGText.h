@@ -1,11 +1,6 @@
-/*
- *  EGText.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGText_H
-#define EGText_H
+#pragma once
 
 #include "EGBase.h"
 #include "EGColor.h"
@@ -187,5 +182,3 @@ public:
         }
     }
 };
-
-#endif

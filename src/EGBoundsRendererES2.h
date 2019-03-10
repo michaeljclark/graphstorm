@@ -1,14 +1,6 @@
-/*
- *  EGBoundsRendererES2.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGBoundsRendererES2_h
-#define EGBoundsRendererES2_h
-
-
-/* EGBoundsRendererES2 */
+#pragma once
 
 template <typename VecType>
 class EGBoundsRendererES2 : public EGBoundsRenderer<VecType>
@@ -127,5 +119,3 @@ public:
         batch.draw();
     }
 };
-
-#endif

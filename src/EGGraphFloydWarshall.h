@@ -1,11 +1,6 @@
-/*
- *  EGGraphFloydWarshall.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphFloydWarshall_H
-#define EGGraphFloydWarshall_H
+#pragma once
 
 struct EGGraphFloydWarshall
 {
@@ -75,5 +70,3 @@ struct EGGraphFloydWarshall
         delete [] adjacency;
     }
 }
-
-#endif

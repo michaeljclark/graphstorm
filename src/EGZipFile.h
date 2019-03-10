@@ -1,11 +1,6 @@
-/*
- *  EGZipFile.cc
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGZIPFILE_H_
-#define EGZIPFILE_H_
+#pragma once
 
 class EGZipFile;
 typedef std::shared_ptr<EGZipFile> EGZipFilePtr;
@@ -50,5 +45,3 @@ public:
     EGResourcePtr getZipResource();
     EGZipFileEntryPtr getZipEntry(EGstring filename);
 };
-
-#endif

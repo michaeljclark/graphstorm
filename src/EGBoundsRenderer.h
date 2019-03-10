@@ -1,13 +1,4 @@
-/*
- *  EGBoundsRenderer.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
-
-#ifndef EGBoundsRenderer_h
-#define EGBoundsRenderer_h
-
-/* EGBoundsRenderer */
+// See LICENSE for license details.
 
 template <typename VecType>
 class EGBoundsRenderer
@@ -23,4 +14,3 @@ public:
 
 #include "EGBoundsRendererES2.h"
 
-#endif

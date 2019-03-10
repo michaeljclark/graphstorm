@@ -1,11 +1,6 @@
-/*
- *  EWWidgetRenderer.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWWidgetRenderer_H
-#define EWWidgetRenderer_H
+#pragma once
 
 #include "EGColor.h"
 #include "EGText.h"
@@ -47,5 +42,3 @@ public:
     virtual void paint(EGRect rect, EGImagePtr image, EGColor color = EGColor(1, 1, 1, 1), EGfloat *uvs = NULL) = 0;
     virtual void paint(EGPoint point, EGTextPtr text, EGColor color = EGColor(1, 1, 1, 1)) = 0;
 };
-
-#endif

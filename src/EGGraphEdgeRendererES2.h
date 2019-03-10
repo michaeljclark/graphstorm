@@ -1,12 +1,6 @@
-/*
- *  EGGraphEdgeRendererES2.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphEdgeRendererES2_H
-#define EGGraphEdgeRendererES2_H
-
+#pragma once
 
 /* EGGraphEdgeRendererES2 */
 
@@ -130,5 +124,3 @@ public:
         batch.draw();
     }
 };
-
-#endif

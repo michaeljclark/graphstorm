@@ -1,11 +1,6 @@
-/*
- *  EGIndexArray.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGIndexArray_H
-#define EGIndexArray_H
+#pragma once
 
 #if USE_VERTEX_32
 typedef EGuint EGVertexIndex;
@@ -76,5 +71,3 @@ public:
         nind += count;
     }
 };
-
-#endif

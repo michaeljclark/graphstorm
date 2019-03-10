@@ -1,11 +1,6 @@
-/*
- *  EGBaseObject.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGBaseObject_H
-#define EGBaseObject_H
+#pragma once
 
 #include "EG.h"
 #include "EGObject.h"
@@ -165,5 +160,3 @@ inline EGSize valueToSize(const EGValue &val) { return (&val.type == &EGBaseObje
 inline EGRect valueToRect(const EGValue &val) { return (&val.type == &EGBaseObjectType::Rect) ? *static_cast<const EGRect*>(val.addr) : EGRect(); }
 inline EGIndent valueToIndent(const EGValue &val) { return (&val.type == &EGBaseObjectType::Indent) ? *static_cast<const EGIndent*>(val.addr) : EGIndent(); }
 inline EGColor valueToColor(const EGValue &val) { return (&val.type == &EGBaseObjectType::Color) ? *static_cast<const EGColor*>(val.addr) : EGColor(); }
-
-#endif

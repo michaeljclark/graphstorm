@@ -1,11 +1,6 @@
-/*
- *  EGGraphStormWidgets.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphStormWidgets_H
-#define EGGraphStormWidgets_H
+#pragma once
 
 #include "EG.h"
 #include "EGGL.h"
@@ -72,5 +67,3 @@ public:
     EGbool toggleButtonEvent(EWToggleButtonEvent *evt);
     EGbool windowEvent(EWWindowEvent *evt);
 };
-
-#endif

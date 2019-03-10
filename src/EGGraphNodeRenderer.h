@@ -1,14 +1,6 @@
-/*
- *  EGGraphNodeRenderer.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphNodeRenderer_H
-#define EGGraphNodeRenderer_H
-
-
-/* EGGraphNodeRenderer */
+#pragma once
 
 template <typename VecType>
 class EGGraphNodeRenderer
@@ -23,5 +15,3 @@ public:
 };
 
 #include "EGGraphNodeRendererES2.h"
-
-#endif

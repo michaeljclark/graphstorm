@@ -1,11 +1,6 @@
-/*
- *  EGProperties.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGProperties_H
-#define EGProperties_H
+#pragma once
 
 class EGResource;
 typedef std::shared_ptr<EGResource> EGResourcePtr;
@@ -34,5 +29,3 @@ public:
     EGstring getProperty(EGstring key);
     void setProperty(EGstring key, EGstring val);
 };
-
-#endif

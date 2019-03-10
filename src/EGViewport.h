@@ -1,11 +1,6 @@
-/*
- *  EGViewport.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGViewport_H
-#define EGViewport_H
+#pragma once
 
 class EGViewport;
 typedef std::shared_ptr<EGViewport> EGViewportPtr;
@@ -35,5 +30,3 @@ public:
 
     EGViewport() : screenRotation(0) {}
 };
-
-#endif

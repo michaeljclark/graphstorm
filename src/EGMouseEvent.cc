@@ -1,8 +1,4 @@
-/*
- *  EGMouseEvent.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
 #include "EG.h"
 #include "EGEvent.h"

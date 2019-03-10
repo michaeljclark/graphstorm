@@ -1,8 +1,4 @@
-/*
- *  EGThread.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
 #ifndef EGTHREAD_H_
 #define EGTHREAD_H_
@@ -77,11 +73,11 @@ class EGMutex {
 private:
     EGMutexType mutex;
     friend class EGCondVar;
-    
+
 public:
     EGMutex() { EGMutexInit(mutex); }
     ~EGMutex() { EGMutexDestroy(mutex); }
-    
+
     void lock() { EGMutexLock(mutex); }
     void unlock() { EGMutexUnlock(mutex); }
 };
@@ -93,11 +89,11 @@ class EGCondVar {
 private:
     EGCondVarType cond;
     EGMutexType &mutex;
-    
+
 public:
     EGCondVar(EGMutex &mutex) : mutex(mutex.mutex) { EGCondVarInit(cond); }
     ~EGCondVar() { EGCondVarDestroy(cond); }
-    
+
     void wait() { EGCondVarWait(cond, mutex); }
     void signal() { EGCondVarSignal(cond); }
     void broadcast() { EGCondVarBroadcast(cond); }
@@ -109,7 +105,7 @@ public:
 class EGRunnable {
 public:
     virtual ~EGRunnable() {}
-    
+
     virtual EGThreadExitCode run() = 0;
 };
 
@@ -127,7 +123,7 @@ public:
     EGThread() : runnable(static_cast<EGRunnable*>(this)) {}
     EGThread(EGRunnable *runnable) : runnable(runnable) {}
     virtual ~EGThread() {}
-    
+
     EGint start() { return EGThreadCreate(thread, &threadStart, (void*)runnable); }
     void join() { EGThreadJoin(thread); }
 };

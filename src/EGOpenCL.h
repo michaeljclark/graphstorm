@@ -1,11 +1,6 @@
-/*
- *  EGOpenCL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGOpenCL_H
-#define EGOpenCL_H
+#pragma once
 
 #ifdef __APPLE__
 #include <OpenCL/opencl.h>
@@ -648,5 +643,3 @@ public:
     EGOpenCLContextPtr createContext(std::string deviceMatch, EGbool requestGlSharing = false);
     EGOpenCLContextPtr createContext(EGOpenCLDeviceList deviceList, EGbool requestGlSharing = false);
 };
-
-#endif

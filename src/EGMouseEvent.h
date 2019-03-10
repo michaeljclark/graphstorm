@@ -1,11 +1,6 @@
-/*
- *  EGMouseEvent.h
- *
- *  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGMouseEvent_H
-#define EGMouseEvent_H
+#pragma once
 
 /* EGMouseEvent */
 
@@ -29,5 +24,3 @@ public:
     
     std::string toString();
 };
-
-#endif

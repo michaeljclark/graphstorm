@@ -1,8 +1,4 @@
-//
-//  EGUtil.cc
-//
-//  Copyright (c) 2008 - 2012, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
-//
+// See LICENSE for license details.
 
 #include <stdio.h>
 #include <time.h>

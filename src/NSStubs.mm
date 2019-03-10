@@ -1,12 +1,7 @@
-/*
- *  NSStubs.mm
- */
+// See LICENSE for license details.
 
 #include "EG.h"
 #include "NSStubs.h"
-
-
-/* NSStubs */
 
 std::string NSStubs::getTempDir()
 {

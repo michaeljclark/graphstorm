@@ -1,11 +1,6 @@
-/*
- *  EWIcon.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWIcon_H
-#define EWIcon_H
+#pragma once
 
 class EWIcon;
 typedef std::shared_ptr<EWIcon> EWIconPtr;
@@ -69,5 +64,3 @@ public:
     virtual EGbool iconMouseMotion(EGMouseEvent *evt);
     virtual EGbool iconMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

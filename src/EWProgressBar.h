@@ -1,11 +1,6 @@
-/*
- *  EWProgressBar.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWProgressBar_H
-#define EWProgressBar_H
+#pragma once
 
 class EWProgressBar;
 typedef std::shared_ptr<EWProgressBar> EWProgressBarPtr;
@@ -41,5 +36,3 @@ public:
     virtual EGSize calcMinimumSize();
     virtual void layout();
 };
-
-#endif

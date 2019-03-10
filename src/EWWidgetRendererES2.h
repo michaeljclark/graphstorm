@@ -1,11 +1,6 @@
-/*
- *  EWWidgetRendererES2.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWWidgetRendererES2_H
-#define EWWidgetRendererES2_H
+#pragma once
 
 /* EWWidgetRendererES2 */
 
@@ -55,5 +50,3 @@ public:
     void paint(EGRect rect, EGImagePtr image, EGColor color, EGfloat *uvs);
     void paint(EGPoint point, EGTextPtr text, EGColor color);
 };
-
-#endif

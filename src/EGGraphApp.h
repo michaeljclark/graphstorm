@@ -1,11 +1,6 @@
-/*
- *  EGGraphApp.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphApp_H
-#define EGGraphApp_H
+#pragma once
 
 #define USE_OPENCL_DEVICE "gpu"
 #define USE_OPENCL_SHARING 1
@@ -147,5 +142,3 @@ public:
     void mouseRelease(EGint x, EGint y, EGenum buttons);
     void mouseMove(EGint x, EGint y, EGenum buttons);
 };
-
-#endif

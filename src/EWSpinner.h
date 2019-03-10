@@ -1,11 +1,6 @@
-/*
- *  EWSpinner.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWSpinner_H
-#define EWSpinner_H
+#pragma once
 
 class EWSpinner;
 typedef std::shared_ptr<EWSpinner> EWSpinnerPtr;
@@ -34,5 +29,3 @@ public:
     virtual void layout();
     virtual void draw();
 };
-
-#endif

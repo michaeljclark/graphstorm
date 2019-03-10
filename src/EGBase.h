@@ -1,11 +1,6 @@
-/*
- *  EGBase.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGBase_H
-#define EGBase_H
+#pragma once
 
 struct EGSize;
 struct EGPoint;
@@ -128,5 +123,3 @@ struct EGRect
     bool operator==(const EGRect &o) { return x == o.x && y == o.y && width == o.width && height == o.height; }
     bool operator!=(const EGRect &o) { return !(*this == o); }
 };    
-
-#endif

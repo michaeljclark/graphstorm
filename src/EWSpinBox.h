@@ -1,11 +1,6 @@
-/*
- *  EWSpinBox.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWSpinBox_H
-#define EWSpinBox_H
+#pragma once
 
 #include "EWWidget.h"
 #include "EWEntry.h"
@@ -84,5 +79,3 @@ public:
     virtual EGbool iconEvent(EWIconEvent *evt);
     virtual EGbool entryEvent(EWEntryEvent *evt);
 };
-
-#endif

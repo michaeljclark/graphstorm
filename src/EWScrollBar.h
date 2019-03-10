@@ -1,11 +1,6 @@
-/*
- *  EWScrollBar.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWScrollBar_H
-#define EWScrollBar_H
+#pragma once
 
 class EWScrollBar;
 typedef std::shared_ptr<EWScrollBar> EWScrollBarPtr;
@@ -73,5 +68,3 @@ public:
     virtual EGbool controlDragMouseMotion(EGMouseEvent *evt);
     virtual EGbool controlDragMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

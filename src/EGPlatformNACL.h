@@ -1,12 +1,7 @@
-/*
- *  EGPlatformNACL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGPlatformNACL_H
-#define EGPlatformNACL_H
- 
+#pragma once
+
 #if defined(__native_client__)
 
 #include "ppapi/c/pp_completion_callback.h"
@@ -56,7 +51,5 @@ struct EGPlatformNACL
 {
 	static EGbool get_interfaces(PPB_GetInterface get_browser);
 };
-
-#endif
 
 #endif

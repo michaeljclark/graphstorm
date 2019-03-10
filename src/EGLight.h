@@ -1,11 +1,6 @@
-/*
- *  EGLight.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGLight_H
-#define EGLight_H
+#pragma once
 
 #include "EGVector.h"
 
@@ -71,5 +66,3 @@ public:
     
     void setupGLState();
 };
-
-#endif /* EGLIGHT_H_ */

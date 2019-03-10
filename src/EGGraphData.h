@@ -1,12 +1,6 @@
-/*
- *  EGGraphData.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphData_H
-#define EGGraphData_H
-
+#pragma once
 
 /* EGGraphDataLabel */
 
@@ -61,5 +55,3 @@ public:
     
     static EGGraphDataPair create(EGfloat size);
 };
-
-#endif

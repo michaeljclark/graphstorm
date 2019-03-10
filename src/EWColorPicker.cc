@@ -1,8 +1,4 @@
-/*
- *  EWColorPicker.cc
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
 #include "EWWidget.h"
 #include "EWContainer.h"

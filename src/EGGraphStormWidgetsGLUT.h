@@ -1,13 +1,6 @@
-/*
- *  EGGraphStormWidgetsGLUT.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphStormWidgetsGLUT_H
-#define EGGraphStormWidgetsGLUT_H
-
-/* EGGraphStormWidgetsGLUT */
+#pragma once
 
 class EGGraphStormWidgetsGLUT
 {
@@ -33,5 +26,3 @@ public:
     static void glutKey(unsigned char inkey, int x, int y);
     static void glutSpecial(int key, int x, int y);
 };
-
-#endif

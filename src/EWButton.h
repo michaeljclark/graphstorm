@@ -1,11 +1,6 @@
-/*
- *  EWButton.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWButton_H
-#define EWButton_H
+#pragma once
 
 class EWButton;
 typedef std::shared_ptr<EWButton> EWButtonPtr;
@@ -70,5 +65,3 @@ public:
     virtual EGbool buttonMouseMotion(EGMouseEvent *evt);
     virtual EGbool buttonMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

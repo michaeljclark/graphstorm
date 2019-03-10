@@ -1,12 +1,6 @@
-/*
- *  EGMath.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGMath_H
-#define EGMath_H
-
+#pragma once
 
 /* EGIntersectType */
 
@@ -93,6 +87,3 @@ public:
                                     EGfloat *t, EGfloat *u, EGfloat *v);
     static EGfloat haversine(EGfloat lat1, EGfloat lon1, EGfloat lat2, EGfloat lon2);
 };
-
-
-#endif /* EGMATH_H_ */

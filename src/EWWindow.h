@@ -1,11 +1,6 @@
-/*
- *  EWWindow.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EWWindow_H
-#define EWWindow_H
+#pragma once
 
 class EWWindow;
 typedef std::shared_ptr<EWWindow> EWWindowPtr;
@@ -128,5 +123,3 @@ public:
     virtual EGbool closeBoxMouseMotion(EGMouseEvent *evt);
     virtual EGbool closeBoxMouseReleased(EGMouseEvent *evt);
 };
-
-#endif

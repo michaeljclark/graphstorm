@@ -1,11 +1,6 @@
-/*
- *  EGGL.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGL_H
-#define EGGL_H
+#pragma once
 
 #if defined(__APPLE__)
 
@@ -69,6 +64,4 @@ typedef double GLdouble;
 #define GLU_CALLBACK (GLvoid (__stdcall *) ())
 #else
 #define GLU_CALLBACK (GLvoid(*)())
-#endif
-
 #endif

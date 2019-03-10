@@ -1,11 +1,6 @@
-/*
- *  EGVector.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGVector_H
-#define EGVector_H
+#pragma once
 
 template <size_t N, typename T> struct EGVecP;
 template <size_t N, typename T> struct EGVecT;
@@ -1087,5 +1082,3 @@ bool EGVecT<N,T>::operator>=(const EGVecT<N,T> &o)
 #define EGVec2dv EGVecP<2,EGdouble>
 #define EGVec3dv EGVecP<3,EGdouble>
 #define EGVec4dv EGVecP<4,EGdouble>
-
-#endif

@@ -1,11 +1,6 @@
-/*
- *  EGGraphStormGLUT.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphStormGLUT_H
-#define EGGraphStormGLUT_H
+#pragma once
 
 class EGGraphApp;
 typedef std::shared_ptr<EGGraphApp> EGGraphAppPtr;
@@ -37,5 +32,3 @@ public:
     static void key(unsigned char inkey, int x, int y);
     static void special(int key, int x, int y);
 };
-
-#endif

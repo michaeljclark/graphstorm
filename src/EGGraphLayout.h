@@ -1,11 +1,6 @@
-/*
- *  EGGraphLayout.h
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
-#ifndef EGGraphLayout_H
-#define EGGraphLayout_H
+#pragma once
 
 class EGGraphLayoutBase;
 typedef std::shared_ptr<EGGraphLayoutBase> EGGraphLayoutBasePtr;
@@ -194,5 +189,3 @@ public:
         return nodeScreenPositions;
     }
 };
-
-#endif
