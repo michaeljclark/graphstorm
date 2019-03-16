@@ -226,6 +226,7 @@ void EGRenderProgram::init()
 /* initialize and load shaders */
 EGbool EGRenderProgram::loadShaders()
 {
+    GLuint n = 1;
     GLuint vertShader = 0, fragShader = 0;
 	
 	// create shader program
@@ -297,7 +298,20 @@ EGbool EGRenderProgram::loadShaders()
         EGRenderUniformInfoPtr uniforminfo(new EGRenderUniformInfo(namebuf, location, type, size));
         uniformNameMap.insert(std::pair<std::string,EGRenderUniformInfoPtr>(namebuf, uniforminfo));
     }
-        
+
+    /*
+     * Note: OpenGL by default binds attributes to locations counting
+     * from zero upwards. This is problematic with at least the Nvidia
+     * drvier, where zero has a special meaning. So after linking, we
+     * go through the passed attributes and re-assign their bindings
+     * starting from 1 counting upwards. We then re-link the program,
+     * as we don't know the attribute names until shader is linked.
+     */
+    for (auto &ent : attributeNameMap) {
+        glBindAttribLocation(program, (attributeNameMap[ent.first]->index = n++), ent.first.c_str());
+    }
+    glLinkProgram(program);
+
     // print attribute info
     std::map<std::string,EGRenderAttributeInfoPtr>::iterator ai;
     for (ai = attributeNameMap.begin(); ai != attributeNameMap.end(); ai++) {

@@ -1,8 +1,4 @@
-/*
- *  EWWidgetRendererES2.cc
- *
- *  Copyright (c) 2008 - 2013, Michael Clark <michael@earthbuzz.com>, EarthBuzz Software
- */
+// See LICENSE for license details.
 
 #include "EG.h"
 #include "EGGL.h"
@@ -28,22 +24,34 @@
 
 /* EWWidgetRendererES2 */
 
+EGuint EWWidgetRendererES2::nop_tex = 0;
+
 EWWidgetRendererES2::EWWidgetRendererES2(EWWidget *widget) : EWWidgetRenderer(widget), scissorEnabled(false)
 {
     // link shader attributes
     EGRenderApiES2 &gl = EGRenderApiES2::apiImpl();
     
-    tex_program = gl.getRenderProgram(EGResource::getResource("Resources/gles2.bundle/Shaders/NoLighting.vsh"),
-                                        EGResource::getResource("Resources/gles2.bundle/Shaders/NoLighting.fsh"));
-    tex_u_texture0 = tex_program->getUniform("u_texture0");
-    tex_a_position = tex_program->getAttribute("a_position");
-    tex_a_color = tex_program->getAttribute("a_color");
-    tex_a_texcoord0 = tex_program->getAttribute("a_texcoord0");
-    
-    notex_program = gl.getRenderProgram(EGResource::getResource("Resources/gles2.bundle/Shaders/NoLightingNoTexture.vsh"),
-                                        EGResource::getResource("Resources/gles2.bundle/Shaders/NoLightingNoTexture.fsh"));
-    notex_a_position = notex_program->getAttribute("a_position");
-    notex_a_color = notex_program->getAttribute("a_color");
+    program = gl.getRenderProgram(EGResource::getResource("Resources/gles2.bundle/Shaders/Unified110.vsh"),
+                                  EGResource::getResource("Resources/gles2.bundle/Shaders/Unified110.fsh"));
+    u_texture0 = program->getUniform("u_texture0");
+    a_position = program->getAttribute("a_position");
+    a_color = program->getAttribute("a_color");
+    a_gamma = program->getAttribute("a_gamma");
+    a_texcoord0 = program->getAttribute("a_texcoord0");
+
+    if (!nop_tex) {
+        const GLuint pixel_data = 0xffffffff;
+
+        /* texture */
+        glGenTextures(1, &nop_tex);
+        glBindTexture(GL_TEXTURE_2D, nop_tex);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 1, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, (GLvoid*)&pixel_data);
+        glActiveTexture(GL_TEXTURE0);
+    }
 }
 
 void EWWidgetRendererES2::draw()
@@ -59,7 +67,6 @@ void EWWidgetRendererES2::begin()
     batchList.clear();
     EGRenderBatch *batch = newBatch<EGRenderBatch>();
     batch->setDrawType(EGRenderBatchStateOnly);
-    batch->addState(new EGRenderBatchFlagStateES2(GL_DEPTH_TEST, false));
 }
 
 void EWWidgetRendererES2::end()
@@ -69,7 +76,6 @@ void EWWidgetRendererES2::end()
     if (scissorEnabled) {
         batch->addState(new EGRenderBatchFlagStateES2(GL_SCISSOR_TEST, false));
     }
-    batch->addState(new EGRenderBatchFlagStateES2(GL_DEPTH_TEST, true));
 }
 
 void EWWidgetRendererES2::scissor(EGRect rect)
@@ -84,27 +90,25 @@ void EWWidgetRendererES2::scissor(EGRect rect)
 
 void EWWidgetRendererES2::fill(EGRect rect, EGColor color)
 {
-    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
-    if (!(batch && batch->mode == GL_TRIANGLES && batch->vertexSize == 12)){
-        batch = newBatch<EGRenderBatch>();
-        batch->setDrawType(EGRenderBatchDrawElements);
-        batch->setMode(GL_TRIANGLES);
-        batch->setVertexSize(12);
-    }
-    if (color.alpha < 1.0f) {
-        batch->addState(new EGRenderBatchBlendES2(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    }
-    batch->addState(new EGRenderBatchProgramES2(notex_program))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_position->index, 2, GL_FLOAT, 0, 12, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 12, (void*)8));
+    EGRenderBatch *batch = newBatch<EGRenderBatch>();
+    batch->setDrawType(EGRenderBatchDrawElements);
+    batch->setMode(GL_TRIANGLES);
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
+          .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     EGfloat x1 = rect.x, y1 = rect.y;
     EGfloat x2 = rect.x + rect.width, y2 = rect.y + rect.height;
     EGVertexIndex ind[] = {
-        batch->varr->pushVertex(x1, y1, rgba32),
-        batch->varr->pushVertex(x1, y2, rgba32),
-        batch->varr->pushVertex(x2, y2, rgba32),
-        batch->varr->pushVertex(x2, y1, rgba32),
+        batch->varr->pushVertex(x1, y1, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x1, y2, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2, y2, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2, y1, 0, 0, 0, rgba32),
     };
     EGVertexIndex indtri[] = { ind[0], ind[1], ind[3], ind[1], ind[2], ind[3] };
     batch->iarr->pushIndices(indtri, 6);
@@ -112,30 +116,31 @@ void EWWidgetRendererES2::fill(EGRect rect, EGColor color)
 
 void EWWidgetRendererES2::fill(EGRect outerRect, EGRect innerRect, EGColor color)
 {
-    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
-    if (!(batch && batch->mode == GL_TRIANGLES && batch->vertexSize == 12)) {
-        batch = newBatch<EGRenderBatch>();
-        batch->setDrawType(EGRenderBatchDrawElements);
-        batch->setMode(GL_TRIANGLES);
-        batch->setVertexSize(12);
-    }
-    batch->addState(new EGRenderBatchProgramES2(notex_program))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_position->index, 2, GL_FLOAT, 0, 12, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 12, (void*)8));
+    EGRenderBatch *batch = newBatch<EGRenderBatch>();
+    batch->setDrawType(EGRenderBatchDrawElements);
+    batch->setMode(GL_TRIANGLES);
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
+          .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     EGfloat x1o = outerRect.x,                      y1o = outerRect.y;
     EGfloat x1i = innerRect.x,                      y1i = innerRect.y;
     EGfloat x2o = outerRect.x + outerRect.width,    y2o = outerRect.y + outerRect.height;
     EGfloat x2i = innerRect.x + innerRect.width,    y2i = innerRect.y + innerRect.height;
     EGVertexIndex ind[] = {
-        batch->varr->pushVertex(x1i, y1i, rgba32),
-        batch->varr->pushVertex(x1o, y1o, rgba32),
-        batch->varr->pushVertex(x1i, y2i, rgba32),
-        batch->varr->pushVertex(x1o, y2o, rgba32),
-        batch->varr->pushVertex(x2i, y2i, rgba32),
-        batch->varr->pushVertex(x2o, y2o, rgba32),
-        batch->varr->pushVertex(x2i, y1i, rgba32),
-        batch->varr->pushVertex(x2o, y1o, rgba32),
+        batch->varr->pushVertex(x1i, y1i, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x1o, y1o, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x1i, y2i, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x1o, y2o, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2i, y2i, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2o, y2o, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2i, y1i, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2o, y1o, 0, 0, 0, rgba32),
     };
     EGVertexIndex indtristrip[] = { ind[0], ind[1], ind[2],
                                     ind[1], ind[3], ind[2],
@@ -170,34 +175,32 @@ static void EG_CALLBACK tessMeshPolyEdgeFlag(GLboolean flag, GLvoid *userData)
 
 void EWWidgetRendererES2::fill(EGPointList poly, EGColor color)
 {
-    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
-    if (!(batch && batch->mode == GL_TRIANGLES && batch->vertexSize == 12)) {
-        batch = newBatch<EGRenderBatch>();
-        batch->setDrawType(EGRenderBatchDrawElements);
-        batch->setMode(GL_TRIANGLES);
-        batch->setVertexSize(12);
-    }
-    if (color.alpha < 1.0f) {
-        batch->addState(new EGRenderBatchBlendES2(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    }
-    batch->addState(new EGRenderBatchProgramES2(notex_program))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_position->index, 2, GL_FLOAT, 0, 12, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 12, (void*)8));
+    EGRenderBatch *batch = newBatch<EGRenderBatch>();
+    batch->setDrawType(EGRenderBatchDrawElements);
+    batch->setMode(GL_TRIANGLES);
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
+          .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     if (poly.size() == 3) {
         EGVertexIndex ind[] = {
-            batch->varr->pushVertex(poly[0].x, poly[0].y, rgba32),
-            batch->varr->pushVertex(poly[1].x, poly[1].y, rgba32),
-            batch->varr->pushVertex(poly[2].x, poly[2].y, rgba32),
+            batch->varr->pushVertex(poly[0].x, poly[0].y, 0, 0, 0, rgba32),
+            batch->varr->pushVertex(poly[1].x, poly[1].y, 0, 0, 0, rgba32),
+            batch->varr->pushVertex(poly[2].x, poly[2].y, 0, 0, 0, rgba32),
         };
         EGVertexIndex indtri[] = { ind[0], ind[1], ind[2] };
         batch->iarr->pushIndices(indtri, 3);
     } else if (poly.size() == 4) {
         EGVertexIndex ind[] = {
-            batch->varr->pushVertex(poly[0].x, poly[0].y, rgba32),
-            batch->varr->pushVertex(poly[1].x, poly[1].y, rgba32),
-            batch->varr->pushVertex(poly[2].x, poly[2].y, rgba32),
-            batch->varr->pushVertex(poly[3].x, poly[3].y, rgba32),
+            batch->varr->pushVertex(poly[0].x, poly[0].y, 0, 0, 0, rgba32),
+            batch->varr->pushVertex(poly[1].x, poly[1].y, 0, 0, 0, rgba32),
+            batch->varr->pushVertex(poly[2].x, poly[2].y, 0, 0, 0, rgba32),
+            batch->varr->pushVertex(poly[3].x, poly[3].y, 0, 0, 0, rgba32),
         };
         EGVertexIndex indtri[] = { ind[0], ind[1], ind[3], ind[1], ind[2], ind[3] };
         batch->iarr->pushIndices(indtri, 6);
@@ -215,7 +218,7 @@ void EWWidgetRendererES2::fill(EGPointList poly, EGColor color)
         vecp = vec = new GLdouble[3 * poly.size()];
         EGVertexIndex *ind = new EGVertexIndex[poly.size()];
         for (EGsize i = 0; i < poly.size(); i++) {
-            ind[i] = batch->varr->pushVertex(poly[i].x, poly[i].y, rgba32);
+            ind[i] = batch->varr->pushVertex(poly[i].x, poly[i].y, 0, 0, 0, rgba32);
             *vecp++ = (GLdouble)poly[i].x;
             *vecp++ = (GLdouble)poly[i].y;
             *vecp++ = (GLdouble)0;
@@ -250,26 +253,23 @@ void EWWidgetRendererES2::stroke(EGRect rect, EGColor color, EGfloat width, EWSt
 
 void EWWidgetRendererES2::stroke(EGLine line, EGColor color, EGfloat width)
 {
-    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
-    if (!(batch && batch->mode == GL_LINES && batch->vertexSize == 12)) {
-        batch = newBatch<EGRenderBatch>();
-        batch->setDrawType(EGRenderBatchDrawElements);
-        batch->setMode(GL_LINES);
-        batch->setVertexSize(12);
-    }
-    if (color.alpha < 1.0f) {
-        batch->addState(new EGRenderBatchBlendES2(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    }
-    batch->addState(new EGRenderBatchProgramES2(notex_program))
-          .addState(new EGRenderBatchLineWidthStateES2(width))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_position->index, 2, GL_FLOAT, 0, 12, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 12, (void*)8));
+    EGRenderBatch *batch = newBatch<EGRenderBatch>();
+    batch->setDrawType(EGRenderBatchDrawElements);
+    batch->setMode(GL_LINE_STRIP);
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
+          .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     EGfloat x1 = line.p1.x, y1 = line.p1.y;
     EGfloat x2 = line.p2.x, y2 = line.p2.y;
     EGVertexIndex ind[] = {
-        batch->varr->pushVertex(x1, y1, rgba32),
-        batch->varr->pushVertex(x2, y2, rgba32),
+        batch->varr->pushVertex(x1, y1, 0, 0, 0, rgba32),
+        batch->varr->pushVertex(x2, y2, 0, 0, 0, rgba32),
     };
     EGVertexIndex indline[] = { ind[0], ind[1] };
     batch->iarr->pushIndices(indline, 2);
@@ -277,24 +277,21 @@ void EWWidgetRendererES2::stroke(EGLine line, EGColor color, EGfloat width)
 
 void EWWidgetRendererES2::stroke(EGPointList poly, EGColor color, EGfloat width, EGbool closed)
 {
-    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
-    if (!(batch && batch->mode == GL_LINE_STRIP && batch->vertexSize == 12)) {
-        batch = newBatch<EGRenderBatch>();
-        batch->setDrawType(EGRenderBatchDrawElements);
-        batch->setMode(GL_LINE_STRIP);
-        batch->setVertexSize(12);
-    }
-    if (color.alpha < 1.0f) {
-        batch->addState(new EGRenderBatchBlendES2(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-    }
-    batch->addState(new EGRenderBatchProgramES2(notex_program))
-          .addState(new EGRenderBatchLineWidthStateES2(width))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_position->index, 2, GL_FLOAT, 0, 12, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(notex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 12, (void*)8));
+    EGRenderBatch *batch = newBatch<EGRenderBatch>();
+    batch->setDrawType(EGRenderBatchDrawElements);
+    batch->setMode(GL_LINE_STRIP);
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
+          .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     EGVertexIndex *ind = new EGVertexIndex[poly.size() + (closed ? 1 : 0)];
     for (EGsize i = 0; i < poly.size(); i++) {
-        ind[i] = batch->varr->pushVertex(poly[i].x, poly[i].y, rgba32);
+        ind[i] = batch->varr->pushVertex(poly[i].x, poly[i].y, 0, 0, 0, rgba32);
     }
     if (closed) {
         ind[poly.size()] = ind[0];
@@ -308,23 +305,23 @@ void EWWidgetRendererES2::paint(EGRect rect, EGImagePtr image, EGColor color, EG
     EGRenderBatch *batch = newBatch<EGRenderBatch>();
     batch->setDrawType(EGRenderBatchDrawElements);
     batch->setMode(GL_TRIANGLES);
-    batch->setVertexSize(20);
-    batch->addState(new EGRenderBatchProgramES2(tex_program))
-          .addState(new EGRenderBatchBlendES2(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA))
+    batch->setVertexSize(24);
+    batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, image->getGLTexId(), 0))
-          .addState(new EGRenderBatchUniform1iES2(tex_u_texture0->location, 0))
-          .addState(new EGRenderBatchAttribArrayStateES2(tex_a_position->index, 2, GL_FLOAT, 0, 20, (void*)0))
-          .addState(new EGRenderBatchAttribArrayStateES2(tex_a_texcoord0->index, 2, GL_FLOAT, 0, 20, (void*)8))
-          .addState(new EGRenderBatchAttribArrayStateES2(tex_a_color->index, 4, GL_UNSIGNED_BYTE, 1, 20, (void*)16));
+          .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
+          .addState(new EGRenderBatchAttrib1fES2(a_gamma->index, 1.0f))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_position->index, 3, GL_FLOAT, 0, 24, (void*)0))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_texcoord0->index, 2, GL_FLOAT, 0, 24, (void*)12))
+          .addState(new EGRenderBatchAttribArrayStateES2(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 24, (void*)20));
     EGuint rgba32 = color.rgba32();
     EGfloat x1 = rect.x, y1 = rect.y;
     EGfloat x2 = rect.x + rect.width, y2 = rect.y + rect.height;
     EGfloat *uv = uvs ? uvs : image->getUV();
     EGVertexIndex ind[] = {
-        batch->varr->pushVertex(x1, y1, uv[0], uv[1], rgba32),
-        batch->varr->pushVertex(x1, y2, uv[2], uv[3], rgba32),
-        batch->varr->pushVertex(x2, y2, uv[6], uv[7], rgba32),
-        batch->varr->pushVertex(x2, y1, uv[4], uv[5], rgba32),
+        batch->varr->pushVertex(x1, y1, 0, uv[0], uv[1], rgba32),
+        batch->varr->pushVertex(x1, y2, 0, uv[2], uv[3], rgba32),
+        batch->varr->pushVertex(x2, y2, 0, uv[6], uv[7], rgba32),
+        batch->varr->pushVertex(x2, y1, 0, uv[4], uv[5], rgba32),
     };
     EGVertexIndex indtri[] = { ind[0], ind[1], ind[3], ind[1], ind[2], ind[3] };
     batch->iarr->pushIndices(indtri, 6);

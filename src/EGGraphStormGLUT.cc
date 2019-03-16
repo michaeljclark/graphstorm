@@ -24,10 +24,18 @@ EGGraphStormGLUT::~EGGraphStormGLUT()
 
 void EGGraphStormGLUT::init()
 {
+    // setup context
+    glutInitContextVersion(3, 2);
+    glutInitContextFlags(GLUT_FORWARD_COMPATIBLE | GLUT_DEBUG);
+    glutInitContextProfile(GLUT_CORE_PROFILE);
+
     // create window
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE);
     glutInitWindowSize(1024, 768);
     glutWindowId = glutCreateWindow("GraphStorm");
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_MULTISAMPLE);
 
     // init graph app

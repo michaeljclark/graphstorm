@@ -2,6 +2,8 @@
 
 #pragma once
 
+#define USE_VAO 1
+
 struct EGRenderBatchBase;
 typedef std::shared_ptr<EGRenderBatchBase> EGRenderBatchPtr;
 typedef std::vector<EGRenderBatchPtr> EGRenderBatchList;
@@ -14,6 +16,9 @@ typedef std::vector<EGRenderBatchState*> EGRenderBatchStateList;
 
 struct EGRenderBatchState
 {
+    bool is_attrib;
+
+    EGRenderBatchState(bool is_attrib) : is_attrib(is_attrib) {}
     virtual ~EGRenderBatchState() {}
     
     virtual void setupState() = 0;
@@ -73,6 +78,7 @@ struct EGRenderBatch : EGRenderBatchBase
     size_t vertexSize;
     size_t vboSize;
     size_t iboSize;
+    GLuint vao;
     GLuint vbo;
     GLuint ibo;
     EGVertexArrayPtr varr;
@@ -80,7 +86,7 @@ struct EGRenderBatch : EGRenderBatchBase
     EGRenderBatchStateList statelist;
     
     EGRenderBatch(std::string batchName)
-        : batchName(batchName), mode(0), flags(EGRenderBatchFlagsCreateBuffer), count(0), vertexSize(0), vboSize(0), iboSize(0), vbo(0), ibo(0), varr(), iarr()
+        : batchName(batchName), mode(0), flags(EGRenderBatchFlagsCreateBuffer), count(0), vertexSize(0), vboSize(0), iboSize(0), vao(0), vbo(0), ibo(0), varr(), iarr()
     {
     }
     
@@ -241,8 +247,21 @@ struct EGRenderBatch : EGRenderBatchBase
     
     void createBuffers()
     {
+#if USE_VAO
+        bool bound = false;
+        if (!vao) {
+            glGenVertexArrays(1, &vao);
+        }
+#endif
+
         if (varr && (!vbo || flags & EGRenderBatchFlagsBuffersDirty) && flags & EGRenderBatchFlagsCreateBuffer) {
             vboSize = vertexSize * varr->nvert;
+#if USE_VAO
+            if (!bound) {
+                glBindVertexArray(vao);
+                bound = true;
+            }
+#endif
             if (!vbo) {
                 glGenBuffers(1, &vbo);
                 if (debug) {
@@ -251,7 +270,7 @@ struct EGRenderBatch : EGRenderBatchBase
             }
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glBufferData(GL_ARRAY_BUFFER, vboSize, varr->vbuf, GL_DYNAMIC_DRAW);
-            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
             if (flags & EGRenderBatchFlagsDrawArrays) {
                 count = varr->nvert;
             }
@@ -261,6 +280,12 @@ struct EGRenderBatch : EGRenderBatchBase
         }
         if (iarr && (!ibo || flags & EGRenderBatchFlagsBuffersDirty) && flags & EGRenderBatchFlagsCreateBuffer) {
             iboSize = sizeof(EGVertexIndex) * iarr->nind;
+#if USE_VAO
+            if (!bound) {
+                glBindVertexArray(vao);
+                bound = true;
+            }
+#endif
             if (!ibo) {
                 glGenBuffers(1, &ibo);
                 if (debug) {
@@ -269,7 +294,7 @@ struct EGRenderBatch : EGRenderBatchBase
             }
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, iboSize, iarr->ind, GL_DYNAMIC_DRAW);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
             if (flags & EGRenderBatchFlagsDrawElements) {
                 count = iarr->nind;
             }
@@ -277,20 +302,39 @@ struct EGRenderBatch : EGRenderBatchBase
                 iarr = EGIndexArrayPtr();
             }
         }
+#if USE_VAO
+        if (bound) {
+            for (EGRenderBatchStateList::iterator si = statelist.begin(); si != statelist.end(); si++) {
+                if ((*si)->is_attrib) {
+                    (*si)->setupState();
+                }
+            }
+        }
+#endif
         flags &= ~EGRenderBatchFlagsBuffersDirty;
+
+#if USE_VAO
+        if (bound) {
+            glBindVertexArray(0);
+        }
+#endif
     }
 
     void setupState()
     {
         for (EGRenderBatchStateList::iterator si = statelist.begin(); si != statelist.end(); si++) {
-            (*si)->setupState();
+            if (!USE_VAO || !(*si)->is_attrib) {
+                (*si)->setupState();
+            }
         }
     }
     
     void teardownState()
     {
         for (EGRenderBatchStateList::iterator si = statelist.begin(); si != statelist.end(); si++) {
-            (*si)->clearState();
+            if (!USE_VAO || !(*si)->is_attrib) {
+                (*si)->clearState();
+            }
         }
     }
     
@@ -307,20 +351,32 @@ struct EGRenderBatch : EGRenderBatchBase
         }
         createBuffers();
         if (flags & EGRenderBatchFlagsDrawArrays) {
-            glBindBuffer(GL_ARRAY_BUFFER, vbo);
             setupState();
+#if USE_VAO
+            glBindVertexArray(vao);
+#endif
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glDrawArrays(mode, 0, (GLsizei)count);
-            teardownState();
+#if USE_VAO
+            glBindVertexArray(0);
+#endif
             glBindBuffer(GL_ARRAY_BUFFER, 0);
+            teardownState();
         }
         if (flags & EGRenderBatchFlagsDrawElements) {
+            setupState();
+#if USE_VAO
+            glBindVertexArray(vao);
+#endif
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-            setupState();
             glDrawElements(mode, (GLsizei)count, EGINDEXARRAY_GLTYPE, (void*)0);
-            teardownState();
+#if USE_VAO
+            glBindVertexArray(0);
+#endif
             glBindBuffer(GL_ARRAY_BUFFER, 0);
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+            teardownState();
         }
     }
 };

@@ -1,7 +1,6 @@
 // See LICENSE for license details.
 
-#ifndef EGRenderBatchES2_H
-#define EGRenderBatchES2_H
+#pragma once
 
 /* EGRenderBatchFlagStateES2 */
 
@@ -10,7 +9,7 @@ struct EGRenderBatchProgramES2 : EGRenderBatchState
     EGRenderProgramPtr program;
     
     EGRenderBatchProgramES2(EGRenderProgramPtr program)
-        : program(program) {}
+        : EGRenderBatchState(false), program(program) {}
     
     void setupState()
     {
@@ -31,7 +30,7 @@ struct EGRenderBatchFlagStateES2 : EGRenderBatchState
     EGbool enable;
     
     EGRenderBatchFlagStateES2(GLenum cap, EGbool enable)
-        : cap(cap), enable(enable) {}
+        : EGRenderBatchState(false), cap(cap), enable(enable) {}
     
     void setupState()
     {
@@ -63,7 +62,7 @@ struct EGRenderBatchScissorStateES2 : EGRenderBatchState
     GLsizei height;
     
     EGRenderBatchScissorStateES2(GLint x, GLint y, GLsizei width, GLsizei height)
-        : x(x), y(y), width(width), height(height) {}
+        : EGRenderBatchState(false), x(x), y(y), width(width), height(height) {}
     
     void setupState()
     {
@@ -84,7 +83,7 @@ struct EGRenderBatchUniform1iES2 : EGRenderBatchState
     GLint v0;
     
     EGRenderBatchUniform1iES2(GLint location, GLint v0)
-        : location(location), v0(v0) {}
+        : EGRenderBatchState(false), location(location), v0(v0) {}
     
     void setupState()
     {
@@ -109,7 +108,7 @@ struct EGRenderBatchAttribArrayStateES2 : EGRenderBatchState
     GLvoid *pointer;
     
     EGRenderBatchAttribArrayStateES2(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid *pointer)
-        : index(index), size(size), type(type), normalized(normalized), stride(stride), pointer(pointer) {}
+        : EGRenderBatchState(true), index(index), size(size), type(type), normalized(normalized), stride(stride), pointer(pointer) {}
     
     void setupState()
     {
@@ -119,7 +118,50 @@ struct EGRenderBatchAttribArrayStateES2 : EGRenderBatchState
     
     void clearState()
     {
+    }
+};
+
+
+/* EGRenderBatchAttrib1fES2 */
+
+struct EGRenderBatchAttrib1fES2 : EGRenderBatchState
+{
+    GLuint index;
+    GLfloat v1;
+
+    EGRenderBatchAttrib1fES2(GLuint index, GLfloat v1)
+        : EGRenderBatchState(true), index(index), v1(v1) {}
+
+    void setupState()
+    {
         glDisableVertexAttribArray(index);
+        glVertexAttrib1f(index, v1);
+    }
+
+    void clearState()
+    {
+    }
+};
+
+
+/* EGRenderBatchAttrib4fES2 */
+
+struct EGRenderBatchAttrib4fES2 : EGRenderBatchState
+{
+    GLuint index;
+    GLfloat v1, v2, v3, v4;
+
+    EGRenderBatchAttrib4fES2(GLuint index, GLfloat v1, GLfloat v2, GLfloat v3, GLfloat v4)
+        : EGRenderBatchState(true), index(index), v1(v1), v2(v2), v3(v3), v4(v4) {}
+
+    void setupState()
+    {
+        glDisableVertexAttribArray(index);
+        glVertexAttrib4f(index, v1, v2, v3, v4);
+    }
+
+    void clearState()
+    {
     }
 };
 
@@ -132,7 +174,7 @@ struct EGRenderBatchBlendES2 : EGRenderBatchState
     GLenum dfactor;
     
     EGRenderBatchBlendES2(GLenum sfactor, GLenum dfactor)
-        : sfactor(sfactor), dfactor(dfactor) {}
+        : EGRenderBatchState(false), sfactor(sfactor), dfactor(dfactor) {}
     
     void setupState()
     {
@@ -156,7 +198,7 @@ struct EGRenderBatchTextureStateES2 : EGRenderBatchState
     GLuint texnum;
     
     EGRenderBatchTextureStateES2(GLenum target, GLuint texid, GLuint texnum)
-        : target(target), texid(texid), texnum(texnum) {}
+        : EGRenderBatchState(false), target(target), texid(texid), texnum(texnum) {}
     
     void setupState()
     {
@@ -177,7 +219,7 @@ struct EGRenderBatchLineWidthStateES2 : EGRenderBatchState
     GLfloat width;
     
     EGRenderBatchLineWidthStateES2(GLfloat width)
-        : width(width) {}
+        : EGRenderBatchState(false), width(width) {}
     
     void setupState()
     {
@@ -199,7 +241,7 @@ struct EGRenderBatchPointSizeStateES2 : EGRenderBatchState
     GLfloat size;
     
     EGRenderBatchPointSizeStateES2(GLfloat size)
-        : size(size) {}
+        : EGRenderBatchState(false), size(size) {}
     
     void setupState()
     {
@@ -210,7 +252,5 @@ struct EGRenderBatchPointSizeStateES2 : EGRenderBatchState
     {
     }
 };
-
-#endif
 
 #endif

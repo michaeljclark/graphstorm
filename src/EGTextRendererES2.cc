@@ -10,6 +10,7 @@
 #include "EGTextRenderer.h"
 #include "EGTextRendererES2.h"
 
+#define USE_VAO 1
 
 /* EGTextRendererES2 */
 
@@ -18,15 +19,14 @@ EGRenderAttributeInfo* EGTextRendererES2::a_position;
 EGRenderAttributeInfo* EGTextRendererES2::a_normal;
 EGRenderAttributeInfo* EGTextRendererES2::a_color;
 EGRenderAttributeInfo* EGTextRendererES2::a_texcoord0;
-EGRenderAttributeInfo* EGTextRendererES2::a_texcoord1;
 EGRenderUniformInfo* EGTextRendererES2::u_texture0;
 
-EGTextRendererES2::EGTextRendererES2(EGText *obj) : obj(obj), texId(0), vbo(0)
+EGTextRendererES2::EGTextRendererES2(EGText *obj) : obj(obj), texId(0), vbo(0), vao(0)
 {
     EGRenderApiES2 &gl = EGRenderApiES2::apiImpl();
     if (!program) {
-        link(gl.getRenderProgram(EGResource::getResource("Resources/gles2.bundle/Shaders/NoLightingTextureAlpha.vsh"),
-                                 EGResource::getResource("Resources/gles2.bundle/Shaders/NoLightingTextureAlpha.fsh")));
+        link(gl.getRenderProgram(EGResource::getResource("Resources/gles2.bundle/Shaders/Unified110.vsh"),
+                                 EGResource::getResource("Resources/gles2.bundle/Shaders/Unified110.fsh")));
     }
 }
 
@@ -42,7 +42,6 @@ void EGTextRendererES2::link(EGRenderProgramPtr program)
     a_normal = program->getAttribute("a_normal");
     a_color = program->getAttribute("a_color");
     a_texcoord0 = program->getAttribute("a_texcoord0");
-    a_texcoord1 = program->getAttribute("a_texcoord1");
     u_texture0 = program->getUniform("u_texture0");
 }
 
@@ -59,7 +58,9 @@ void EGTextRendererES2::clear()
 }
 
 void EGTextRendererES2::update()
-{    
+{
+    static const GLint swizzleMask[] = {GL_RED, GL_RED, GL_RED, GL_RED};
+
     if (obj->updated) return;
     
     // regenerate texture
@@ -71,10 +72,11 @@ void EGTextRendererES2::update()
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, obj->texWidth, obj->texHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (char*)obj->texData);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, obj->texWidth, obj->texHeight, 0, GL_RED, GL_UNSIGNED_BYTE, (char*)obj->texData);
+            glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
         } else {
             glBindTexture(GL_TEXTURE_2D, texId);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, obj->texWidth, obj->texHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (char*)obj->texData);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, obj->texWidth, obj->texHeight, 0, GL_RED, GL_UNSIGNED_BYTE, (char*)obj->texData);
         }
     }
     
@@ -141,14 +143,32 @@ void EGTextRendererES2::update()
         }
     }
 
-    // create vertex buffer
+#if USE_VAO
+    // create vertex array
+    if (!vao) {
+        glGenVertexArrays(1, &vao);
+    }
+    glBindVertexArray(vao);
+#endif
+
+    // create and update vertex buffer
     if (!vbo) {
         glGenBuffers(1, &vbo);
     }
-    
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, obj->flags & EGTextEmbossed ? 160 : 80, vertices, GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    // set up vertex array
+#if USE_VAO
+    glEnableVertexAttribArray(a_position->index);
+    glEnableVertexAttribArray(a_texcoord0->index);
+    glEnableVertexAttribArray(a_color->index);
+    glVertexAttribPointer(a_position->index, 2, GL_FLOAT, 0, 20, 0);
+    glVertexAttribPointer(a_texcoord0->index, 2, GL_FLOAT, 0, 20, (void*)8);
+    glVertexAttribPointer(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 20, (void*)16);
+    glBindVertexArray(0);
+#endif
     
     delete [] vertices;
 
@@ -165,20 +185,20 @@ void EGTextRendererES2::draw()
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texId);
     glUniform1i(u_texture0->location, 0);
-    
-    glDisable(GL_DEPTH_TEST);
-    glEnable(GL_BLEND);
-    //glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+#if USE_VAO
+    glBindVertexArray(vao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+#else
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glEnableVertexAttribArray(a_position->index);
     glEnableVertexAttribArray(a_texcoord0->index);
     glEnableVertexAttribArray(a_color->index);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(a_position->index, 2, GL_FLOAT, 0, 20, 0);
     glVertexAttribPointer(a_texcoord0->index, 2, GL_FLOAT, 0, 20, (void*)8);
     glVertexAttribPointer(a_color->index, 4, GL_UNSIGNED_BYTE, 1, 20, (void*)16);
-    
+#endif
+
     if (obj->flags & EGTextEmbossed) {
         glVertexAttrib4f(a_color->index, obj->embosscolor[0], obj->embosscolor[1], obj->embosscolor[2], obj->embosscolor[3]);
         glDrawArrays(GL_TRIANGLE_STRIP, 4, 4);
@@ -186,8 +206,10 @@ void EGTextRendererES2::draw()
     
     glVertexAttrib4f(a_color->index, obj->color[0], obj->color[1], obj->color[2], obj->color[3]);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    glDisable(GL_BLEND);
-    glEnable(GL_DEPTH_TEST);
+#if USE_VAO
+    glBindVertexArray(0);
+#else
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+#endif
 }

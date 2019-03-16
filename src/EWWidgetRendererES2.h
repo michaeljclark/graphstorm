@@ -7,14 +7,14 @@
 class EWWidgetRendererES2 : public EWWidgetRenderer
 {
 protected:
-    EGRenderProgramPtr notex_program;
-    EGRenderAttributeInfo* notex_a_position;
-    EGRenderAttributeInfo* notex_a_color;
-    EGRenderProgramPtr tex_program;
-    EGRenderUniformInfo* tex_u_texture0;
-    EGRenderAttributeInfo* tex_a_position;
-    EGRenderAttributeInfo* tex_a_color;
-    EGRenderAttributeInfo* tex_a_texcoord0;
+    static EGuint nop_tex;
+
+    EGRenderProgramPtr program;
+    EGRenderUniformInfo* u_texture0;
+    EGRenderAttributeInfo* a_position;
+    EGRenderAttributeInfo* a_color;
+    EGRenderAttributeInfo* a_gamma;
+    EGRenderAttributeInfo* a_texcoord0;
     EGbool scissorEnabled;
     EGRenderBatchList batchList;
         
