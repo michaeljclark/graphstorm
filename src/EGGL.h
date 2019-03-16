@@ -65,3 +65,10 @@ typedef double GLdouble;
 #else
 #define GLU_CALLBACK (GLvoid(*)())
 #endif
+
+#if defined(__APPLE__)
+#define glGenVertexArrays glGenVertexArraysAPPLE
+#define glBindVertexArray glBindVertexArrayAPPLE
+#endif
+
+#define USE_VAO 1

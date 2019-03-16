@@ -307,10 +307,12 @@ EGbool EGRenderProgram::loadShaders()
      * starting from 1 counting upwards. We then re-link the program,
      * as we don't know the attribute names until shader is linked.
      */
+#if !defined(__APPLE__)
     for (auto &ent : attributeNameMap) {
         glBindAttribLocation(program, (attributeNameMap[ent.first]->index = n++), ent.first.c_str());
     }
     glLinkProgram(program);
+#endif
 
     // print attribute info
     std::map<std::string,EGRenderAttributeInfoPtr>::iterator ai;

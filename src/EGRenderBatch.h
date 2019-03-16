@@ -2,8 +2,6 @@
 
 #pragma once
 
-#define USE_VAO 1
-
 struct EGRenderBatchBase;
 typedef std::shared_ptr<EGRenderBatchBase> EGRenderBatchPtr;
 typedef std::vector<EGRenderBatchPtr> EGRenderBatchList;

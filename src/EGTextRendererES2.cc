@@ -10,8 +10,6 @@
 #include "EGTextRenderer.h"
 #include "EGTextRendererES2.h"
 
-#define USE_VAO 1
-
 /* EGTextRendererES2 */
 
 EGRenderProgramPtr EGTextRendererES2::program;
@@ -72,11 +70,19 @@ void EGTextRendererES2::update()
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+#if defined(__APPLE__)
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, obj->texWidth, obj->texHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (char*)obj->texData);
+#else
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, obj->texWidth, obj->texHeight, 0, GL_RED, GL_UNSIGNED_BYTE, (char*)obj->texData);
             glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
+#endif
         } else {
             glBindTexture(GL_TEXTURE_2D, texId);
+#if defined(__APPLE__)
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, obj->texWidth, obj->texHeight, 0, GL_ALPHA, GL_UNSIGNED_BYTE, (char*)obj->texData);
+#else
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, obj->texWidth, obj->texHeight, 0, GL_RED, GL_UNSIGNED_BYTE, (char*)obj->texData);
+#endif
         }
     }
     

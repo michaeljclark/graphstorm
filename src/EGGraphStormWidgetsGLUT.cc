@@ -26,10 +26,12 @@ EGGraphStormWidgetsGLUT::~EGGraphStormWidgetsGLUT()
 
 void EGGraphStormWidgetsGLUT::init()
 {
+#if !defined(__APPLE__)
     // setup context
     glutInitContextVersion(3, 2);
     glutInitContextFlags(GLUT_FORWARD_COMPATIBLE | GLUT_DEBUG);
     glutInitContextProfile(GLUT_CORE_PROFILE);
+#endif
 
     // create window
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH | GLUT_MULTISAMPLE);
