@@ -24,6 +24,14 @@ OpenGL accelerated 2D UI toolkit.
     * (Mac OS X) GLUT.framework (included in Mac OS X)
   * GLFW - to build GraphstormGLFW
 
+### Linux build Instructions ###
+
+  * Ubuntu dependencies:
+  ```
+  sudo apt-get install libfreetype6-dev libcairo-dev libharfbuzz-dev \
+       libjpeg-dev libpng-dev zlib1g-dev ocl-icd-opencl-dev opencl-c-headers
+  ```
+
 ### Mac build Instructions ###
 
   * To build GraphStormGLUT open macosx/GraphStormGLUT.xcodeproj
