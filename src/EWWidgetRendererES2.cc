@@ -90,10 +90,13 @@ void EWWidgetRendererES2::scissor(EGRect rect)
 
 void EWWidgetRendererES2::fill(EGRect rect, EGColor color)
 {
-    EGRenderBatch *batch = newBatch<EGRenderBatch>();
-    batch->setDrawType(EGRenderBatchDrawElements);
-    batch->setMode(GL_TRIANGLES);
-    batch->setVertexSize(24);
+    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
+    if (!(batch && batch->mode == GL_TRIANGLES)) {
+        batch = newBatch<EGRenderBatch>();
+        batch->setDrawType(EGRenderBatchDrawElements);
+        batch->setMode(GL_TRIANGLES);
+        batch->setVertexSize(24);
+    }
     batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
           .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
@@ -116,10 +119,13 @@ void EWWidgetRendererES2::fill(EGRect rect, EGColor color)
 
 void EWWidgetRendererES2::fill(EGRect outerRect, EGRect innerRect, EGColor color)
 {
-    EGRenderBatch *batch = newBatch<EGRenderBatch>();
-    batch->setDrawType(EGRenderBatchDrawElements);
-    batch->setMode(GL_TRIANGLES);
-    batch->setVertexSize(24);
+    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
+    if (!(batch && batch->mode == GL_TRIANGLES)) {
+        batch = newBatch<EGRenderBatch>();
+        batch->setDrawType(EGRenderBatchDrawElements);
+        batch->setMode(GL_TRIANGLES);
+        batch->setVertexSize(24);
+    }
     batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
           .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
@@ -175,10 +181,13 @@ static void EG_CALLBACK tessMeshPolyEdgeFlag(GLboolean flag, GLvoid *userData)
 
 void EWWidgetRendererES2::fill(EGPointList poly, EGColor color)
 {
-    EGRenderBatch *batch = newBatch<EGRenderBatch>();
-    batch->setDrawType(EGRenderBatchDrawElements);
-    batch->setMode(GL_TRIANGLES);
-    batch->setVertexSize(24);
+    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
+    if (!(batch && batch->mode == GL_TRIANGLES)) {
+        batch = newBatch<EGRenderBatch>();
+        batch->setDrawType(EGRenderBatchDrawElements);
+        batch->setMode(GL_TRIANGLES);
+        batch->setVertexSize(24);
+    }
     batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
           .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
@@ -253,10 +262,13 @@ void EWWidgetRendererES2::stroke(EGRect rect, EGColor color, EGfloat width, EWSt
 
 void EWWidgetRendererES2::stroke(EGLine line, EGColor color, EGfloat width)
 {
-    EGRenderBatch *batch = newBatch<EGRenderBatch>();
-    batch->setDrawType(EGRenderBatchDrawElements);
-    batch->setMode(GL_LINE_STRIP);
-    batch->setVertexSize(24);
+    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
+    if (!(batch && batch->mode == GL_LINE_STRIP)) {
+        batch = newBatch<EGRenderBatch>();
+        batch->setDrawType(EGRenderBatchDrawElements);
+        batch->setMode(GL_LINE_STRIP);
+        batch->setVertexSize(24);
+    }
     batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
           .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
@@ -277,10 +289,13 @@ void EWWidgetRendererES2::stroke(EGLine line, EGColor color, EGfloat width)
 
 void EWWidgetRendererES2::stroke(EGPointList poly, EGColor color, EGfloat width, EGbool closed)
 {
-    EGRenderBatch *batch = newBatch<EGRenderBatch>();
-    batch->setDrawType(EGRenderBatchDrawElements);
-    batch->setMode(GL_LINE_STRIP);
-    batch->setVertexSize(24);
+    EGRenderBatch *batch = lastBatch<EGRenderBatch>();
+    if (!(batch && batch->mode == GL_LINE_STRIP)) {
+        batch = newBatch<EGRenderBatch>();
+        batch->setDrawType(EGRenderBatchDrawElements);
+        batch->setMode(GL_LINE_STRIP);
+        batch->setVertexSize(24);
+    }
     batch->addState(new EGRenderBatchProgramES2(program))
           .addState(new EGRenderBatchTextureStateES2(GL_TEXTURE_2D, nop_tex, 0))
           .addState(new EGRenderBatchUniform1iES2(u_texture0->location, 0))
