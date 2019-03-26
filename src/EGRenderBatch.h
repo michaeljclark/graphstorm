@@ -242,15 +242,13 @@ struct EGRenderBatch : EGRenderBatchBase
         if (!vao) {
             glGenVertexArrays(1, &vao);
         }
-#endif
-        if (flags & (EGRenderBatchFlagsBuffersDirty | EGRenderBatchFlagsExternalBuffer))
+
+        if ((flags & EGRenderBatchFlagsBuffersDirty) && (flags & EGRenderBatchFlagsExternalBuffer))
         {
-#if USE_VAO
             if (!bound) {
                 glBindVertexArray(vao);
                 bound = true;
             }
-#endif
             if (vbo) {
                 glBindBuffer(GL_ARRAY_BUFFER, vbo);
             }
@@ -258,6 +256,7 @@ struct EGRenderBatch : EGRenderBatchBase
                 glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
             }
         }
+#endif
 
         if (varr && (!vbo || flags & EGRenderBatchFlagsBuffersDirty) && (flags & EGRenderBatchFlagsCreateBuffer))
         {
@@ -353,32 +352,42 @@ struct EGRenderBatch : EGRenderBatchBase
         }
         createBuffers();
         if (flags & EGRenderBatchFlagsDrawArrays) {
-            setupState();
 #if USE_VAO
+            setupState();
             glBindVertexArray(vao);
-#endif
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glDrawArrays(mode, 0, (GLsizei)count);
-#if USE_VAO
             glBindVertexArray(0);
-#endif
             glBindBuffer(GL_ARRAY_BUFFER, 0);
             teardownState();
+#else
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
+            setupState();
+            glDrawArrays(mode, 0, (GLsizei)count);
+            teardownState();
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+#endif
         }
         if (flags & EGRenderBatchFlagsDrawElements) {
-            setupState();
 #if USE_VAO
+            setupState();
             glBindVertexArray(vao);
-#endif
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
             glDrawElements(mode, (GLsizei)count, EGINDEXARRAY_GLTYPE, (void*)0);
-#if USE_VAO
             glBindVertexArray(0);
-#endif
             glBindBuffer(GL_ARRAY_BUFFER, 0);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
             teardownState();
+#else
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+            setupState();
+            glDrawElements(mode, (GLsizei)count, EGINDEXARRAY_GLTYPE, (void*)0);
+            teardownState();
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+#endif
         }
     }
 };
