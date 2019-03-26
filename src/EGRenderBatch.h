@@ -67,8 +67,6 @@ struct EGRenderBatchBase
 
 struct EGRenderBatch : EGRenderBatchBase
 {
-    static const EGbool debug = false;
-    
     std::string batchName;
     GLenum mode;
     EGenum flags;
@@ -129,16 +127,10 @@ struct EGRenderBatch : EGRenderBatchBase
         if (flags & EGRenderBatchFlagsCreateBuffer) {
             if (vbo) {
                 glDeleteBuffers(1, &vbo);
-                if (debug) {
-                    EGDebug("%s deleted vertex buffer %d\n", batchName.c_str(), vbo);
-                }
                 vbo = 0;
             }
             if (ibo) {
                 glDeleteBuffers(1, &ibo);
-                if (debug) {
-                    EGDebug("%s deleted vertex index buffer %d\n", batchName.c_str(), ibo);
-                }
                 ibo = 0;
             }
         }
@@ -210,7 +202,7 @@ struct EGRenderBatch : EGRenderBatchBase
         clearBuffers();
         assert(drawtype == EGRenderBatchDrawArrays);
         flags &= ~EGRenderBatchFlagsCreateBuffer;
-        flags |= EGRenderBatchFlagsExternalBuffer;
+        flags |= EGRenderBatchFlagsExternalBuffer | EGRenderBatchFlagsBuffersDirty;
         setDrawType(drawtype);
         this->count = count;
         this->vbo = vbo;
@@ -226,7 +218,7 @@ struct EGRenderBatch : EGRenderBatchBase
         clearBuffers();
         assert(drawtype == EGRenderBatchDrawElements);
         flags &= ~EGRenderBatchFlagsCreateBuffer;
-        flags |= EGRenderBatchFlagsExternalBuffer;
+        flags |= EGRenderBatchFlagsExternalBuffer | EGRenderBatchFlagsBuffersDirty;
         setDrawType(drawtype);
         this->count = count;
         this->vbo = vbo;
@@ -251,8 +243,24 @@ struct EGRenderBatch : EGRenderBatchBase
             glGenVertexArrays(1, &vao);
         }
 #endif
+        if (flags & (EGRenderBatchFlagsBuffersDirty | EGRenderBatchFlagsExternalBuffer))
+        {
+#if USE_VAO
+            if (!bound) {
+                glBindVertexArray(vao);
+                bound = true;
+            }
+#endif
+            if (vbo) {
+                glBindBuffer(GL_ARRAY_BUFFER, vbo);
+            }
+            if (ibo) {
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+            }
+        }
 
-        if (varr && (!vbo || flags & EGRenderBatchFlagsBuffersDirty) && flags & EGRenderBatchFlagsCreateBuffer) {
+        if (varr && (!vbo || flags & EGRenderBatchFlagsBuffersDirty) && (flags & EGRenderBatchFlagsCreateBuffer))
+        {
             vboSize = vertexSize * varr->nvert;
 #if USE_VAO
             if (!bound) {
@@ -262,9 +270,6 @@ struct EGRenderBatch : EGRenderBatchBase
 #endif
             if (!vbo) {
                 glGenBuffers(1, &vbo);
-                if (debug) {
-                    EGDebug("%s created vertex buffer %d\n", batchName.c_str(), vbo);
-                }
             }
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glBufferData(GL_ARRAY_BUFFER, vboSize, varr->vbuf, GL_DYNAMIC_DRAW);
@@ -276,7 +281,9 @@ struct EGRenderBatch : EGRenderBatchBase
                 varr = EGVertexArrayPtr();
             }
         }
-        if (iarr && (!ibo || flags & EGRenderBatchFlagsBuffersDirty) && flags & EGRenderBatchFlagsCreateBuffer) {
+
+        if (iarr && (!ibo || flags & EGRenderBatchFlagsBuffersDirty) && (flags & EGRenderBatchFlagsCreateBuffer))
+        {
             iboSize = sizeof(EGVertexIndex) * iarr->nind;
 #if USE_VAO
             if (!bound) {
@@ -286,9 +293,6 @@ struct EGRenderBatch : EGRenderBatchBase
 #endif
             if (!ibo) {
                 glGenBuffers(1, &ibo);
-                if (debug) {
-                    EGDebug("%s created vertex index buffer %d\n", batchName.c_str(), ibo);
-                }
             }
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, iboSize, iarr->ind, GL_DYNAMIC_DRAW);
