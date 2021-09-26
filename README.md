@@ -2,7 +2,7 @@ GraphStorm
 ==========
 
 GraphStorm is an OpenCL accelerated force-directed graph layout engine intended
-for layout and visualization of large graphs. GraphStorm includes a simple
+for layout and visualization of medium-sized graphs. GraphStorm includes a simple
 OpenGL accelerated 2D UI toolkit.
 
 ![Graphstorm Screenshot 1](/screenshot-1.png)
